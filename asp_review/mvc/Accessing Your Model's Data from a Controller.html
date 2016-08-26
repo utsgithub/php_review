@@ -1,0 +1,172 @@
+<html>
+<head>
+  <title>Accessing Your Model's Data from a Controller | The ASP.NET Site</title>
+  <basefont face="Tahoma" size="2" />
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+  <meta name="exporter-version" content="Evernote Windows/275837; Windows/6.3.9600;"/>
+  <style>
+    body, td {
+      font-family: Tahoma;
+      font-size: 10pt;
+    }
+  </style>
+</head>
+<body>
+<a name="2340"/>
+<h1>Accessing Your Model's Data from a Controller | The ASP.NET Site</h1>
+
+<div>
+<span><div>
+ <div>
+  <div>
+   <h1>Accessing Your Model's Data from a Controller</h1>
+   <div>
+    <div></div>
+   </div>
+  </div>
+  <div>
+   <div>
+     By 
+    <a href="http://www.asp.net/mvc/overview/getting-started/introduction/accessing-your-models-data-from-a-controller#author-20106" shape="rect" target="_blank">Rick Anderson</a>Rick Anderson
+    October 17, 2013
+   </div>
+   <div>
+    <a href="#" shape="rect" target="_blank">Print</a>
+   </div>
+  </div>
+  <p>In this section, you'll create a new <code>MoviesController</code> class and write code that retrieves the movie data and displays it in the browser using a view template. </p> 
+  <p><strong>Build the application</strong> before going on to the next step. If  you don't build the application, you'll get an error adding a controller.</p> 
+  <p>In Solution Explorer, right-click the <em>Controllers</em> folder and then  click <strong>Add</strong>, then <strong>Controller</strong>.</p> 
+  <div>
+   <img src="Accessing Your Model's Data from a Controller_files/Image.png" type="image/png"/>
+  </div>
+  <p>In the <strong>Add Scaffold</strong> dialog box, click <strong>MVC 5  Controller with views, using Entity Framework</strong>, and then click <strong>Add</strong>.</p> 
+  <p> </p>
+  <div>
+   <img src="Accessing Your Model's Data from a Controller_files/Image [1].png" type="image/png"/>
+  </div> 
+  <p></p>
+  <ol></ol><ul><li>For the Controller name enter <strong>MoviesController</strong>.</li><li>Select  <strong>Movie (MvcMovie.Models)</strong>  for the Model class.</li><li>Select <strong>MovieDBContext (MvcMovie.Models) </strong>for the Data context class.</li></ul> 
+   The image below shows the completed dialog.
+  <div>
+   <img src="Accessing Your Model's Data from a Controller_files/Image.gif" type="image/gif"/>
+  </div> 
+  <p>Click <strong>Add</strong>. (If you get an error, you probably didn't build the application before starting adding the controller.) Visual Studio creates the following files and folders:</p> 
+  <ul><li><em>A MoviesController.cs</em> file in the <em>Controllers</em> folder. </li><li>A <em>Views\Movies </em>folder. </li><li><em>Create.cshtml, Delete.cshtml, Details.cshtml, Edit.cshtml</em>, and <em>Index.cshtml</em> in the new <em>Views\Movies </em>folder. </li></ul> 
+  <p>Visual Studio automatically created the <a href="http://en.wikipedia.org/wiki/Create,_read,_update_and_delete" shape="rect" target="_blank">CRUD</a>  (create, read, update, and delete) action methods and views for you (the automatic creation of CRUD action methods and views is known as scaffolding). You now have a fully functional web application that lets you create, list, edit, and delete movie entries.</p> 
+  <p>Run the application and click on the <strong>MVC Movie </strong>link (or browse to the <code>Movies</code> controller by appending <em>/Movies</em> to the URL in the address bar of your browser).  Because the application is relying on the default routing (defined in the <em> App_Start\RouteConfig.cs</em> file), the browser request<em> http://localhost:xxxxx/Movies</em> is routed to the default <code>Index </code>action method of the <code>Movies</code>  controller. In other words, the browser request <em>http://localhost:xxxxx/Movies</em>  is effectively the same as the browser request <em>http://localhost:xxxxx/Movies/Index</em>. The result is an empty list of movies, because you haven't added any yet.</p> 
+  <p> </p>
+  <div>
+   <img src="Accessing Your Model's Data from a Controller_files/Image [1].gif" type="image/gif"/>
+  </div>
+  <p></p> 
+  <h3>Creating a Movie</h3> 
+  <p>Select the <strong>Create New</strong> link. Enter some details about a movie and then click the <strong>Create</strong> button.</p> 
+  <div> 
+   <strong>Note: </strong>You may not be able to enter decimal points or commas in the Price field. To support jQuery validation for non-English locales that use a comma (&quot;,&quot;) for a decimal point, and non US-English date formats, you must include
+   <em> globalize.js</em> and your specific 
+   <em>cultures/globalize.cultures.js</em> file(from 
+   <a href="https://github.com/jquery/globalize" shape="rect" target="_blank">https://github.com/jquery/globalize</a> ) and JavaScript to use 
+   <code>Globalize.parseFloat</code>. I'll show how to do this in the next tutorial. For now, just enter whole numbers like 10.
+  </div> 
+  <p>Clicking the <strong>Create</strong> button causes the form to be posted to the server, where the movie information is saved in the database. You're then redirected to the <em>/Movies</em> URL, where you can see the newly created movie in the listing.</p> 
+  <p> </p>
+  <div>
+   <img src="Accessing Your Model's Data from a Controller_files/Image [2].gif" type="image/gif"/>
+  </div>
+  <p></p> 
+  <p>Create a couple more movie entries. Try the <strong>Edit</strong>, <strong> Details</strong>, and <strong>Delete</strong> links, which are all functional.</p> 
+  <h2>Examining the Generated Code</h2> 
+  <p>Open the <em>Controllers\MoviesController.cs</em> file and examine the  generated <code>Index</code> method. A portion of the movie controller with the <code>Index</code> method is shown below.</p> 
+  <pre>publicclassMoviesControllerControllerprivateMovieDBContextMovieDBContext// GET: /Movies/publicActionResultIndexreturnMoviesToList</pre> 
+  <p>A request to the <code>Movies</code> controller returns all the entries in  the <code>Movies</code> table and then passes the results to the <code>Index</code> view. The following line from the <code>MoviesController</code> class instantiates a movie database context, as described previously. You can use the movie database context to query, edit, and delete movies.</p> 
+  <pre>privateMovieDBContextMovieDBContext</pre> 
+  <h2>Strongly Typed Models and the @model Keyword</h2> 
+  <p>Earlier in this tutorial, you saw how a controller can pass data or objects to a view template using the <code>ViewBag</code> object. The <code>ViewBag</code>  is a dynamic object that provides a convenient late-bound way to pass information to a view.</p> 
+  <p>MVC also provides the ability to pass <em>strongly</em> typed objects to a view template. This strongly typed approach enables better compile-time checking of your code and richer <a href="http://msdn.microsoft.com/en-us/library/hcw1s69b(v=vs.120).aspx" shape="rect" target="_blank">IntelliSense</a> in the Visual Studio editor. The scaffolding mechanism in Visual Studio used this approach (that is, passing a  <em>strongly</em> typed model) with the <code>MoviesController</code> class and view templates when it created the methods and views.</p> 
+  <p> In the <em>Controllers\MoviesController.cs</em> file examine the generated <code>Details</code> method.  The <code>Details</code> method is shown below.</p> 
+  <pre>publicActionResultDetailsreturnHttpStatusCodeResultHttpStatusCodeBadRequestMovie movie Moviesmovie returnHttpNotFoundreturnmovie</pre> 
+  <p> The <code>id</code> parameter is generally passed as route data, for example <code>http://localhost:1234/movies/details/1</code> will set the controller to the movie controller, the action to <code>details </code>and the <code>id</code>  to 1. You could also pass in the id with a query string as follows:</p> 
+  <p> <code>http://localhost:1234/movies/details?id=1</code></p> 
+  <p> If a  <code>Movie </code>is found, an instance of the <code>Movie </code>model is passed to the <code>Details </code>view:</p> 
+  <pre>returnmovie</pre> 
+  <p>  Examine the contents of the <em>Views\Movies\Details.cshtml</em> file:</p> 
+  <pre>@model MvcMovie.Models.Movie
+
+@{
+    ViewBag.Title = &quot;Details&quot;;
+}
+
+&lt;h2&gt;Details&lt;/h2&gt;&lt;div&gt;&lt;h4&gt;Movie&lt;/h4&gt;&lt;hr/&gt;&lt;dlclass&quot;dl-horizontal&quot;&lt;dt&gt;
+            @Html.DisplayNameFor(model =&gt; model.Title)
+        &lt;/dt&gt;
+         @*Markup omitted for clarity.*@        
+    &lt;/dl&gt;&lt;/div&gt;&lt;p&gt;
+    @Html.ActionLink(&quot;Edit&quot;, &quot;Edit&quot;, new { id = Model.ID }) |
+    @Html.ActionLink(&quot;Back to List&quot;, &quot;Index&quot;)
+&lt;/p&gt;</pre> 
+  <p> By including a <code>@model</code> statement at the top of the view template file, you can specify the type of object that the view expects. When you created  the movie controller, Visual Studio automatically included the following <code>@model</code> statement at the top of the <em>Details.cshtml</em> file:</p> 
+  <pre>@model MvcMovie.Models.Movie</pre> 
+  <p>This <code>@model</code> directive allows you to access the movie that the controller passed to the view by using a <code>Model</code> object that's strongly typed. For example, in the <em>Details.cshtml</em> template,  the code passes each movie field to the <code> <a href="http://msdn.microsoft.com/en-us/library/system.web.mvc.html.displaynameextensions.displaynamefor(v=vs.108).aspx" shape="rect" target="_blank">DisplayNameFor</a> </code>and  <a href="http://msdn.microsoft.com/en-us/library/system.web.mvc.html.displayextensions.displayfor(VS.98).aspx" shape="rect" target="_blank"> DisplayFor</a> HTML Helpers with the strongly typed <code>Model</code> object.  The <code>Create </code>and  <code>Edit </code>methods and  view templates also pass a movie model object.</p> 
+  <p>Examine the <em>Index.cshtml</em> view template and the <code>Index </code> method in the <em>MoviesController.cs</em> file. Notice how the code creates a <a href="http://msdn.microsoft.com/en-us/library/6sh2ey19.aspx" shape="rect" target="_blank"><code>List</code></a>  object when it calls the <code>View</code> helper method in the <code>Index</code>  action method. The code then passes this <code>Movies</code> list from the <code>Index </code>action method to the view:</p> 
+  <pre>publicActionResultIndexreturnMoviesToList</pre> 
+  <p>When you created  the movie controller, Visual Studio automatically included the following <code>@model</code> statement at the top of the <em>Index.cshtml</em> file:</p> 
+  <pre>@modelIEnumerableMvcMovieModelsMovie</pre> 
+  <p>This <code>@model</code> directive allows you to access the list of movies that the controller passed to the view by using a <code>Model</code> object  that's strongly typed. For example, in the <em>Index.cshtml</em> template, the  code loops through the movies by doing a <code>foreach</code> statement over the strongly typed <code>Model</code> object:</p> 
+  <pre>@foreach (var item in Model&lt;tr&gt;&lt;td&gt;
+            @Html.DisplayFor(modelItem =&gt; item.Title&lt;/td&gt;&lt;td&gt;
+            @Html.DisplayFor(modelItem =&gt; item.ReleaseDate&lt;/td&gt;&lt;td&gt;
+            @Html.DisplayFor(modelItem =&gt; item.Genre&lt;/td&gt;&lt;td&gt;
+            @Html.DisplayFor(modelItem =&gt; item.Price&lt;/td&gt;&lt;th&gt;
+            @Html.DisplayFor(modelItem =&gt; item.Rating&lt;/th&gt;&lt;td&gt;
+            @Html.ActionLink(&quot;Edit&quot;, &quot;Edit&quot;, new { id=item.ID }) |
+            @Html.ActionLink(&quot;Details&quot;, &quot;Details&quot;, new { id=item.ID })  |
+            @Html.ActionLink(&quot;Delete&quot;, &quot;Delete&quot;, new { id=item.ID&lt;/td&gt;&lt;/tr&gt;</pre> 
+  <p>Because the <code>Model</code> object is strongly typed (as an <code> IEnumerable&lt;Movie&gt;</code> object), each <code>item</code> object in the loop is typed as <code>Movie</code>. Among other benefits, this means that you get  compile-time checking of the code and full IntelliSense support in the code editor:</p> 
+  <p> </p>
+  <div>
+   <img src="Accessing Your Model's Data from a Controller_files/Image [3].gif" type="image/gif" alt="ModelIntellisene"/>
+  </div>
+  <p></p> 
+  <h2>Working with SQL Server LocalDB</h2> 
+  <p>Entity Framework Code First detected that the database connection string that was provided pointed to a <code>Movies</code> database that didn’t exist yet, so Code First created the database automatically. You can verify that it's been  created by looking in the <em>App_Data</em> folder. If you don't see the <em> Movies.mdf</em> file, click the <strong>Show All Files</strong> button in the <strong>Solution Explorer</strong> toolbar, click the <strong>Refresh</strong>  button, and then expand the <em>App_Data</em> folder.</p> 
+  <p> </p>
+  <div>
+   <img src="Accessing Your Model's Data from a Controller_files/Image [4].gif" type="image/gif"/>
+  </div>
+  <p></p> 
+  <p>Double-click <em>Movies.mdf</em> to open <strong>SERVER EXPLORER</strong>, then expand the <strong>Tables</strong> folder to see the Movies table. Note the key icon next to ID. By default, EF will make a property named ID the primary key. For more information on EF and MVC, see Tom Dykstra's excellent tutorial on <a href="http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application" shape="rect" target="_blank"> MVC and EF</a>.</p> 
+  <p> </p>
+  <div>
+   <img src="Accessing Your Model's Data from a Controller_files/Image [5].gif" type="image/gif" alt="DB_explorer"/>
+  </div>
+  <p></p> 
+  <p>Right-click the <code>Movies</code> table and select <strong>Show Table Data</strong>  to see the data you created.</p>  
+  <p> </p>
+  <div>
+   <img src="Accessing Your Model's Data from a Controller_files/Image [6].gif" type="image/gif"/>
+  </div>
+  <p></p> 
+  <p>Right-click the <code>Movies</code> table and select <strong>Open Table Definition </strong>to see the table structure that Entity Framework Code First  created for you.</p> 
+  <p> </p>
+  <div>
+   <img src="Accessing Your Model's Data from a Controller_files/Image [7].gif" type="image/gif"/>
+  </div>
+  <p></p> 
+  <p>Notice how the schema of the <code>Movies</code> table maps to the <code> Movie</code> class you created earlier. Entity Framework Code First automatically created this schema for you based on your <code>Movie</code>  class.</p> 
+  <p>When you're finished, close the connection by right clicking <em> MovieDBContext</em> and selecting <strong>Close Connection</strong>. (If you don't close the  connection, you might get an error the next time you run the project). </p> 
+  <p> </p>
+  <div>
+   <img src="Accessing Your Model's Data from a Controller_files/Image [8].gif" type="image/gif"/>
+  </div>
+  <p></p> 
+  <p>You now have a database and pages to display, edit, update and delete data. In the next tutorial, we'll examine the rest of the scaffolded code and add  a <code>SearchIndex</code> method and a <code>SearchIndex</code> view that lets you search for movies in this database. For more information on using Entity Framework with MVC, see <a href="http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application" shape="rect" target="_blank"> Creating an Entity Framework Data Model for an ASP.NET MVC Application</a>.</p> 
+  <p>This article was originally created on October 17, 2013</p>
+  <h2>Author Information</h2>
+  <div>
+   <img src="Accessing Your Model's Data from a Controller_files/Image.jpg" type="image/jpeg" alt="Rick Anderson"/>
+   <p><strong>Rick Anderson</strong> – Rick Anderson works as a programmer writer for Microsoft, focusing on ASP.NET MVC, Windows Azure and Entity Framework. You can follow him on twitter via @RickAndMSFT.</p>
+  </div> 
+ </div>
+</div></span>
+</div></body></html> 

@@ -1,0 +1,160 @@
+<html>
+<head>
+  <title>Adding Validation | The ASP.NET Site</title>
+  <basefont face="Tahoma" size="2" />
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+  <meta name="exporter-version" content="Evernote Windows/275837; Windows/6.3.9600;"/>
+  <style>
+    body, td {
+      font-family: Tahoma;
+      font-size: 10pt;
+    }
+  </style>
+</head>
+<body>
+<a name="2327"/>
+<h1>Adding Validation | The ASP.NET Site</h1>
+
+<div>
+<span><div>
+ <div>
+  <div>
+   <h1>Adding Validation </h1>
+   <div>
+    <div></div>
+   </div>
+  </div>
+  <div>
+   <div>
+     By 
+    <a href="http://www.asp.net/mvc/overview/getting-started/introduction/adding-validation#author-20106" shape="rect" target="_blank">Rick Anderson</a>Rick Anderson
+    October 17, 2013
+   </div>
+   <div>
+    <a href="#" shape="rect" target="_blank">Print</a>
+   </div>
+  </div>
+  <p>In this this section you'll add validation logic to the <code>Movie</code> model,  and you'll ensure that the validation rules are enforced any time a user  attempts to create or edit a movie using the application.</p> 
+  <h2>Keeping Things DRY</h2> 
+  <p>One of the core design tenets of ASP.NET MVC is  <a href="http://en.wikipedia.org/wiki/Don't_repeat_yourself" shape="rect" target="_blank">DRY</a> (&quot;Don't Repeat  Yourself&quot;). ASP.NET MVC encourages you to specify functionality or behavior only  once, and then have it be reflected everywhere in an application. This reduces  the amount of code you need to write and makes the code you do write less error  prone and easier to maintain.</p> 
+  <p>The validation support provided by ASP.NET MVC and Entity Framework Code  First is a great example of the DRY principle in action. You can declaratively  specify validation rules in one place (in the model class) and the rules  are enforced everywhere in the application.</p> 
+  <p>Let's look at how you can take advantage of this validation support in the  movie application.</p> 
+  <h2>Adding Validation Rules to the Movie Model</h2> 
+  <p>You'll begin by adding some validation logic to the <code>Movie</code> class. </p> 
+  <p>Open the <em>Movie.cs</em> file. Notice the <a href="http://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.aspx" shape="rect" target="_blank"> <code>System.ComponentModel.DataAnnotations</code></a> namespace does not contain <code>System.Web</code>.  DataAnnotations provides a built-in set of  validation attributes that you can apply declaratively to any class or property.  (It also contains formatting attributes like <a href="http://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.datatype.aspx" shape="rect" target="_blank"> DataType</a> that help with formatting and don't provide any validation.)</p> 
+  <p>Now update the <code>Movie</code> class to take advantage of the built-in <a href="http://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.requiredattribute.aspx" shape="rect" target="_blank"> <code>Required</code></a>, <a href="http://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.stringlengthattribute.aspx" shape="rect" target="_blank"> <code>StringLength</code></a>,  <a href="http://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.regularexpressionattribute.aspx" shape="rect" target="_blank"> RegularExpression</a>, and <a href="http://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.rangeattribute.aspx" shape="rect" target="_blank"> <code>Range</code></a> validation attributes. Replace the <code>Movie</code>  class with the following:</p> 
+  <pre>publicclassMoviepublicStringLengthMinimumLengthpublicstringTitleDisplay&quot;Release Date&quot;DataTypeDataTypeDisplayFormatDataFormatString&quot;{0:yyyy-MM-dd}&quot;ApplyFormatInEditModepublicDateTimeReleaseDateRegularExpression&quot;^[A-Z]+[a-zA-Z''-'\s]*$&quot;RequiredStringLengthpublicstringGenreRangeDataTypeDataTypeCurrencypublicdecimalPriceRegularExpression&quot;^[A-Z]+[a-zA-Z''-'\s]*$&quot;StringLengthpublicstringRating</pre> 
+  <p>The <a href="http://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.stringlengthattribute.aspx" shape="rect" target="_blank"> <code>StringLength</code></a> attribute sets the maximum length of the string,  and it sets this limitation on the database, therefore the database schema will  change. Right click on the <strong>Movies</strong> table in <strong>Server  explorer</strong> and click <strong>Open Table Definition</strong>:</p> 
+  <p> </p>
+  <div>
+   <img src="Adding Validation  The ASP.NET Site_files/Image.gif" type="image/gif"/>
+  </div>
+  <p></p> 
+  <p>In the image above, you can see all the string fields are set to  <a href="http://technet.microsoft.com/en-us/library/ms186939.aspx" shape="rect" target="_blank">NVARCHAR  (MAX)</a>.  We will use migrations to update the schema. Build the solution, and then open the <strong>Package Manager Console</strong>  window and enter the following commands:</p> 
+  <p><code>add-migration DataAnnotations<br clear="none"/>update-database</code></p> 
+  <p>When this command finishes, Visual Studio opens the class file that defines  the new <code>DbMIgration </code>derived class with the name specified (<code>DataAnnotations</code>), and in the <code>Up </code> method you can see the code that updates the schema constraints:</p> 
+  <pre>publicoverrideAlterColumn&quot;dbo.Movies&quot;&quot;Title&quot;=&gt;StringmaxLengthAlterColumn&quot;dbo.Movies&quot;&quot;Genre&quot;=&gt;Stringnullablefalse maxLengthAlterColumn&quot;dbo.Movies&quot;&quot;Rating&quot;=&gt;StringmaxLength</pre> 
+  <p>The <code>Genre  </code>field is are no longer nullable (that is, you must  enter a value). The <code>Rating </code>field has a maximum length of 5 and <code>Title</code>  has a maximum length of 60.  The minimum length of 3 on <code>Title</code>   and the range on <code>Price </code>did not create schema changes.</p> 
+  <p>Examine the Movie schema:</p> 
+  <p> The string fields show the new length limits and <code>Genre </code>is no longer  checked as nullable.</p> 
+  <p>The validation attributes specify behavior that you want to enforce on the model  properties they are applied to. The <code> <a href="http://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.requiredattribute(VS.110).aspx" shape="rect" target="_blank">Required</a></code>  and <code>MinimumLength </code>attributes indicates that a property must have a  value; but nothing prevents a user from entering white space to satisfy this  validation.  The <a href="http://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.regularexpressionattribute.aspx" shape="rect" target="_blank"> RegularExpression</a> attribute is used to limit what characters can be input.  In the code above, <code>Genre </code>and <code>Rating </code>must use only  letters (white space, numbers and special characters are not allowed). The <a href="http://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.rangeattribute.aspx" shape="rect" target="_blank"> <code>Range</code></a>   attribute constrains a value to within a specified range. The <code>StringLength</code>  attribute lets you set the maximum length of a string property, and optionally  its minimum length. Value types (such as <code>decimal, int, float, DateTime</code>)  are inherently required  and don't need the <code>Required </code> attribute. </p> 
+  <p>Code First ensures that the validation rules you specify on a model class are  enforced before the application saves changes in the database. For example, the  code below will throw a <a href="http://msdn.microsoft.com/en-us/library/system.data.entity.validation.dbentityvalidationexception(v=vs.103).aspx" shape="rect" target="_blank"> DbEntityValidationException </a> exception when the <code>SaveChanges</code> method is  called, because several required <code>Movie</code> property values are missing:</p> 
+  <pre>MovieDBContextMovieDBContextMovie movie Movie
+movieTitle&quot;Gone with the Wind&quot;MoviesmovieSaveChanges// &lt;= Will throw server side validation exception </pre>   
+  <p>The code above throws the following exception:</p> 
+  <p><em>Validation failed for one or more entities. See  'EntityValidationErrors' property for more details. </em></p> 
+  <p>Having validation rules automatically enforced by the .NET Framework helps  make your application more robust. It also ensures that you can't forget to  validate something and inadvertently let bad data into the database.</p> 
+  <h2>Validation Error UI in ASP.NET MVC</h2> 
+  <p>Run the application and navigate to the <em>/Movies</em> URL.</p> 
+  <p>Click the <strong>Create New</strong> link to add a new movie. Fill out the  form with some invalid values. As soon as jQuery client side  validation detects the error, it displays an error message.</p> 
+  <div> 
+   <strong>Note</strong> to support jQuery validation for non-English locales  that use a comma (&quot;,&quot;) for a decimal point, you must include the NuGet  globalize as described previously in this tutorial.
+  </div> 
+  <p>Notice how the form has automatically used a red border color to highlight  the text boxes that contain invalid data and has emitted an appropriate  validation error message next to each one. The  errors are enforced both client-side (using JavaScript and jQuery) and server-side (in case  a user has JavaScript disabled).</p> 
+  <p>A real benefit is that you didn't need to change a single line of code in the <code>MoviesController</code> class or in the <em>Create.cshtml</em> view in  order to enable this validation UI. The controller and views you created earlier  in this tutorial automatically picked up the validation rules that you specified  by  using validation attributes on the properties of the <code>Movie</code> model class.  Test validation using the <code>Edit </code>action method, and the same  validation is applied.</p> 
+  <p>The form data is not sent to the  server until there are no client side validation errors. You can verify this by  putting a break point in the HTTP Post method, by using the <a href="http://fiddler2.com/fiddler2/" shape="rect" target="_blank">fiddler tool</a>, or the IE  <a href="http://msdn.microsoft.com/en-us/ie/aa740478" shape="rect" target="_blank">F12 developer tools</a>.</p> 
+  <h2>How Validation Occurs in the Create View and Create Action Method</h2> 
+  <p>You might wonder how the validation UI was generated without any updates to  the code in the controller or views. The next listing shows what the <code> Create</code> methods in the <code>MovieController</code> class look like.  They're unchanged from how you created them earlier in this tutorial. </p> 
+  <pre>publicActionResultCreatereturn// POST: /Movies/Create// To protect from overposting attacks, please enable the specific properties you want to bind to, for // more details see http://go.microsoft.com/fwlink/?LinkId=317598.HttpPostValidateAntiForgeryTokenpublicActionResultCreateInclude&quot;ID,Title,ReleaseDate,Genre,Price,Rating&quot;Movie movieModelStateIsValidMoviesmovieSaveChangesreturnRedirectToAction&quot;Index&quot;returnmovie</pre> 
+  <p>The first (HTTP GET) <code>Create </code>action method displays the initial Create form. The second  (<code>[HttpPost]</code>) version handles  the form post. The second <code>Create</code> method (The <code>HttpPost </code> version) calls <code> ModelState.IsValid</code> to check whether the movie has any validation errors.  Calling this method evaluates any validation attributes that have been applied  to the object. If the object has validation errors, the <code>Create</code>  method re-displays the form. If there are no errors, the method saves the new  movie in the database. In our movie example, <strong>the form is not posted  to the server when there are validation errors detected on the client side;  the second </strong> <code><strong>Create</strong></code><strong> method is never called</strong>. If you disable JavaScript  in your browser, client validation is disabled and the HTTP POST <code>Create</code> method calls <code> <a href="http://msdn.microsoft.com/en-us/library/system.web.mvc.modelstatedictionary.isvalid.aspx" shape="rect" target="_blank">ModelState.IsValid</a></code> to check whether the movie has any validation errors. </p> 
+  <p>You can set a break point in  the <code>HttpPost Create</code> method  and verify the method is never called, client side validation will not submit  the form data when validation errors are detected. If you disable JavaScript in  your browser, then submit the form with errors, the break point will be hit.  You still get full validation without JavaScript. The following image shows how to disable JavaScript in  Internet Explorer.</p> 
+  <p></p>
+  <div>
+   <img src="Adding Validation  The ASP.NET Site_files/Image [1].gif" type="image/gif"/>
+  </div>
+  <p></p> 
+  <p></p>
+  <div>
+   <img src="Adding Validation  The ASP.NET Site_files/Image [2].gif" type="image/gif"/>
+  </div>
+  <p></p> 
+  <p>The following image shows how to disable JavaScript in the FireFox browser.</p> 
+  <p></p>
+  <div>
+   <img src="Adding Validation  The ASP.NET Site_files/Image [3].gif" type="image/gif"/>
+  </div>
+  <p></p> 
+  <p>The following image shows how to disable JavaScript in the Chrome browser.</p> 
+  <p>Below is the <em>Create.cshtml</em> view template that you scaffolded earlier  in the tutorial. It's used by the action methods shown above both to display the  initial form and to redisplay it in the event of an error.</p> 
+  <pre>@model MvcMovie.Models.Movie
+@{
+    ViewBag.Title = &quot;Create&quot;;
+}
+&lt;h2&gt;Create&lt;/h2&gt;
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()    
+    &lt;divclass&quot;form-horizontal&quot;&lt;h4&gt;Movie&lt;/h4&gt;&lt;hr/&gt;
+        @Html.ValidationSummary(true)
+        &lt;divclass&quot;form-group&quot;
+            @Html.LabelFor(model =&gt; model.Title, new { @class = &quot;control-label col-md-2&quot; })
+            &lt;divclass&quot;col-md-10&quot;Html.EditorFor(model =&gt; model.Title)
+                @Html.ValidationMessageFor(model =&gt; model.Title)
+            &lt;/div&gt;&lt;/div&gt;
+        @*Fields removed for brevity.*@        
+
+
+
+
+        &lt;divclass&quot;form-group&quot;&lt;divclass&quot;col-md-offset-2 col-md-10&quot;&lt;input&quot;submit&quot;value&quot;Create&quot;class&quot;btn btn-default&quot;/&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;div&gt;
+    @Html.ActionLink(&quot;Back to List&quot;, &quot;Index&quot;)
+&lt;/div&gt;
+@section Scripts {
+    @Scripts.Render(&quot;~/bundles/jqueryval&quot;)
+}</pre> 
+  <p>Notice how the code uses an <code> <a href="http://msdn.microsoft.com/en-us/library/ee402949(v=vs.108).aspx" shape="rect" target="_blank">Html.EditorFor</a></code> helper to output the <code><a href="http://www.w3schools.com/tags/tag_input.asp" shape="rect" target="_blank">&lt;input&gt;</a></code> element for each <code>Movie</code> property. Next to this  helper is a call to the <code><a href="http://msdn.microsoft.com/en-us/library/system.web.mvc.html.validationextensions.validationmessagefor(v=vs.108).aspx" shape="rect" target="_blank">Html.ValidationMessageFor</a></code> helper method.  These two helper methods work with the model object that's passed by the  controller to the view (in this case, a <code>Movie</code> object). They  automatically look for validation attributes specified on the model and display  error messages as appropriate.</p> 
+  <p>What's really nice about this approach is that neither the controller nor the  <code>Create </code>view template knows anything about the actual validation rules being  enforced or about the specific error messages displayed. The validation rules  and the error strings are specified only in the <code>Movie</code> class. These  same validation rules are automatically applied to the <code>Edit </code>view and any other  views templates you might create that edit your model.</p> 
+  <p>If you want to change the validation logic later, you can do so in exactly  one place by adding validation attributes to the model (in this example, the <code>movie </code>class). You won't have to worry about different parts of the application  being inconsistent with how the rules are enforced — all validation logic will  be defined in one place and used everywhere. This keeps the code very clean, and  makes it easy to maintain and evolve. And it means that that you'll be fully  honoring the <em>DRY</em> principle.</p> 
+  <h2>Using DataType Attributes </h2> 
+  <p>Open the <em>Movie.cs</em> file and examine the <code>Movie </code>class. The <a href="http://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.aspx" shape="rect" target="_blank"> <code>System.ComponentModel.DataAnnotations</code></a> namespace provides  formatting attributes in addition to the built-in set of validation attributes.  We've already applied  a <a href="http://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.datatype.aspx" shape="rect" target="_blank"> <code>DataType</code></a> enumeration value to the release date and to the price  fields. The following code shows the <code>ReleaseDate</code> and <code>Price</code>  properties with the appropriate <a href="http://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.datatype.aspx" shape="rect" target="_blank"> <code>DataType</code></a> attribute.</p> 
+  <pre>DataTypeDataTypepublicDateTimeReleaseDateDataTypeDataTypeCurrencypublicdecimalPrice</pre> 
+  <p>The  <a href="http://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.datatypeattribute.aspx" shape="rect" target="_blank"> DataType</a> attributes only provide hints for the view engine to format  the data (and supply attributes such as <code>&lt;a&gt;</code> for URL's and  <code>&lt;a  href=&quot;mailto:EmailAddress.com&quot;&gt;</code> for email. You can use the <a href="http://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.regularexpressionattribute.aspx" shape="rect" target="_blank"> RegularExpression</a> attribute to validate the format of the data. The <a href="http://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.datatypeattribute.aspx" shape="rect" target="_blank"> DataType</a> attribute is used to specify a data type that is more specific than  the database intrinsic type, they are <strong><em>not</em></strong> validation  attributes. In this  case we only want to keep track of the date, not the date and time. The  <a href="http://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.datatype.aspx" shape="rect" target="_blank"> DataType Enumeration</a> provides for many data types, such as <em>Date, Time,  PhoneNumber, Currency, EmailAddress</em> and more. The <code>DataType</code>  attribute can also enable the application to automatically provide type-specific  features. For example, a <code>mailto:</code> link can be created for  <a href="http://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.datatype.aspx" shape="rect" target="_blank">DataType.EmailAddress</a>,  and a date selector can be provided for  <a href="http://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.datatype.aspx" shape="rect" target="_blank">DataType.Date</a> in browsers that support  <a href="http://html5.org/" shape="rect" target="_blank">HTML5</a>. The <a href="http://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.datatypeattribute.aspx" shape="rect" target="_blank"> DataType</a> attributes emits HTML 5  <a href="http://ejohn.org/blog/html-5-data-attributes/" shape="rect" target="_blank">data-</a>  (pronounced <em>data dash</em>) attributes that HTML 5  browsers can understand. The <a href="http://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.datatypeattribute.aspx" shape="rect" target="_blank"> DataType</a> attributes do not provide any validation. </p> 
+  <p><code>DataType.Date</code> does not specify the format of the date  that is displayed. By default, the data field is displayed according to the default formats  based on the server's <a href="http://msdn.microsoft.com/en-us/library/vstudio/system.globalization.cultureinfo(v=vs.110).aspx" shape="rect" target="_blank"> CultureInfo</a>.</p> 
+  <p>The <code> <a href="http://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.displayformatattribute.aspx" shape="rect" target="_blank">DisplayFormat</a></code> attribute is used to explicitly specify the  date format:</p> 
+   <pre>DisplayFormatDataFormatString&quot;{0:yyyy-MM-dd}&quot;ApplyFormatInEditModepublicDateTimeEnrollmentDate</pre> 
+  <p>The <code>ApplyFormatInEditMode</code> setting specifies that the specified formatting should also be applied when the value is displayed in a text box for editing. (You might not want that for some fields — for example, for currency values, you might not want the currency symbol in the text box for editing.)</p> 
+  <p>You can use the <a href="http://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.displayformatattribute.aspx" shape="rect" target="_blank"> DisplayFormat</a> attribute by itself, but it's generally a good idea to use the <a href="http://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.datatypeattribute.aspx" shape="rect" target="_blank">DataType</a>  attribute also. The <code>DataType</code> attribute conveys the <em>semantics</em> of the data as  opposed to how to render it on a screen, and provides the following benefits  that you don't get with <code>DisplayFormat</code>:</p> 
+  <ul><li> The browser can enable HTML5 features (for example to show a  calendar control, the locale-appropriate currency symbol, email links, etc.).</li><li>By default, the browser will render data using the correct format based on your <a href="http://msdn.microsoft.com/en-us/library/vstudio/wyzd2bce.aspx" shape="rect" target="_blank"> locale</a>. </li><li>The <a href="http://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.datatypeattribute.aspx" shape="rect" target="_blank"> DataType</a> attribute can enable MVC to choose the right field template to  render the data (the <a href="http://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.displayformatattribute.aspx" shape="rect" target="_blank"> DisplayFormat</a> if used by itself uses the string template). For more information, see Brad  Wilson's <a href="http://bradwilson.typepad.com/blog/2009/10/aspnet-mvc-2-templates-part-1-introduction.html" shape="rect" target="_blank"> ASP.NET MVC 2 Templates</a>. (Though written for MVC 2, this article still applies to the current version of ASP.NET  MVC.)</li></ul> 
+  <p>If you use the <code>DataType</code> attribute with a date field, you have to specify the <code> DisplayFormat</code> attribute also in order to ensure that the field renders  correctly in Chrome browsers. For more information, see <a href="http://stackoverflow.com/questions/12633471/mvc4-datatype-date-editorfor-wont-display-date-value-in-chrome-fine-in-ie" shape="rect" target="_blank"> this StackOverflow thread</a>. </p> 
+  <div>
+    Note: jQuery validation does not work with the 
+   <a href="http://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.rangeattribute.aspx" shape="rect" target="_blank"> Range</a> attribute and 
+   <a href="http://msdn.microsoft.com/en-us/library/system.datetime.aspx" shape="rect" target="_blank"> DateTime</a>. For example, the following code will always display a client  side validation error, even when the date is in the specified range:
+   <pre>RangetypeofDateTime&quot;1/1/1966&quot;&quot;1/1/2020&quot;</pre> You will need to disable  jQuery date validation to use the  
+   <a href="http://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.rangeattribute.aspx" shape="rect" target="_blank"> Range</a> attribute with 
+   <a href="http://msdn.microsoft.com/en-us/library/system.datetime.aspx" shape="rect" target="_blank"> DateTime</a>. It's generally not a good practice to compile hard dates in  your models, so using the 
+   <a href="http://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.rangeattribute.aspx" shape="rect" target="_blank"> Range</a> attribute and 
+   <a href="http://msdn.microsoft.com/en-us/library/system.datetime.aspx" shape="rect" target="_blank"> DateTime</a> is discouraged.
+  </div> 
+  <p>The following code shows combining attributes on one line:</p> 
+  <pre>publicclassMoviepublicRequiredStringLengthMinimumLengthpublicstringTitleDisplay&quot;Release Date&quot;DataTypeDataTypepublicDateTimeReleaseDateRequiredpublicstringGenreRangeDataTypeDataTypeCurrencypublicdecimalPriceRequiredStringLengthpublicstringRating</pre> 
+  <p>In the next part of the series, we'll review the application and make some  improvements to the automatically generated <code>Details </code>and <code> Delete </code>methods.</p> 
+  <p>This article was originally created on October 17, 2013</p>
+  <h2>Author Information</h2>
+  <div>
+   <img src="Adding Validation  The ASP.NET Site_files/Image.jpg" type="image/jpeg" alt="Rick Anderson"/>
+   <p><strong>Rick Anderson</strong> – Rick Anderson works as a programmer writer for Microsoft, focusing on ASP.NET MVC, Windows Azure and Entity Framework. You can follow him on twitter via @RickAndMSFT.</p>
+  </div> 
+ </div>
+</div></span>
+</div></body></html> 

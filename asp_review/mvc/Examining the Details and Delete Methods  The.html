@@ -1,0 +1,75 @@
+<html>
+<head>
+  <title>Examining the Details and Delete Methods | The ASP.NET Site</title>
+  <basefont face="Tahoma" size="2" />
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+  <meta name="exporter-version" content="Evernote Windows/275837; Windows/6.3.9600;"/>
+  <style>
+    body, td {
+      font-family: Tahoma;
+      font-size: 10pt;
+    }
+  </style>
+</head>
+<body>
+<a name="2323"/>
+<h1>Examining the Details and Delete Methods | The ASP.NET Site</h1>
+
+<div>
+<span><div>
+ <div>
+  <div>
+   <h1>Examining the Details and Delete Methods</h1>
+   <div>
+    <div></div>
+   </div>
+  </div>
+  <div>
+   <div>
+     By 
+    <a href="http://www.asp.net/mvc/overview/getting-started/introduction/examining-the-details-and-delete-methods#author-20106" shape="rect" target="_blank">Rick Anderson</a>Rick Anderson
+    last updated March 26, 2015
+   </div>
+   <div>
+    <a href="#" shape="rect" target="_blank">Print</a>
+   </div>
+  </div>
+  <p>In this part of the tutorial, you'll examine the automatically generated <code>Details</code> and <code>Delete</code> methods. </p> 
+  <h2>Examining the Details and Delete Methods</h2> 
+  <p>Open the <code>Movie</code> controller and examine the <code>Details</code> method.</p> 
+  <div>
+   <img src="Examining the Details and Delete Methods  The_files/Image.png" type="image/png"/>
+  </div> 
+  <pre>publicActionResultDetailsreturnHttpStatusCodeResultHttpStatusCodeBadRequestMovie movie Moviesmovie returnHttpNotFoundreturnmovie</pre> 
+  <p>The MVC scaffolding engine that created this action method adds a comment showing a HTTP request that invokes the method. In this case it's a <code>GET </code>request with three URL segments, the <code>Movies </code>controller, the <code>Details </code>method and a <code>ID </code>value.</p> 
+  <p>Code First makes it easy to search for data using the <code> <a href="http://msdn.microsoft.com/en-us/library/system.data.entity.dbset.find(v=vs.103).aspx" shape="rect" target="_blank">Find</a></code> method. An important security feature built into the method is that the code verifies that the <code>Find</code> method has found a movie before the code tries to do anything with it. For example, a hacker could introduce errors into the site by changing the URL created by the links from <em> http://localhost:xxxx/Movies/Details/1</em> to something like <em> http://localhost:xxxx/Movies/Details/12345</em> (or some other value that doesn't represent an actual movie). If you did not check for a null movie, a null movie would result in a database error.</p> 
+  <p>Examine the <code>Delete</code> and <code>DeleteConfirmed</code> methods.</p> 
+  <pre>// GET: /Movies/Delete/5publicActionResultDeletereturnHttpStatusCodeResultHttpStatusCodeBadRequestMovie movie Moviesmovie returnHttpNotFoundreturnmovie// POST: /Movies/Delete/5HttpPostActionName&quot;Delete&quot;ValidateAntiForgeryTokenpublicActionResultDeleteConfirmedMovie movie MoviesMoviesRemovemovieSaveChangesreturnRedirectToAction&quot;Index&quot;</pre> 
+  <p>Note that the <code>HTTP Get </code><code>Delete</code> method doesn't delete the specified movie, it returns a view of the movie where you can submit (<code>HttpPost</code>) the deletion.. Performing a delete operation in response to a GET request (or for that matter, performing an edit operation, create operation, or any other operation that changes data) opens up a security hole. For more information about this, see Stephen Walther's blog entry <a href="http://stephenwalther.com/blog/archive/2009/01/21/asp.net-mvc-tip-46-ndash-donrsquot-use-delete-links-because.aspx" shape="rect" target="_blank"> ASP.NET MVC Tip #46 — Don't use Delete Links because they create Security Holes</a>. </p> 
+  <p>The <code>HttpPost </code>method that deletes the data is named <code> DeleteConfirmed </code>to give the HTTP POST method a unique signature or name. The two method signatures are shown below:</p> 
+  <pre>// GET: /Movies/Delete/5publicActionResultDelete// POST: /Movies/Delete/5HttpPostActionName&quot;Delete&quot;publicActionResultDeleteConfirmed</pre> 
+  <p>The common language runtime (CLR) requires overloaded methods to have a unique parameter signature (same method name but different list of parameters). However, here you need two Delete methods -- one for GET and one for POST -- that both have the same parameter signature. (They both need to accept a single integer as a parameter.)</p> 
+  <p>To sort this out, you can do a couple of things. One is to give the methods different names. That's what the scaffolding mechanism did in the preceding example. However, this introduces a small problem: ASP.NET maps segments of a URL to action methods by name, and if you rename a method, routing normally wouldn't be able to find that method. The solution is what you see in the example, which is to add the <code>ActionName(&quot;Delete&quot;)</code> attribute to the <code>DeleteConfirmed </code>method. This effectively performs mapping for the routing system so that a URL that includes <em>/Delete/ </em>for a POST request will find the <code>DeleteConfirmed </code>method.</p> 
+  <p>Another common way to avoid a problem with methods that have identical names and signatures is to artificially change the signature of the POST method to include an unused parameter. For example, some developers add a parameter type <code> <a href="http://msdn.microsoft.com/en-us/library/system.web.mvc.formcollection.aspx" shape="rect" target="_blank"> FormCollection</a> </code>that is passed to the POST method, and then simply don't use the parameter:</p> 
+  <pre>publicActionResultDeleteFormCollection fcNotUsedMovie movie Moviesmovie returnHttpNotFoundMoviesRemovemovieSaveChangesreturnRedirectToAction&quot;Index&quot;</pre> 
+  <h2>Summary</h2> 
+  <p>You now have a complete ASP.NET MVC application that stores data in a local DB database. You can create, read, update, delete, and search for movies.</p> 
+  <p> </p>
+  <div>
+   <img src="Examining the Details and Delete Methods  The_files/Image.gif" type="image/gif"/>
+  </div>
+  <p></p> 
+  <h2>Next Steps</h2> 
+  <p>After you have built and tested a web application, the next step is to make it available to other people to use over the Internet. To do that, you have to deploy it to a web hosting provider. Microsoft offers free web hosting for up to 10 web sites in a <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A443DD604" shape="rect" target="_blank"> free Azure trial account</a>. I suggest you next follow my tutorial <a href="http://www.windowsazure.com/en-us/develop/net/tutorials/web-site-with-sql-database/" shape="rect" target="_blank"> Deploy a Secure ASP.NET MVC app with Membership, OAuth, and SQL Database to Azure </a>. An excellent tutorial is Tom Dykstra's intermediate-level <a href="http://www.asp.net/entity-framework/tutorials/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application" shape="rect" target="_blank"> Creating an Entity Framework Data Model for an ASP.NET MVC Application</a>. <a href="http://stackoverflow.com/help" shape="rect" target="_blank">Stackoverflow</a> and the <a href="http://forums.asp.net/1146.aspx" shape="rect" target="_blank">ASP.NET MVC forums</a> are a great places to ask questions. Follow <a href="https://twitter.com/RickAndMSFT" shape="rect" target="_blank">me</a> on twitter so you can get updates on my latest tutorials.</p> 
+  <p>Feedback is welcome.</p> 
+  <p>—  <a href="http://blogs.msdn.com/rickAndy" shape="rect" target="_blank">Rick Anderson</a>   twitter: <a href="https://twitter.com/RickAndMSFT" shape="rect" target="_blank">@RickAndMSFT</a><br clear="none"/>—  <a href="http://www.hanselman.com/blog/" shape="rect" target="_blank">Scott Hanselman </a> twitter: <a href="https://twitter.com/shanselman" shape="rect" target="_blank">@shanselman</a></p> 
+  <p>This article was originally created on October 17, 2013</p>
+  <h2>Author Information</h2>
+  <div>
+   <img src="Examining the Details and Delete Methods  The_files/Image.jpg" type="image/jpeg" alt="Rick Anderson"/>
+   <p><strong>Rick Anderson</strong> – Rick Anderson works as a programmer writer for Microsoft, focusing on ASP.NET MVC, Windows Azure and Entity Framework. You can follow him on twitter via @RickAndMSFT.</p>
+  </div>
+  <ol><li><a href="http://www.asp.net/mvc/overview/getting-started/introduction/adding-validation" shape="rect" target="_blank"> PreviousAdding Validation </a></li><li>You're ViewingExamining the Details and Delete Methods</li></ol> 
+ </div>
+</div></span>
+</div></body></html> 

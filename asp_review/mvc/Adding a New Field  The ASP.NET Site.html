@@ -1,0 +1,217 @@
+<html>
+<head>
+  <title>Adding a New Field | The ASP.NET Site</title>
+  <basefont face="Tahoma" size="2" />
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+  <meta name="exporter-version" content="Evernote Windows/275837; Windows/6.3.9600;"/>
+  <style>
+    body, td {
+      font-family: Tahoma;
+      font-size: 10pt;
+    }
+  </style>
+</head>
+<body>
+<a name="2330"/>
+<h1>Adding a New Field | The ASP.NET Site</h1>
+
+<div>
+<span><div>
+ <div>
+  <div>
+   <h1>Adding a New Field</h1>
+   <div>
+    <div></div>
+   </div>
+  </div>
+  <div>
+   <div>
+     By 
+    <a href="http://www.asp.net/mvc/overview/getting-started/introduction/adding-a-new-field#author-20106" shape="rect" target="_blank">Rick Anderson</a>Rick Anderson
+    October 17, 2013
+   </div>
+   <div>
+    <a href="#" shape="rect" target="_blank">Print</a>
+   </div>
+  </div>
+  <p>In this section you'll use Entity Framework Code First Migrations to migrate some changes to the model classes so the change is applied to the database.</p> 
+  <p>By default, when you use Entity Framework Code First to automatically create a database, as you did earlier in this tutorial, Code First adds a table to the database to help track whether the schema of the database is in sync with the model classes it was generated from. If they aren't in sync, the Entity Framework throws an error. This makes it easier to track down issues at development time that you might otherwise only find (by obscure errors) at run time. </p> 
+  <h2>Setting up Code First Migrations for Model Changes</h2> 
+  <p>Navigate to Solution Explorer. Right click on the <em>Movies.mdf </em>file and select <strong>Delete</strong> to remove the movies database. If you don't see  the <em>Movies.mdf </em> file, click on the <strong>Show All Files</strong> icon shown below in the red outline.</p> 
+  <p> </p>
+  <div>
+   <img src="Adding a New Field  The ASP.NET Site_files/Image.png" type="image/png"/>
+  </div> 
+  <p></p> 
+  <p>Build the application to make sure there are no errors.</p> 
+  <p>From the <strong>Tools</strong> menu, click <strong>Library Package Manager</strong> and then <strong>Package Manager Console</strong>.</p> 
+  <p> In the <strong>Package Manager Console</strong> window at the <code> PM&gt;</code> prompt enter </p> 
+  <p> Enable-Migrations -ContextTypeName MvcMovie.Models.MovieDBContext</p> 
+  <p> The <strong>Enable-Migrations </strong>command (shown above) creates a <em>Configuration.cs</em> file in a new <em> Migrations</em> folder.</p> 
+  <p> </p>
+  <div>
+   <img src="Adding a New Field  The ASP.NET Site_files/Image.gif" type="image/gif"/>
+  </div> 
+  <p></p> 
+  <p> Visual Studio opens the<em> Configuration.cs</em> file. Replace the <code>Seed</code> method in the <em> Configuration.cs</em> file with the following code: </p> 
+  <pre>protectedoverrideMvcMovieModelsMovieDBContext context
+    contextMoviesAddOrUpdate=&gt;TitleMovieTitle&quot;When Harry Met Sally&quot;ReleaseDateDateTimeParse&quot;1989-1-11&quot;Genre&quot;Romantic Comedy&quot;Price7.99MMovieTitle&quot;Ghostbusters &quot;ReleaseDateDateTimeParse&quot;1984-3-13&quot;Genre&quot;Comedy&quot;Price8.99MMovieTitle&quot;Ghostbusters 2&quot;ReleaseDateDateTimeParse&quot;1986-2-23&quot;Genre&quot;Comedy&quot;Price9.99MMovieTitle&quot;Rio Bravo&quot;ReleaseDateDateTimeParse&quot;1959-4-15&quot;Genre&quot;Western&quot;Price3.99M</pre> 
+  <p> Right click on the red squiggly line under <code>Movie </code>and select <strong>Resolve</strong> and then click <strong>using</strong> <strong>MvcMovie.Models; </strong> </p> 
+  <p> </p>
+  <div>
+   <img src="Adding a New Field  The ASP.NET Site_files/Image [1].gif" type="image/gif"/>
+  </div>
+  <p></p> 
+  <p> Doing so adds the following using statement:</p> 
+  <pre>usingMvcMovieModels</pre> 
+  <div> 
+   <p>Code First Migrations calls the <code>Seed</code> method after every migration (that is, calling  <strong>update-database</strong> in the Package Manager Console), and this method updates rows that have already been inserted, or inserts them if they don't exist yet. </p> 
+   <p>The <a href="http://msdn.microsoft.com/en-us/library/system.data.entity.migrations.idbsetextensions.addorupdate(v=vs.103).aspx" shape="rect" target="_blank"> AddOrUpdate</a> method in the following code performs an &quot;upsert&quot; operation:</p> 
+   <pre>contextMoviesAddOrUpdate=&gt;TitleMovieTitle&quot;When Harry Met Sally&quot;ReleaseDateDateTimeParse&quot;1989-1-11&quot;Genre&quot;Romantic Comedy&quot;RatingPrice7.99M</pre> 
+   <p> Because the <a href="http://msdn.microsoft.com/en-us/library/hh829453(v=vs.103).aspx" shape="rect" target="_blank"> Seed</a> method runs with every migration, you can't just insert data, because the rows you are trying to add will already be there after the first migration that creates the database. The &quot;<a href="http://en.wikipedia.org/wiki/Upsert" shape="rect" target="_blank">upsert</a>&quot; operation prevents errors that would happen if you try to insert a row that already exists, but it overrides any changes to data that you may have made while testing the application. With test data in some tables you might not want that to happen: in some cases when you change data while testing you want your changes to remain after database updates. In that case you want to do a conditional insert operation: insert a row only if it doesn't already exist. <br clear="none"/><br clear="none"/>The first parameter passed to the <a href="http://msdn.microsoft.com/en-us/library/system.data.entity.migrations.idbsetextensions.addorupdate(v=vs.103).aspx" shape="rect" target="_blank"> AddOrUpdate</a> method specifies the property to use to check if a row already exists. For the test movie data that you are providing, the <code> Title </code>property can be used for this purpose since each title in the list is unique: </p> 
+   <pre>contextMoviesAddOrUpdate=&gt;Title</pre> 
+   <p>This code assumes that titiles are unique. If you manually add a duplicate title, you'll get the following exception the next time you perform a migration. <br clear="none"/><br clear="none"/><em>Sequence contains more than one element</em><br clear="none"/><br clear="none"/>For more information about the <a href="http://msdn.microsoft.com/en-us/library/system.data.entity.migrations.idbsetextensions.addorupdate(v=vs.103).aspx" shape="rect" target="_blank"> AddOrUpdate</a> method, see <a href="http://thedatafarm.com/blog/data-access/take-care-with-ef-4-3-addorupdate-method/" shape="rect" target="_blank"> Take care with EF 4.3 AddOrUpdate Method</a>..</p> 
+  </div> 
+  <p><strong>Press CTRL-SHIFT-B to build the project. </strong>(The following steps will fail if you don't build at this point.)</p> 
+  <p>The next step is to create a <code>DbMigration</code> class for the initial migration. This migration creates a new database, that's why you deleted the <em>movie.mdf</em> file in a previous step.</p> 
+  <p>In the <strong>Package Manager Console</strong> window, enter the command <code>add-migration Initial</code> to create the initial migration.  The name &quot;Initial&quot; is arbitrary and is used to name the migration file created. </p> 
+  <p> </p>
+  <div>
+   <img src="Adding a New Field  The ASP.NET Site_files/Image [2].gif" type="image/gif"/>
+  </div>
+  <p></p> 
+  <p>Code First Migrations creates another class file in the <em>Migrations</em> folder (with the name <em>{DateStamp}_Initial.cs</em> ), and this class contains code that creates the database schema. The migration filename is pre-fixed with a timestamp to help with ordering.  Examine the <em>{DateStamp}_Initial.cs</em>  file, it contains the instructions to create the <code>Movies </code>table for the Movie DB. When you update the database in the instructions below, this <em>{DateStamp}_Initial.cs</em>  file will run and create the the DB schema. Then the <strong>Seed</strong> method will run to populate the DB with test data.</p> 
+  <p>In the <strong>Package Manager Console</strong>, enter the command <code>update-database</code> to create the database and run the <code>Seed </code>method.</p> 
+  <p> </p>
+  <div>
+   <img src="Adding a New Field  The ASP.NET Site_files/Image [3].gif" type="image/gif"/>
+  </div> 
+  <p></p> 
+  <p>If you get an error that indicates a table already exists and can't be created, it is probably because you ran the application after you deleted the database and before you executed <code>update-database</code>. In that case, delete the <em>Movies.mdf </em>file again and retry the <code>update-database</code> command. If you still get an error, delete the migrations folder and contents then start with the instructions at the top of this page (that is delete the <em> Movies.mdf</em> file then proceed to Enable-Migrations).</p> 
+  <p>Run the application and navigate to the <em>/Movies</em> URL. The seed data is displayed.</p> 
+  <p> </p>
+  <div>
+   <img src="Adding a New Field  The ASP.NET Site_files/Image [4].gif" type="image/gif"/>
+  </div> 
+  <p></p> 
+  <h2>Adding a Rating Property to the Movie Model</h2> 
+  <p>Start by adding a new <code>Rating</code> property to the existing <code> Movie</code> class. Open the <em>Models\Movie.cs</em> file and add the <code>Rating</code> property like this one:</p> 
+  <pre>publicstringRating</pre> 
+  <p>The complete <code>Movie</code> class now looks like the following code:</p> 
+  <pre>publicclassMoviepublicpublicstringTitleDisplay&quot;Release Date&quot;DataTypeDataTypeDisplayFormatDataFormatString&quot;{0:yyyy-MM-dd}&quot;ApplyFormatInEditModepublicDateTimeReleaseDatepublicstringGenrepublicdecimalPricepublicstringRating</pre> 
+  <p>Build the application (Ctrl+Shift+B).</p> 
+  <p>Because you've added a new field to  the <code>Movie</code> class, you also need to update the the binding <em>white list</em> so this new property will be included. Update the <code>bind </code>attribute for <code>Create </code>and <code>Edit </code>action methods to include the <code>Rating </code>property:</p> 
+  <pre>Include&quot;ID,Title,ReleaseDate,Genre,Price,Rating</pre> 
+  <p>You also need to update the view templates in order to display, create and edit the new <code>Rating</code> property in the browser view.</p> 
+  <p>Open the<em> \Views\Movies\Index.cshtml</em> file and add a <code> &lt;th&gt;Rating&lt;/th&gt;</code> column heading just after the <strong>Price</strong> column. Then add a <code>&lt;td&gt;</code> column near the end of the template to render the <code>@item.Rating</code> value. Below is what the updated <em> Index.cshtml</em> view template looks like:</p> 
+  <pre>@model IEnumerable&lt;MvcMovie.Models.Movie&gt;
+@{
+    ViewBag.Title = &quot;Index&quot;;
+}
+&lt;h2&gt;Index&lt;/h2&gt;&lt;p&gt;
+    @Html.ActionLink(&quot;Create New&quot;, &quot;Create&quot;)
+    @using (Html.BeginForm(&quot;Index&quot;, &quot;Movies&quot;, FormMethod.Get))
+    {
+    &lt;p&gt;
+        Genre: @Html.DropDownList(&quot;movieGenre&quot;, &quot;All&quot;)
+        Title: @Html.TextBox(&quot;SearchString&quot;)
+        &lt;input&quot;submit&quot;value&quot;Filter&quot;/&gt;&lt;/p&gt;&lt;/p&gt;&lt;tableclass&quot;table&quot;&lt;tr&gt;&lt;th&gt;
+            @Html.DisplayNameFor(model =&gt; model.Title)
+        &lt;/th&gt;&lt;th&gt;
+            @Html.DisplayNameFor(model =&gt; model.ReleaseDate)
+        &lt;/th&gt;&lt;th&gt;
+            @Html.DisplayNameFor(model =&gt; model.Genre)
+        &lt;/th&gt;&lt;th&gt;
+            @Html.DisplayNameFor(model =&gt; model.Price)
+        &lt;/th&gt;&lt;th&gt;
+            @Html.DisplayNameFor(model =&gt; model.Rating)
+        &lt;/th&gt;&lt;th&gt;&lt;/th&gt;&lt;/tr&gt;
+
+@foreach (var item in Model) {
+    &lt;tr&gt;&lt;td&gt;
+            @Html.DisplayFor(modelItem =&gt; item.Title)
+        &lt;/td&gt;&lt;td&gt;
+            @Html.DisplayFor(modelItem =&gt; item.ReleaseDate)
+        &lt;/td&gt;&lt;td&gt;
+            @Html.DisplayFor(modelItem =&gt; item.Genre)
+        &lt;/td&gt;&lt;td&gt;
+            @Html.DisplayFor(modelItem =&gt; item.Price)
+        &lt;/td&gt;&lt;td&gt;
+            @Html.DisplayFor(modelItem =&gt; item.Rating)
+        &lt;/td&gt;&lt;td&gt;
+            @Html.ActionLink(&quot;Edit&quot;, &quot;Edit&quot;, new { id=item.ID }) |
+            @Html.ActionLink(&quot;Details&quot;, &quot;Details&quot;, new { id=item.ID }) |
+            @Html.ActionLink(&quot;Delete&quot;, &quot;Delete&quot;, new { id=item.ID })
+        &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;</pre> 
+  <p>Next, open the <em>\Views\Movies\Create.cshtml</em> file and add the <code> Rating </code>field with the following highlighed markup. This renders a text box so that you can specify a rating when a new movie is created.</p> 
+  <pre>&lt;divclass&quot;form-group&quot;
+            @Html.LabelFor(model =&gt; model.Price, new { @class = &quot;control-label col-md-2&quot; })
+            &lt;divclass&quot;col-md-10&quot;
+                @Html.EditorFor(model =&gt; model.Price)
+                @Html.ValidationMessageFor(model =&gt; model.Price)
+            &lt;/div&gt;&lt;/div&gt;&lt;divclass&quot;form-group&quot;
+            @Html.LabelFor(model =&gt; model.Rating, new { @class = &quot;control-label col-md-2&quot; })
+            &lt;divclass&quot;col-md-10&quot;
+                @Html.EditorFor(model =&gt; model.Rating)
+                @Html.ValidationMessageFor(model =&gt; model.Rating)
+            &lt;/div&gt;&lt;/div&gt;&lt;divclass&quot;form-group&quot;&lt;divclass&quot;col-md-offset-2 col-md-10&quot;&lt;input&quot;submit&quot;value&quot;Create&quot;class&quot;btn btn-default&quot;/&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;div&gt;
+    @Html.ActionLink(&quot;Back to List&quot;, &quot;Index&quot;)
+&lt;/div&gt;
+
+@section Scripts {
+    @Scripts.Render(&quot;~/bundles/jqueryval&quot;)
+}</pre> 
+  <p>You've now updated the application code to support the new <code>Rating</code> property.</p> 
+  <p>Run the application and navigate to the <em>/Movies</em> URL. When you do this, though, you'll see one of the following errors:</p> 
+  <p>The model backing the 'MovieDBContext' context has changed since the database was created. Consider using Code First Migrations to update the database (http://go.microsoft.com/fwlink/?LinkId=238269).</p> 
+  <p>You're seeing this error because the updated <code>Movie</code> model class in the application is now different than the schema of the <code>Movie</code> table of the existing database. (There's no <code>Rating</code> column in the database table.) </p> 
+  <div> 
+   <p>There are a few approaches to resolving the error:</p> 
+   <ol><li>Have the Entity Framework automatically drop and re-create the database based on the new model class schema. This approach is very convenient early in the development cycle when you are doing active development on a test database; it allows you to quickly evolve the model and database schema together. The downside, though, is that you lose existing data in the database — so you <em>don't</em> want to use this approach on a production database! Using an initializer to automatically seed a database with test data is often a productive way to develope an application. For more information on Entity Framework database initializers, see Tom Dykstra's fantastic <a href="http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application" shape="rect" target="_blank"> ASP.NET MVC/Entity Framework tutorial</a>.</li><li>Explicitly modify the schema of the existing database so that it matches the model classes. The advantage of this approach is that you keep your data. You can make this change either manually or by creating a database change script. </li><li>Use Code First Migrations to update the database schema.</li></ol> 
+  </div> 
+  <p>For this tutorial, we'll use Code First Migrations.</p> 
+  <p>Update the Seed method so that it provides a value for the new column. Open Migrations\Configuration.cs file and add a Rating field to each Movie object.</p> 
+  <pre>MovieTitle&quot;When Harry Met Sally&quot;ReleaseDateDateTimeParse&quot;1989-1-11&quot;Genre&quot;Romantic Comedy&quot;RatingPrice7.99M</pre> 
+  <p>Build the solution, and then open the <strong>Package Manager Console</strong> window and enter the following command:</p> 
+  <p><code>add-migration Rating</code></p> 
+  <p>The <code>add-migration</code> command tells the migration framework to examine the current movie model with the current movie DB schema and create the necessary code to migrate the DB to the new model. The name <em>Rating</em> is arbitrary and is used to name the migration file. It's helpful to use a meaningful name for the migration step.</p> 
+  <p>When this command finishes, Visual Studio opens the class file that defines the new <code>DbMIgration </code>derived class, and in the <code>Up </code> method you can see the code that creates the new column.</p> 
+  <pre>publicpartialclassAddRatingMigDbMigrationpublicoverrideAddColumn&quot;dbo.Movies&quot;&quot;Rating&quot;=&gt;StringpublicoverrideDropColumn&quot;dbo.Movies&quot;&quot;Rating&quot;</pre> 
+  <p>Build the solution, and then enter the <code>update-database</code> command in the <strong>Package Manager Console</strong> window.</p> 
+  <p>The following image shows the output in the <strong>Package Manager Console</strong> window (The date stamp prepending <em>Rating</em> will be different.)</p> 
+  <p> </p>
+  <div>
+   <img src="Adding a New Field  The ASP.NET Site_files/Image [5].gif" type="image/gif"/>
+  </div>
+  <p></p> 
+  <p>Re-run the application and navigate to the /Movies URL. You can see the new Rating field.</p> 
+  <p> </p>
+  <div>
+   <img src="Adding a New Field  The ASP.NET Site_files/Image [6].gif" type="image/gif"/>
+  </div> 
+  <p></p> 
+  <p>Click the <strong>Create New</strong> link to add a new movie. Note that you can add a rating.</p> 
+  <p> </p>
+  <div>
+   <img src="Adding a New Field  The ASP.NET Site_files/Image [7].gif" type="image/gif" alt="7_CreateRioII"/>
+  </div>
+  <p></p> 
+  <p>Click <strong>Create</strong>. The new movie, including the rating, now shows up in the movies listing:</p> 
+  <p> </p>
+  <div>
+   <img src="Adding a New Field  The ASP.NET Site_files/Image [8].gif" type="image/gif" alt="7_ourNewMovie_SM"/>
+  </div>
+  <p></p> 
+  <p>Now that the project is using migrations, you won't need to drop the database when you add a new field or otherwise update the schema. In the next section, we'll make more schema changes and use migrations to update the database. </p> 
+  <p>You should also add the <code>Rating </code>field to the Edit, Details, and Delete view templates.</p> 
+  <p>You could enter the &quot;update-database&quot; command in the <strong>Package Manager Console</strong> window again and no migration code would run, because the schema matches the model. However, running &quot;update-database&quot; will run the <code>Seed </code>method again, and if you changed any of the Seed data, the changes will be lost because the <code>Seed </code>method upserts data. You can read more about the <code>Seed </code>method in Tom Dykstra's popular <a href="http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application" shape="rect" target="_blank"> ASP.NET MVC/Entity Framework tutorial</a>.</p> 
+  <p>In this section you saw how you can modify model objects and keep the database in sync with the changes. You also learned a way to populate a newly created database with sample data so you can try out scenarios. This was just a quick introduction to Code First, see <a href="http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application" shape="rect" target="_blank"> Creating an Entity Framework Data Model for an ASP.NET MVC Application</a> for a more complete tutorial on the subject. Next, let's look at how you can add richer validation logic to the model classes and enable some business rules to be enforced.</p>
+  <p>This article was originally created on October 17, 2013</p>
+  <h2>Author Information</h2>
+  <div>
+   <img src="Adding a New Field  The ASP.NET Site_files/Image.jpg" type="image/jpeg" alt="Rick Anderson"/>
+   <p><strong>Rick Anderson</strong> – Rick Anderson works as a programmer writer for Microsoft, focusing on ASP.NET MVC, Windows Azure and Entity Framework. You can follow him on twitter via @RickAndMSFT.</p>
+  </div> 
+ </div>
+</div></span>
+</div></body></html> 

@@ -1,0 +1,187 @@
+<html>
+<head>
+  <title>Adding a View | The ASP.NET Site</title>
+  <basefont face="Tahoma" size="2" />
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+  <meta name="exporter-version" content="Evernote Windows/275837; Windows/6.3.9600;"/>
+  <style>
+    body, td {
+      font-family: Tahoma;
+      font-size: 10pt;
+    }
+  </style>
+</head>
+<body>
+<a name="2352"/>
+<h1>Adding a View | The ASP.NET Site</h1>
+
+<div>
+<span><div>
+ <div>
+  <div>
+   <h1>Adding a View</h1>
+   <div>
+    <div></div>
+   </div>
+  </div>
+  <div>
+   <div>
+     By 
+    <a href="http://www.asp.net/mvc/overview/getting-started/introduction/adding-a-view#author-20106" shape="rect" target="_blank">Rick Anderson</a>Rick Anderson
+    October 17, 2013
+   </div>
+   <div>
+    <a href="#" shape="rect" target="_blank">Print</a>
+   </div>
+  </div>
+  <p>In this section you're going to modify the <code>HelloWorldController</code> class to use view template files to cleanly encapsulate the process of generating HTML responses to a client.</p> 
+  <p>You'll create a view template file using the <a href="http://www.asp.net/web-pages/tutorials/basics/2-introduction-to-asp-net-web-programming-using-the-razor-syntax" shape="rect" target="_blank">Razor view engine</a>. Razor-based view templates have a <em>.cshtml</em> file extension, and provide an elegant way to create HTML output using C#. Razor minimizes the number of characters and keystrokes required when writing a view template, and enables a fast, fluid coding workflow.</p> 
+  <p>Currently the <code>Index</code> method returns a string with a message that is hard-coded in the controller class. Change the <code>Index</code> method to return a <code>View</code> object, as shown in the following code:</p> 
+  <pre>publicActionResultIndexreturn</pre> 
+  <p>The <code>Index</code> method above uses a view template to generate an HTML response to the browser. Controller methods (also known as <a href="http://rachelappel.com/asp.net-mvc-actionresults-explained" shape="rect" target="_blank">action methods</a>), such as the <code>Index</code> method above, generally return an <a href="http://msdn.microsoft.com/en-us/library/system.web.mvc.actionresult.aspx" shape="rect" target="_blank"> ActionResult</a> (or a class derived from <a href="http://msdn.microsoft.com/en-us/library/system.web.mvc.actionresult.aspx" shape="rect" target="_blank"> ActionResult</a>), not primitive types like string. </p> 
+  <p>Right click the <em>Views\HelloWorld </em>folder and click <strong>Add</strong>, then click <strong>MVC 5 View Page with (Layout Razor)</strong>.</p> 
+  <div>
+   <img src="Adding a View  The ASP.NET Site_files/Image.png" type="image/png"/>
+  </div>In the 
+  <strong>Specify Name for Item </strong>dialog box, enter 
+  <em>Index</em>, and then click 
+  <strong>OK</strong>.
+  <div>
+   <img src="Adding a View  The ASP.NET Site_files/Image.gif" type="image/gif"/>
+  </div>In the 
+  <strong>Select a Layout Page</strong> dialog, accept the default 
+  <strong>_Layout.cshtml </strong>and click 
+  <strong>OK</strong>.
+  <div>
+   <img src="Adding a View  The ASP.NET Site_files/Image [1].gif" type="image/gif"/>
+  </div>In the dialog above, the 
+  <em>Views\Shared</em> folder is selected in the left pane. If you had a custom layout file in another folder, you could select it. We'll talk about the layout file later in the tutorial
+  <p>The <em>MvcMovie\Views\HelloWorld\Index.cshtml</em> file is created. </p> 
+  <p> Add the following highlighed markup.</p> 
+  <pre>@{
+    Layout = &quot;~/Views/Shared/_Layout.cshtml&quot;;
+}
+
+@{
+    ViewBag.Title = &quot;Index&quot;;
+}
+
+&lt;h2&gt;Index&lt;/h2&gt;&lt;p&gt;Hello from our View Template!&lt;/p&gt;</pre> 
+  <p>Right click the<em> Index.cshtml </em>file and select <strong>View in Browser</strong>. </p> 
+  <p> </p>
+  <div>
+   <img src="Adding a View  The ASP.NET Site_files/Image [2].gif" type="image/gif" alt="PI"/>
+  </div> 
+  <p></p> 
+  <p>You can also right click the<em> Index.cshtml </em>file and select <strong>View in Page Inspector. </strong>See the <a href="http://www.asp.net/mvc/tutorials/mvc-4/using-page-inspector-in-aspnet-mvc" shape="rect" target="_blank">Page Inspector tutorial</a> for more information. </p> 
+  <p>Alternatively, run the application and browse to the <code>HelloWorld</code> controller (<em>http://localhost:xxxx/HelloWorld</em>). The <code>Index</code> method in your controller didn't do much work; it simply ran the statement <code>return View()</code>, which specified that the method should use a view template file to render a response to the browser. Because you didn't explicitly specify the name of the view template file to use, ASP.NET MVC defaulted to using the <em>Index.cshtml</em> view file in the <em> \Views\HelloWorld</em> folder. The image below shows the string &quot;Hello from our View Template!&quot; hard-coded in the view.</p> 
+  <p> </p>
+  <div>
+   <img src="Adding a View  The ASP.NET Site_files/Image [3].gif" type="image/gif"/>
+  </div>
+  <p></p> 
+  <p>Looks pretty good. However, notice that the browser's title bar shows  &quot;Index My ASP.NET Appli&quot; and the big link on the top of the page says &quot;Application name.&quot; Depending on how small you make your browser window, you might need to click the three bars in the upper right to see the to the <strong>Home</strong>, <strong>About</strong>, <strong>Contact</strong>, <strong>Register</strong> and <strong>Log in</strong> links. </p> 
+  <h2>Changing Views and Layout Pages</h2> 
+  <p>First, you want to change the &quot;Application name&quot; link at the top of the page. That text is common to every page. It's actually implemented in only one place in the project, even though it appears on every page in the application. Go to the <em>/Views/Shared</em> folder in <strong>Solution Explorer</strong> and open the <em>_Layout.cshtml</em> file. This file is called a <em>layout page</em> and it's in the shared folder that all other pages use.</p> 
+  <p> </p>
+  <div>
+   <img src="Adding a View  The ASP.NET Site_files/Image [4].gif" type="image/gif" alt="_LayoutCshtml"/>
+  </div>
+  <p></p> 
+  <p>Layout templates allow you to specify the HTML container layout of your site in one place and then apply it across multiple pages in your site. Find the <code>@RenderBody()</code> line. <code> <a href="http://msdn.microsoft.com/en-us/gg618478" shape="rect" target="_blank">RenderBody</a></code> is a placeholder where all the view-specific pages you create show up, &quot;wrapped&quot; in the layout page. For example, if you select the <strong>About</strong> link, the <em> Views\Home\About.cshtml</em> view is rendered inside the <code>RenderBody</code>  method.</p> 
+  <p>Change the contents of the title element.  Change the <a href="http://msdn.microsoft.com/en-us/library/dd504972(v=vs.108).aspx" shape="rect" target="_blank"> ActionLink</a> in the layout template from &quot;Application name&quot; to &quot;MVC Movie&quot; and the controller from <code>Home </code>to <code>Movies</code>. The complete layout file is shown below: </p> 
+  <pre>&lt;!DOCTYPE html&gt;&lt;html&gt;&lt;head&gt;&lt;metacharset&quot;utf-8&quot;/&gt;&lt;meta&quot;viewport&quot;content&quot;width=device-width, initial-scale=1.0&quot;&lt;title&gt;@ViewBag.Title - Movie App&lt;/title&gt;
+    @Styles.Render(&quot;~/Content/css&quot;)
+    @Scripts.Render(&quot;~/bundles/modernizr&quot;)
+
+&lt;/head&gt;&lt;body&gt;&lt;divclass&quot;navbar navbar-inverse navbar-fixed-top&quot;&lt;divclass&quot;container&quot;&lt;divclass&quot;navbar-header&quot;&lt;button&quot;button&quot;class&quot;navbar-toggle&quot;data-toggle&quot;collapse&quot;data-target&quot;.navbar-collapse&quot;&lt;spanclass&quot;icon-bar&quot;&gt;&lt;/span&gt;&lt;spanclass&quot;icon-bar&quot;&gt;&lt;/span&gt;&lt;spanclass&quot;icon-bar&quot;&gt;&lt;/span&gt;&lt;/button&gt;
+                @Html.ActionLink(&quot;MVC Movie&quot;, &quot;Index&quot;, &quot;Movies&quot;, null, new { @class = &quot;navbar-brand&quot; })
+            &lt;/div&gt;&lt;divclass&quot;navbar-collapse collapse&quot;&lt;ulclass&quot;nav navbar-nav&quot;&lt;li&gt;@Html.ActionLink(&quot;Home&quot;, &quot;Index&quot;, &quot;Home&quot;)&lt;/li&gt;&lt;li&gt;@Html.ActionLink(&quot;About&quot;, &quot;About&quot;, &quot;Home&quot;)&lt;/li&gt;&lt;li&gt;@Html.ActionLink(&quot;Contact&quot;, &quot;Contact&quot;, &quot;Home&quot;)&lt;/li&gt;&lt;/ul&gt;
+                @Html.Partial(&quot;_LoginPartial&quot;)
+            &lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;divclass&quot;container body-content&quot;
+        @RenderBody()
+        &lt;hr/&gt;&lt;footer&gt;&lt;p&gt;© @DateTime.Now.Year - My ASP.NET Application&lt;/p&gt;&lt;/footer&gt;&lt;/div&gt;
+
+    @Scripts.Render(&quot;~/bundles/jquery&quot;)
+    @Scripts.Render(&quot;~/bundles/bootstrap&quot;)
+    @RenderSection(&quot;scripts&quot;, required: false)
+&lt;/body&gt;&lt;/html&gt;</pre> 
+  <p>Run the application and notice that it now says &quot;MVC Movie &quot;. Click the <strong>About</strong> link, and you see how that page shows &quot;MVC Movie&quot;, too. We were able to make the change once in the layout template and have all pages on the site reflect the new title.</p> 
+  <p> </p>
+  <div>
+   <img src="Adding a View  The ASP.NET Site_files/Image [5].gif" type="image/gif"/>
+  </div>
+  <p></p> 
+  <p>When we first created the <em>Views\HelloWorld\Index.cshtml</em> file, it contained the following code:</p> 
+  <pre>@{
+    Layout = &quot;~/Views/Shared/_Layout.cshtml&quot;;
+}</pre> 
+  <p>The Razor code above is explicted setting the layout page. Examine the <em> Views\_ViewStart.cshtml</em> file, it contains the exact same Razor markup. The<em><a href="http://weblogs.asp.net/scottgu/archive/2010/10/22/asp-net-mvc-3-layouts.aspx" shape="rect" target="_blank">Views\_ViewStart.cshtml</a></em> file defines the common layout that all views will use, therefore you can comment out or remove that code from the  <em>Views\HelloWorld\Index.cshtml</em> file.</p> 
+  <pre>@*@{
+    Layout = &quot;~/Views/Shared/_Layout.cshtml&quot;;
+}*@
+
+@{
+    ViewBag.Title = &quot;Index&quot;;
+}
+
+&lt;h2&gt;Index&lt;/h2&gt;&lt;p&gt;Hello from our View Template!&lt;/p&gt;</pre> 
+  <p>You can use the <code>Layout </code>property to set a different layout view, or set it to <code>null </code>so no layout file will be used.</p> 
+  <p>Now, let's change the title of the Index view.</p> 
+  <p>Open <em>MvcMovie\Views\HelloWorld\Index.cshtml</em>. There are two places to make a change: first, the text that appears in the title of the browser, and then in the secondary header (the <code>&lt;h2&gt;</code> element). You'll make them slightly different so you can see which bit of code changes which part of the app.</p> 
+  <pre>@{
+    ViewBag.Title = &quot;Movie List&lt;h2&gt;My Movie List&lt;/h2&gt;&lt;p&gt;Hello from our View Template!&lt;/p&gt;</pre> 
+  <p>To indicate the HTML title to display, the code above sets a <code>Title</code> property of the <code> <a href="http://msdn.microsoft.com/en-us/library/system.web.mvc.controllerbase.viewbag(v=vs.108).aspx" shape="rect" target="_blank">ViewBag</a></code> object (which is in the <em>Index.cshtml</em> view template). Notice that the layout template  ( <em> Views\Shared\_Layout.cshtml</em> ) uses this value in the <code>&lt;title&gt;</code> element as part of the <code>&lt;head&gt;</code> section of the HTML that we modified previously.</p> 
+  <pre>&lt;!DOCTYPE html&gt;&lt;html&gt;&lt;head&gt;&lt;metacharset&quot;utf-8&quot;/&gt;&lt;meta&quot;viewport&quot;content&quot;width=device-width, initial-scale=1.0&quot;&lt;title&gt;@ViewBag.Title - Movie App&lt;/title&gt;
+    @Styles.Render(&quot;~/Content/css&quot;)
+    @Scripts.Render(&quot;~/bundles/modernizr&quot;)
+&lt;/head&gt;</pre> 
+  <p>Using this <code>ViewBag</code> approach, you can easily pass other parameters between your view template and your layout file.</p> 
+  <p>Run the application. Notice that the browser title, the primary heading, and the secondary headings have changed. (If you don't see changes in the browser, you might be viewing cached content. Press Ctrl+F5 in your browser to force the response from the server to be loaded.) The browser title is created with the  <code>ViewBag.Title</code> we set in the <em>Index.cshtml</em> view template  and the additional  &quot;- Movie App&quot; added in the layout file.</p> 
+  <p>Also notice how the content in the <em>Index.cshtml</em> view template was merged with the <em>_Layout.cshtml</em> view template and a single HTML response was sent to the browser. Layout templates make it really easy to make changes that apply across all of the pages in your application.</p> 
+  <p>Our little bit of &quot;data&quot; (in this case the &quot;Hello from our View Template!&quot; message) is hard-coded, though. The MVC application has a &quot;V&quot; (view) and you've got a &quot;C&quot; (controller), but no &quot;M&quot; (model) yet. Shortly, we'll walk through how create a database and retrieve model data from it.</p> 
+  <h2>Passing Data from the Controller to the View</h2> 
+  <p>Before we go to a database and talk about models, though, let's first talk about passing information from the controller to a view. Controller classes are invoked in response to an incoming URL request. A controller class is where you write the code that handles the incoming browser requests, retrieves data from a database, and ultimately decides what type of response to send back to the browser. View templates can then be used from a controller to generate and format an HTML response to the browser.</p> 
+  <p>Controllers are responsible for providing whatever data or objects are required in order for a view template to render a response to the browser. A best practice: <strong>A view template should never perform business logic or interact with a database directly</strong>. Instead, a view template should work only with the data that's provided to it by the controller. Maintaining this &quot;separation of concerns&quot; helps keep your code clean, testable and more maintainable.</p> 
+  <p>Currently, the <code>Welcome</code> action method in the <code> HelloWorldController</code> class takes a <code>name</code> and a <code>numTimes</code> parameter and then outputs the values directly to the browser. Rather than have the controller render this response as a string, let’s change the controller to use a view template instead. The view template will generate a dynamic response, which means that you need to pass appropriate bits of data from the controller to the view in order to generate the response. You can do this by having the controller put the dynamic data (parameters) that the view template needs in a <code>ViewBag</code> object that the view template can then access.</p> 
+  <p>Return to the <em>HelloWorldController.cs</em> file and change the <code> Welcome</code> method to add a <code>Message</code> and <code>NumTimes</code> value to the <code> <a href="http://rachelappel.com/when-to-use-viewbag-viewdata-or-tempdata-in-asp.net-mvc-3-applications" shape="rect" target="_blank">ViewBag</a></code> object. <code>ViewBag</code> is a dynamic object, which means you can put whatever you want in to it; the <code>ViewBag</code> object has no defined properties until you put something inside it. The <a href="http://odetocode.com/Blogs/scott/archive/2009/04/27/6-tips-for-asp-net-mvc-model-binding.aspx" shape="rect" target="_blank"> ASP.NET MVC model binding system</a> automatically maps the named parameters (<code>name </code>and <code>numTimes</code>) from the query string in the address bar to parameters in your method. The complete <em>HelloWorldController.cs</em> file looks like this:</p> 
+  <pre>usingSystemusingSystemnamespaceMvcMovieControllerspublicclassHelloWorldControllerControllerpublicActionResultIndexreturnpublicActionResultWelcomestring numTimes ViewBagMessage&quot;Hello &quot;ViewBagNumTimes numTimesreturn</pre> 
+  <p>Now the <code>ViewBag</code> object contains data that will be passed to the view automatically. Next, you need a Welcome view template! In the <strong>Build</strong> menu, select <strong>Build Solution</strong> (or Ctrl+Shift+B) to make sure the project is compiled. Right click the <em>Views\HelloWorld </em>folder and click <strong>Add</strong>, then click <strong>MVC 5 View Page with (Layout Razor)</strong>.</p> 
+  <div>
+   <img src="Adding a View  The ASP.NET Site_files/Image [6].gif" type="image/gif"/>
+  </div>In the 
+  <strong>Specify Name for Item </strong>dialog box, enter 
+  <em>Welcome</em>, and then click 
+  <strong>OK</strong>. 
+  <br clear="none"/>
+  <br clear="none"/>In the 
+  <strong>Select a Layout Page</strong> dialog, accept the default 
+  <strong>_Layout.cshtml </strong>and click 
+  <strong>OK</strong>.
+  <div>
+   <img src="Adding a View  The ASP.NET Site_files/Image [7].gif" type="image/gif"/>
+  </div>   
+  <p>The <em>MvcMovie\Views\HelloWorld\Welcome.cshtml</em> file is created. </p> 
+  <p>Replace the markup in the <em>Welcome.cshtml</em> file. You'll create a loop that says &quot;Hello&quot; as many times as the user says it should. The complete <em>Welcome.cshtml</em> file is shown below.</p> 
+  <pre>@{
+    ViewBag.Title = &quot;Welcome&quot;;
+}
+
+&lt;h2&gt;Welcome&lt;/h2&gt;&lt;ul&gt;
+    @for (int i = 0; i &lt; ViewBag.NumTimes; i++)
+    {
+        &lt;li&gt;@ViewBag.Message&lt;/li&gt;&lt;/ul&gt;</pre> 
+  <p>Run the application and browse to the following URL:</p> 
+  <p><em>http://localhost:xx/HelloWorld/Welcome?name=Scott&amp;numtimes=4</em></p> 
+  <p>Now data is taken from the URL and passed to the controller using the <a href="http://odetocode.com/Blogs/scott/archive/2009/04/27/6-tips-for-asp-net-mvc-model-binding.aspx" shape="rect" target="_blank"> model binder</a>. The controller packages the data into a <code>ViewBag</code> object and passes that object to the view. The view then displays the data as HTML to the user.</p> 
+  <p>In the sample above, we used a <code>ViewBag</code> object to pass data from the controller to a view. Latter in the tutorial, we will use a view model to pass data from a controller to a view. The view model approach to passing data is generally much preferred over the view bag approach. See the blog entry <a href="http://blogs.msdn.com/b/rickandy/archive/2011/01/28/dynamic-v-strongly-typed-views.aspx" shape="rect" target="_blank"> Dynamic V Strongly Typed Views</a> for more information. </p>
+  <p> Well, that was a kind of an &quot;M&quot; for model, but not the database kind. Let's take what we've learned and create a database of movies.</p> 
+  <p>This article was originally created on October 17, 2013</p>
+  <h2>Author Information</h2>
+  <div>
+   <img src="Adding a View  The ASP.NET Site_files/Image.jpg" type="image/jpeg" alt="Rick Anderson"/>
+   <p><strong>Rick Anderson</strong> – Rick Anderson works as a programmer writer for Microsoft, focusing on ASP.NET MVC, Windows Azure and Entity Framework. You can follow him on twitter via @RickAndMSFT.</p>
+  </div> 
+ </div>
+</div></span>
+</div></body></html> 

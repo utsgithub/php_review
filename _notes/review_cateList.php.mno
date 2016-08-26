@@ -1,0 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<info>
+	<infoitem key="UD_rsCateList" value="name:ID;datatype:int,name:categoryName;datatype:string,name:parentID;datatype:int,name:status;datatype:string,name:image;datatype:string,name:sort;datatype:int,name:note;datatype:string,name:appendix;datatype:string" />
+</info>

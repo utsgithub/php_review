@@ -1,0 +1,4433 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+	<list>
+		<ID>1</ID>
+		<question>1. Data is segmented at the Transport Layer. Explain why the
+			process of segmenting data is important within the encapsulation
+			process.</question>
+		<answer>Dividing application data into segments both ensures that data
+			is transmitted within the limits of the media and that data from
+			different applications can be multiplexed on to the media. </answer>
+		<question_cn></question_cn>
+		<answer_cn></answer_cn>
+		<answer_simple>Dividing application data into segments both ensures
+			that data is transmitted within the limits of the media and that data
+			from different applications can be multiplexed on to the media. </answer_simple>
+		<answer_draft></answer_draft>
+		<category>NE: Quiz 3</category>
+		<num>1</num>
+		<complete>False</complete>
+		<mark>False</mark>
+		<cid>3</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>2</ID>
+		<question>Compare TCP with UDP by listing the properties of each. Give
+			an example of data using TCP and data using UDP for their transport
+			protocol.</question>
+		<answer>TCP:
+			Connection based
+			Guaranteed reliable and ordered
+			Automatically breaks up your data into packets for you
+			Makes sure it doesn鈥檛 send data too fast for the internet connection to
+			handle (flow control)
+			Easy to use, you just read and write data like its a file
+			UDP:
+			No concept of connection, you have to code this yourself
+			No guarantee of reliability or ordering of packets, they may arrive out
+			of order, be duplicated, or not arrive at all!
+			You have to manually break your data up into packets and send them
+			You have to make sure you don鈥檛 send data too fast for your internet
+			connection to handle
+			If a packet is lost, you need to devise some way to detect this, and
+			resend that data if necessary
+			TCP: Web browsers, email, and file transfer
+			IP Telephony; Streaming Video
+		</answer>
+		<question_cn></question_cn>
+		<answer_cn></answer_cn>
+		<answer_simple>TCP: connection based, guaranteed reliable and ordered,
+			automoatically breaks up data into packets, support flow control.
+			TCP-Example: email, http
+			UDP-Example: IP Telephony, Streaming Video</answer_simple>
+		<answer_draft></answer_draft>
+		<category>NE: Quiz 3</category>
+		<num>2</num>
+		<complete>False</complete>
+		<mark>False</mark>
+		<cid>3</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>3</ID>
+		<question>The transport layer uses 鈥榩ort addressing' to identify data
+			flows. How is port addressing used at the server end and the client
+			end?
+			The client places a destination port number in the segment to tell the
+			destination server what service is being requested.
+			A server can offer more than one service simultaneously.</question>
+		<answer></answer>
+		<question_cn></question_cn>
+		<answer_cn></answer_cn>
+		<answer_simple></answer_simple>
+		<answer_draft></answer_draft>
+		<category>NE: Quiz 3</category>
+		<num>3</num>
+		<complete>False</complete>
+		<mark>False</mark>
+		<cid>3</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>4</ID>
+		<question>Explain how the 鈥楾hree-Way Handshake' used to establish a
+			TCP connection.</question>
+		<answer>Host A sends a TCP SYNchronize packet to Host B
+			Host B receives A's SYN
+			Host B sends a SYNchronize-ACKnowledgement
+			Host A receives B's SYN-ACK
+			Host A sends ACKnowledge
+			Host B receives ACK.
+			TCP socket connection is ESTABLISHED.</answer>
+		<question_cn></question_cn>
+		<answer_cn></answer_cn>
+		<answer_simple>A sends SYN, B sends SYN-ACK, A send ACK, TCP socket
+			connection is established.</answer_simple>
+		<answer_draft></answer_draft>
+		<category>NE: Quiz 3</category>
+		<num>4</num>
+		<complete>False</complete>
+		<mark>False</mark>
+		<cid>3</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>5</ID>
+		<question>How does the transport layer manage multiple simultaneous
+			conversations?</question>
+		<answer>Connection-oriented conversations
+			Reliable delivery
+			Ordered data reconstruction
+			Flow control</answer>
+		<question_cn></question_cn>
+		<answer_cn></answer_cn>
+		<answer_simple>How does the transport layer manage multiple
+			simultaneous conversations?
+			Connection-oriented conversations, Reliable delivery, Ordered data reconstruction, Flow
+			control</answer_simple>
+		<answer_draft></answer_draft>
+		<category>NE: Quiz 3</category>
+		<num>5</num>
+		<complete>False</complete>
+		<mark>False</mark>
+		<cid>3</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>6</ID>
+		<question>TCP offers reliable delivery of segments to a destination.
+			In what way/s is reliability guaranteed?</question>
+		<answer>Ordered delivery, Use three-way handshake, window size, Data
+			loss and retansmission</answer>
+		<question_cn></question_cn>
+		<answer_cn></answer_cn>
+		<answer_simple>TCP offers reliable delivery of segments to a
+			destination. In what way/s is reliability guaranteed?
+			Ordered delivery, Use three-way handshake, window size, Data loss and
+			retansmission.
+		</answer_simple>
+		<answer_draft></answer_draft>
+		<category>NE: Quiz 3</category>
+		<num>6</num>
+		<complete>False</complete>
+		<mark>False</mark>
+		<cid>3</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>7</ID>
+		<question>TCP has the advantage of managing flow control between a
+			server and a client. Explain how flow control is managed by TCP?</question>
+		<answer>When network resources are strained, TCP can reduce the window
+			size to require that received segments be acknowledged more
+			frequently. Although increasing reliability, it also slows down
+			transmission</answer>
+		<question_cn></question_cn>
+		<answer_cn></answer_cn>
+		<answer_simple>When network resources are strained, TCP can reduce the
+			window size to require that received segments be acknowledged more
+			frequently.</answer_simple>
+		<answer_draft></answer_draft>
+		<category>NE: Quiz 3</category>
+		<num>7</num>
+		<complete>False</complete>
+		<mark>False</mark>
+		<cid>3</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>8</ID>
+		<question>When using TCP, what occurs when data is lost? How is this
+			different from the way UDP deals with lost segments?
+			As data segments arrive at the destination, acknowledgement is sent
+			back to the host. This ensures reliability. If the host does not
+			receive acknowledgement, data is re-transmitted.</question>
+		<answer>As data segments arrive at the destination, acknowledgement is
+			sent back to the host. This ensures reliability. If the host does not
+			receive acknowledgement, data is re-transmitted.
+			There is no concept of acknowledgment, retransmission, or timeout.</answer>
+		<question_cn></question_cn>
+		<answer_cn></answer_cn>
+		<answer_simple>Using TCP, if the host does not receive
+			acknowledgement, data is re-transmitted.</answer_simple>
+		<answer_draft></answer_draft>
+		<category>NE: Quiz 3</category>
+		<num>8</num>
+		<complete>False</complete>
+		<mark>False</mark>
+		<cid>3</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>9</ID>
+		<question>At what stage does TCP reorder segments? How does UDP handle
+			out of order segments?</question>
+		<answer>Upon reception of the missing segment, the TCP reordering
+			mechanism would be able to assemble the stream.
+			UDP Does not record the order in which data was sent. Often, datagrams
+			will arrive out of order, and the host will simply have to process
+			them as is. It is up to the application to reorder the datagrams if
+			it is necessary to do so.</answer>
+		<question_cn></question_cn>
+		<answer_cn></answer_cn>
+		<answer_simple>Upon reception of the missing segment, the TCP
+			reordering mechanism would be able to assemble the stream.
+			UDP Does not record the order in which data was sent.</answer_simple>
+		<answer_draft></answer_draft>
+		<category>NE: Quiz 3</category>
+		<num>9</num>
+		<complete>False</complete>
+		<mark>False</mark>
+		<cid>3</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>10</ID>
+		<question>Explain the following IP Addressing terms:</question>
+		<answer>a. Network Address
+			A network address is an identifier for a node or network interface of
+			a telecommunications network.
+			b. Host Address
+			is a computer network that interconnects computers within a limited
+			area
+			c. Broadcast Address
+			A broadcast address is a logical address at which all devices
+			connected to a multiple-access communications network are enabled to
+			receive datagrams.</answer>
+		<question_cn></question_cn>
+		<answer_cn>à。网络地址
+			网络地址是一个标识符用于电信网络的节点或网络接口。
+			湾主机地址
+			&#160;是互连有限区域内的计算机的计算机网络
+			℃。广播地址
+			广播地址是它连接到一个多址通信网络中的所有设备能够接收数据报的逻辑地址。</answer_cn>
+		<answer_simple>Network Address is an identifier for a node or network
+			interface of a telecommunications network.
+			Host Address is a computer network that interconnects computers within a
+			limited area
+			Broadcast Address is a logical address at which all devices connected to a
+			multiple-access communications network are enabled to receive
+			datagrams.</answer_simple>
+		<answer_draft></answer_draft>
+		<category>NE: Quiz 2</category>
+		<num>1</num>
+		<complete>False</complete>
+		<mark>False</mark>
+		<cid>2</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>11</ID>
+		<question>Explain the 'AND' Operation. Why is the ANDing Operation
+			required when using IP Addresses?</question>
+		<answer>The AND operation is used to determine whether a particular
+			bit is 1 or 0. AND is used in determining the network address. The
+			IPv4 host address is logically ANDed, bit by bit, with its subnet
+			mask to determine the network address to which the host is
+			associated. When this bitwise ANDing between the address and the
+			subnet mask is performed, the result yields the network address.
+			Logical AND is the comparison of two bits that yields the following
+			results:
+			1 AND 1 = 1, 0 AND 1 = 0, 0 AND 0 = 0, 1 AND 0 = 0</answer>
+		<question_cn>解释“与”操作。为什么需要AND运算操作使用的IP地址时？</question_cn>
+		<answer_cn>AND运算来确定一个特定的位是1还是0，并且用在确定所述网络地址。
+			IPv4的主机地址是逻辑与的点点滴滴，与它的子网掩码来确定该主机相关联的网络地址。当此按位进行AND操作的地址和子网掩码之间进行，结果得到的网络地址。
+			逻辑与是两比特的产生以下结果的比较：
+			1与1 =1,0和1 =0，0与0= 0，1和0 =0</answer_cn>
+		<answer_simple>The AND operation is used to determine whether a
+			particular bit is 1 or 0.
+			1 AND 1 = 1, 0 AND 1 = 0, 0 AND 0 = 0, 1 AND 0 = 0</answer_simple>
+		<answer_draft></answer_draft>
+		<category>NE: Quiz 2</category>
+		<num>2</num>
+		<complete>False</complete>
+		<mark>False</mark>
+		<cid>2</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>12</ID>
+		<question>What is the purpose of DHCP? What does it assign to a host
+			PC?</question>
+		<answer>With DHCP, computers request IP addresses and networking
+			parameters automatically from a DHCP server, reducing the need for a
+			network administrator or a user to configure these settings manually.</answer>
+		<question_cn>DHCP的目的是什么？是什么把它分配给一台PC主机？</question_cn>
+		<answer_cn>使用DHCP，电脑自动申请IP地址和网络参数从DHCP服务器，减少了对网络管理员或用户手动配置这些设置。</answer_cn>
+		<answer_simple>With DHCP, reducing the need for a network
+			administrator or a user to configure these settings manually.</answer_simple>
+		<answer_draft></answer_draft>
+		<category>NE: Quiz 2</category>
+		<num>3</num>
+		<complete>False</complete>
+		<mark>False</mark>
+		<cid>2</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>13</ID>
+		<question>Define the following terms:</question>
+		<answer>a. Unicast
+			unicast transmission is the sending of messages to a single network
+			destination identified by a unique address.
+			b. Broadcast
+			Broadcasting refers to a method of transferring a message to all recipients
+			simultaneously.
+			c. Multicast
+			Multicast (one-to-many or many-to-many distribution[1]) is group
+			communication[2] where information is addressed to a group of
+			destination computers simultaneously.
+			Give an example when each of these would be used.</answer>
+		<question_cn>定义下列术语：</question_cn>
+		<answer_cn>à。单播
+			单播传输是信息的发送，以确定一个唯一的地址，一个网络目的地。
+			湾广播
+			广播是指同时传送讯息给所有接收者的方法。
+			℃。多播
+			组播（1对多或多对多的许多分布[1]）是组通信[2]其中，信息被同时寻址到一组目的地的计算机。
+			举一个例子，当所有这些将被使用。</answer_cn>
+		<answer_simple>Unicast is the sending of messages to a single network
+			destination identified by a unique address.
+			Broadcast refers to a method of transferring a message to all recipients
+			simultaneously.
+			Multicast is group communication where information is addressed to a group of
+			destination computers simultaneously.</answer_simple>
+		<answer_draft></answer_draft>
+		<category>NE: Quiz 2</category>
+		<num>4</num>
+		<complete>False</complete>
+		<mark>False</mark>
+		<cid>2</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>14</ID>
+		<question>What are private Addresses? Why do we have private addresses
+			and where and when would they be used?</question>
+		<answer>private network is a network that uses private IP address
+			space, following the standards set by RFC 1918 for Internet Protocol
+			Version 4 (IPv4), and RFC 4193 for Internet Protocol Version 6
+			(IPv6). These addresses are commonly used for home, office, and
+			enterprise local area networks (LANs), when globally routable
+			addresses are not mandatory, or are not available for the intended
+			network applications. Under IPv4, the private IP address spaces were
+			originally defined in an effort to delay IPv4 address exhaustion, but
+			they are also a feature of IPv6, the next generation Internet
+			Protocol.</answer>
+		<question_cn>什么是私有地址？为什么我们有私有地址，在哪里以及何时使用它们？</question_cn>
+		<answer_cn>专用网络是使用私有IP地址空间，下面由RFC1918
+			Internet协议版本4（IPv4）和RFC4193的Internet协议版本6（IPv6）设定的标准网络。这些地址通常用于家庭，办公室，企业和本地局域网（LAN）中，当全局可路由地址不是强制性的，或无法提供预定的网络应用程序。下IPv4中，私有IP地址空间中，以努力延缓IPv4的地址枯竭最初所定义，但同时又是IPv6的下一代互联网协议的一个特征。</answer_cn>
+		<answer_simple>Private network is a network that uses private IP
+			address space.
+			When globally routable addresses are not mandatory, or are not available
+			for the intended network applications.</answer_simple>
+		<answer_draft></answer_draft>
+		<category>NE: Quiz 2</category>
+		<num>5</num>
+		<complete>False</complete>
+		<mark>False</mark>
+		<cid>2</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>15</ID>
+		<question>IPV6 Addresses will replace IPV4 addresses in the future.
+			Briefly state why this will happen and explain the Dual Stack
+			migration technique.</question>
+		<answer>The main advantage of IPv6 over IPv4 is its larger address
+			space. The length of an IPv6 address is 128 bits, compared with 32
+			bits in IPv4.
+			A dual stack network is a network in which all of the nodes are both
+			IPv4 and IPv6 enabled.</answer>
+		<question_cn>IPv6地址将在未来取代IPv4地址。简单说明为什么会出现这种情况，并解释了双协议栈移植技术。</question_cn>
+		<answer_cn>IPv4的IPv6的主要优点是它的更大的地址空间。 IPv6地址的长度为128位，用32位的IPv4相比。
+			双协议栈网络是网络中的所有节点都是IPv4和IPv6启用。</answer_cn>
+		<answer_simple>The main advantage of IPv6 over IPv4 is its larger
+			address space.
+			A dual stack network is a network in which all of the nodes are both
+			IPv4 and IPv6 enabled.</answer_simple>
+		<answer_draft></answer_draft>
+		<category>NE: Quiz 2</category>
+		<num>6</num>
+		<complete>False</complete>
+		<mark>False</mark>
+		<cid>2</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>16</ID>
+		<question>Explain with sufficient detail to demonstrate your
+			understand, the f0llowing IPv6 Addresses. </question>
+		<answer>a. Global Unicast
+			Global unicast assignment records can be found at the various RIRs or other
+			websites.
+			b. Link-Local
+			Link-local addresses are used to communicate with other devices on the same
+			local link.
+
+			c. Unique-Local
+			Unique local addresses are used for local addressing within a site or
+			between a limited number of sites.
+		</answer>
+		<question_cn>有足够详细的解释，以证明你的理解中，f0llowing IPv6地址。</question_cn>
+		<answer_cn>à。全球单播
+			全局单播分配的记录可以在不同的RIR或其他网站上找到。
+			湾链路本地
+			链路本地地址用于与在相同的本地链接的其他设备进行通信。
+
+			℃。独特的局部
+			唯一的本地地址用于在一个站点或站点的数量有限的本地地址。</answer_cn>
+		<answer_simple>Global unicast assignment records can be found at the
+			various RIRs or other websites.
+			Link-local addresses are used to communicate with other devices on the same
+			local link.
+			Unique local addresses are used for local addressing within a site or
+			between a limited number of sites.
+		</answer_simple>
+		<answer_draft></answer_draft>
+		<category>NE: Quiz 2</category>
+		<num>7</num>
+		<complete>False</complete>
+		<mark>False</mark>
+		<cid>2</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>17</ID>
+		<question>Explain how Stateless Address Autoconfiguration (SLAAC)
+			allows end hosts to obtain an address.</question>
+		<answer>Using SLAAC, devices rely on the local router鈥檚 ICMPv6 Router
+			Advertisement (RA) messages to obtain the necessary information.</answer>
+		<question_cn>解释自动配置（SLAAC）如何无状态地址允许终端主机获得一个地址。</question_cn>
+		<answer_cn>使用SLAAC，设备依靠本地路由器上鈥檚的ICMPv6路由器通告（RA）消息，以获得必要的信息。</answer_cn>
+		<answer_simple>Using SLAAC, devices rely on the local router's ICMPv6
+			RA messages to obtain the necessary information.</answer_simple>
+		<answer_draft></answer_draft>
+		<category>NE: Quiz 2</category>
+		<num>8</num>
+		<complete>False</complete>
+		<mark>False</mark>
+		<cid>2</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>18</ID>
+		<question>What is the EUI-64 process? Why is this useful method used
+			by LAN hosts?</question>
+		<answer>IEEE defined the Extended Unique Identifier (EUI) or modified
+			EUI-64 process. This process uses a client鈥檚 48-bit Ethernet MAC
+			address, and inserts another 16 bits in the middle of the 48-bit MAC
+			address to create a 64-bit Interface ID.
+			The advantage of EUI-64 is the Ethernet MAC address can be used to
+			determine the Interface ID. It also allows network administrators to
+			easily track an IPv6 address to an end-device using the unique MAC
+			address.
+		</answer>
+		<question_cn>什么是EUI-64格式的过程？为什么是由局域网内的主机这个有用的方法是什么？</question_cn>
+		<answer_cn>IEEE定义的扩展唯一标识符（EUI）或修改的EUI-64的过程。这个过程采用了客户端鈥檚48位以太网MAC地址，并插入在48位MAC地址的中间建立一个64位的接口ID另一个16位。
+			EUI-64的优点是以太网MAC地址可以被用于确定接口ID。它还使网络管理员可以轻松地跟踪使用唯一的MAC地址的IPv6地址的终端设备。</answer_cn>
+		<answer_simple>This process uses a client's 48-bit Ethernet MAC
+			address, and inserts another 16 bits in the middle of the 48-bit MAC
+			address to create a 64-bit Interface ID.
+			The advantage is the Ethernet MAC address can be used to determine the
+			Interface ID.</answer_simple>
+		<answer_draft></answer_draft>
+		<category>NE: Quiz 2</category>
+		<num>9</num>
+		<complete>False</complete>
+		<mark>False</mark>
+		<cid>2</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>19</ID>
+		<question>ICMPv6 use Neighbour Solicitation (NS) and Neighbour
+			Advertisement (NM) messages for the following:
+			a. Address resolution
+			b. Duplicate Address Detection
+			Explain why Address Resolution and Duplicate Address Detection are important
+			in an IPv6 network.</question>
+		<answer>Address resolution is used when a device on the LAN knows the
+			IPv6 unicast address of a destination but does not know its Ethernet
+			MAC address.
+			When a device is assigned a global unicast or link-local unicast address,
+			it is recommended DAD is performed on the address to ensure that it
+			is unique.</answer>
+		<question_cn>ICMPv6的使用邻居请求（NS）和邻居通告（NM）消息如下：
+			à。地址解析
+			湾重复地址检测
+			解释为什么地址解析和重复地址检测是在IPv6网络中非常重要的。</question_cn>
+		<answer_cn>地址解析时使用局域网上的设备知道目的地的IPv6单播地址，但不知道它的以太网MAC地址。
+			当一个设备分配一个全局单播或链路本地单播地址，推荐DAD上的地址进行，以确保它是独一无二的。</answer_cn>
+		<answer_simple></answer_simple>
+		<answer_draft></answer_draft>
+		<category>NE: Quiz 2</category>
+		<num>10</num>
+		<complete>False</complete>
+		<mark>False</mark>
+		<cid>2</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>20</ID>
+		<question>Network Administrators are required to manage a great number
+			of tasks. One such task is to manage growing networks. Keeping this
+			in mind, what is the purpose of capturing traffic with a protocol
+			analyser (such as Wireshark) and how might this be used to improve
+			service delivery?</question>
+		<answer></answer>
+		<question_cn>网络管理员需要管理的任务有很大的数目。一个这样的任务是管理不断增长的网络。牢记这一点，什么是捕获流量使用协议分析器（如Wireshark的），以及如何的目的，这可能被用来改善服务交付？</question_cn>
+		<answer_cn>What is the purpose of capturing traffic and how might this
+			be used to improve service delivery?</answer_cn>
+		<answer_simple>To determine traffic flow patterns.
+			Capture traffic during peak utilization times to get a good representation
+			of the different traffic types.</answer_simple>
+		<answer_draft>To determine traffic flow patterns, it is important to:
+			Capture traffic during peak utilization times to get a good
+			representation of the different traffic types.
+			Perform the capture on different network segments, because some traffic will
+			be local to a particular segment.
+			Information gathered by the protocol analyzer is analyzed based on the source
+			and destination of the traffic as well as the type of traffic being
+			sent. This analysis can be used to make decisions on how to manage
+			the traffic more efficiently. This can be done by reducing
+			unnecessary traffic flows or changing flow patterns altogether by
+			moving a server, for example.
+			Sometimes, simply relocating a server or service to another network segment
+			improves network performance and accommodates the growing traffic
+			needs. At other times, optimizing the network performance requires
+			major network redesign and intervention.</answer_draft>
+		<category>NE: Quiz 4</category>
+		<num>1</num>
+		<complete>False</complete>
+		<mark>False</mark>
+		<cid>4</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>21</ID>
+		<question>Three network security factors are vulnerability, threat and
+			attack. Taking vulnerability,
+			explain one technical vulnerability, one configuration vulnerability and one
+			policy vulnerability.</question>
+		<answer></answer>
+		<question_cn>三大网络安全因素的脆弱性，威胁和攻击。以脆弱性， 解释一个技术漏洞，配置漏洞和一个策略
+			漏洞。</question_cn>
+		<answer_cn>vulnerability</answer_cn>
+		<answer_simple>Operating system weakness, Unsecured user accounts,
+			Lack of written security policy
+			Operating system weakness
+			Each operating system has security problems that must be addressed.
+			Unsecured user accounts
+			User account information may be transmitted insecurely across the
+			network.
+			Lack of written security policy
+			An unwritten policy cannot be consistently applied or enforced.</answer_simple>
+		<answer_draft></answer_draft>
+		<category>NE: Quiz 4</category>
+		<num>2</num>
+		<complete>False</complete>
+		<mark>False</mark>
+		<cid>4</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>22</ID>
+		<question>One kind of network attack is "reconnaissance attacks".
+			Briefly explain the following
+			Reconnaissance Attacks:
+			a. Internet Queries
+			b. Ping sweeps
+			c. Port Scans
+			d. Packet Sniffers</question>
+		<answer></answer>
+		<question_cn>一种网络攻击是“侦察攻击”。简要解释如下
+			侦察攻击：
+			à。上网查询
+			湾ping扫描
+			℃。端口扫描
+			??。数据包嗅探器</question_cn>
+		<answer_cn>reconnaissance attacks</answer_cn>
+		<answer_simple>Internet Queries: to determine the ip addresses by
+			using internet tools.
+			Ping sweeps is a method that can establish a range of IP addresses.
+			Port Scans : an attack that sends client requests to a range of server
+			port addresses on a host
+			Packet Sniffers: a computer program or a piece of computer hardware.</answer_simple>
+		<answer_draft>a. Internet Queries: to determine the ip addresses by
+			using intenet tools such as nslookup and whois utilities.
+			b. Ping sweeps : is a method that can establish a range of IP addresses
+			which map to live hosts.
+			c. Port Scans : an attack that sends client requests to a range of
+			server port addresses on a host, with the goal of finding an active
+			port and exploiting a known vulnerability of that service,[1]
+			although the majority of uses of a port scan are not attacks and are
+			simple probes to determine services available on a remote machine.
+			d. Packet Sniffers: a computer program or a piece of computer hardware
+			that can intercept and log traffic passing over a digital network or
+			part of a network.</answer_draft>
+		<category>NE: Quiz 4</category>
+		<num>3</num>
+		<complete>False</complete>
+		<mark>False</mark>
+		<cid>4</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>23</ID>
+		<question>Attacks can be mitigated using AAA. Briefly explain each of
+			the A's in AAA.</question>
+		<answer>Authentication - Users and administrators must prove their
+			identity Authentication can be established using their identity.
+			Authorization - which resources the user can access and which
+			operations the user is allowed to perform.
+			Accounting - records what the user accessed, the amount of time the resource is
+			accessed, and any changes made.</answer>
+		<question_cn>攻击可以采用AAA缓解。先简单介绍一下每个A在AAA级。</question_cn>
+		<answer_cn>AAA</answer_cn>
+		<answer_simple>Authentication, Authorization, Accounting</answer_simple>
+		<answer_draft></answer_draft>
+		<category>NE: Quiz 4</category>
+		<num>4</num>
+		<complete>False</complete>
+		<mark>False</mark>
+		<cid>4</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>24</ID>
+		<question>Explain the difference between a weak and strong password.
+			Why should strong passwords
+			be used? How often should passwords be changed?</question>
+		<answer></answer>
+		<question_cn>解释弱和强密码的区别。为什么要使用强密码 可以用吗？应该多久的密码进行更改？</question_cn>
+		<answer_cn>Password</answer_cn>
+		<answer_simple>Weak password: simple characters or numbers.
+			Strong password: a mix of upper lower case, number, symbols.
+			Every three months.</answer_simple>
+		<answer_draft>Weak paasword is comprised of simple words characters
+			numbers and is easy to be cracked.
+			Strong password is a mix of upper lower case, number m symybols and spaces,
+			is hard to be cracked.
+			To increses the account and decice security
+			Every three months</answer_draft>
+		<category>NE: Quiz 4</category>
+		<num>5</num>
+		<complete>False</complete>
+		<mark>False</mark>
+		<cid>4</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>25</ID>
+		<question>For what purpose/s does a network administrator use ping?</question>
+		<answer>Test network connectivity</answer>
+		<question_cn>目的是什么/ S做了网络管理员使用ping？</question_cn>
+		<answer_cn>Ping</answer_cn>
+		<answer_simple>Test network connectivity</answer_simple>
+		<answer_draft>Using the ping command is an effective way to test
+			connectivity.
+			The ping command will not always pinpoint the nature of a problem, but
+			it can help to identify the source of the problem, an important first
+			step in troubleshooting a network failure.
+			The ping command provides a method for checking the protocol stack and
+			IPv4 address configuration on a host as well as testing connectivity
+			to local or remote destination hosts,
+		</answer_draft>
+		<category>NE: Quiz 4</category>
+		<num>6</num>
+		<complete>False</complete>
+		<mark>False</mark>
+		<cid>4</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>26</ID>
+		<question>What important information is obtained from the 'show
+			version' command? How might this information be used?</question>
+		<answer>Cisco IOS version Cisco IOS version
+			System bootstrap
+			Cisco IOS image Cisco IOS image
+			CPU and RAM
+			N b dt f Number and type of
+			physical interfaces
+			Amount of NVRAM
+			Config register
+		</answer>
+		<question_cn>从“显示版本”命令，得到什么重要的信息？怎么可能这些信息可以用吗？</question_cn>
+		<answer_cn>show version</answer_cn>
+		<answer_simple>Software version, Bootstrap version, System up-time,
+			System restart info</answer_simple>
+		<answer_draft>Software version - IOS software version
+			Bootstrap version - Bootstrap version
+			System up-time - Time since last reboot
+			System restart info - Method of restart (e.g., power cycle, crash)
+			Software image name - IOS filename
+			Switch platform and processor type - Model number and processor type
+			Memory type (shared/main) - Main processor RAM and shared packet I/O
+			buffering
+			Hardware interfaces - Interfaces available on the switch
+			Configuration register - Sets bootup specifications, console speed setting, and
+			related parameters.</answer_draft>
+		<category>NE: Quiz 4</category>
+		<num>7</num>
+		<complete>False</complete>
+		<mark>False</mark>
+		<cid>4</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>27</ID>
+		<question>Router and Switch configuration files should always be
+			backed up. List as many methods as you can to do this, and briefly
+			describe each method.</question>
+		<answer></answer>
+		<question_cn>路由器和交换机的配置文件应该总是????备份。列出尽可能多的方法，你可以做到这一点，并简要介绍每一种方法。</question_cn>
+		<answer_cn>Backup Configurations</answer_cn>
+		<answer_simple>with Text capture, TFTP, USB flash drive or USB port on
+			switch</answer_simple>
+		<answer_draft>1) Backup Configurations with Text Capture (Tera Term)
+			Configuration files can be saved/archived to a text file using Tera
+			Term.
+			As shown in the figure, the steps are:
+			Step 1. On the File menu, click Log.
+			Step 2. Choose the location to save the file. Tera Term will begin
+			capturing text.
+			Step 3. After capture has been started, execute the show running-config
+			or show startup-config command at the privileged EXEC prompt. Text
+			displayed in the terminal window will be directed into the chosen
+			file.
+			Step 4. When the capture is complete, select Close in the Tera Term: Log
+			window.
+			Step 5. View the file to verify that it was not corrupted.
+
+			2) Backup Configurations with TFTP
+			Copies of configuration files should be stored as backup files in the event
+			of a problem. Configuration files can be stored on a Trivial File
+			Transfer Protocol (TFTP) server or a USB drive. A configuration file
+			should also be included in the network documentation.
+			To save the running configuration or the startup configuration to a
+			TFTP server, use either the copy running-config tftp or copy
+			startup-config tftp command as shown in the figure. Follow these
+			steps to back up the running configuration to a TFTP server:
+			Step 1. Enter the copy running-config tftpcommand.
+			Step 2. Enter the IP address of the host where the configuration file
+			will be stored.
+			Step 3. Enter the name to assign to the configuration file.
+			Step 4. Press Enter to confirm each choice.
+
+			3) using usb port on swithch
+			The Universal Serial Bus (USB) storage feature enables certain models of
+			Cisco routers to support USB flash drives. The USB flash feature
+			provides an optional secondary storage capability and an additional
+			boot device. Images, configurations, and other files can be copied to
+			or from the Cisco USB flash memory with the same reliability as
+			storing and retrieving files using the Compact Flash card. In
+			addition, modular integrated services routers can boot any Cisco IOS
+			Software image saved on USB flash memory.
+			4) Backup Configurations with a USB flash drive
+			When backing up to a USB port, it is a good idea to issue theshow file
+			systems command to verify that the USB drive is there and confirm the
+			name, as shown in Figure 1.
+			Next, use the copy run usbflash0:/ command to copy the configuration file
+			to the USB flash drive. Be sure to use the name of the flash drive,
+			as indicated in the file system. The slash is optional but indicates
+			the root directory of the USB flash drive.
+			The IOS will prompt for the filename. If the file already exists on the
+			USB flash drive, the router will prompt for overwrite, as seen in
+			Figure 2.
+			Use the dir command to see the file on the USB drive and use the more
+			command to see the contents, as seen in Figure 3.</answer_draft>
+		<category>NE: Quiz 4</category>
+		<num>8</num>
+		<complete>False</complete>
+		<mark>False</mark>
+		<cid>4</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>28</ID>
+		<question>Considering a wireless router, what is the difference
+			between WEP and WPA?</question>
+		<answer>Wired Equivalency Protocol (WEP) - uses pre-configured keys to
+			encrypt and decrypt data. Every wireless device allowed to access the
+			network must have the same WEP key entered.
+			Wi-Fi Protected Access (WPA) – also uses encryption keys from 64 bits up
+			to 256 bits. New keys are generated each time a connection is
+			established with the AP. Therefore more secure
+		</answer>
+		<question_cn>考虑到无线路由器，什么是WEP和WPA的区别？</question_cn>
+		<answer_cn>WEP & WPA</answer_cn>
+		<answer_simple>WEP: uses pre-configured keys to encrypt and decrypt
+			data.
+			WPA: uses encryption keys from 64 bits up to 256 bits. more secure</answer_simple>
+		<answer_draft></answer_draft>
+		<category>NE: Quiz 4</category>
+		<num>9</num>
+		<complete>False</complete>
+		<mark>False</mark>
+		<cid>4</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>29</ID>
+		<question>What is the purpose of the physical layer media in a
+			networked environment?</question>
+		<answer>The OSI physical layer provides the means to transport the
+			bits that make up a data link layer frame across the network media.
+			This layer accepts a complete frame from the data link layer and
+			encodes it as a series of signals that are transmitted onto the local
+			media. The encoded bits that comprise a frame are received by either
+			an end device or an intermediate device.</answer>
+		<question_cn>物理层媒体在网络环境的目的是什么？</question_cn>
+		<answer_cn>在OSI物理层提供的装置运送构成整个网络媒体的数据链路层帧中的位。该层接受来自数据链路层的完整的帧，它作为一个系列的信号被发送到本地媒体编码。编码比特组成一个帧是由任一终端设备或中间设备接收到的。</answer_cn>
+		<answer_simple>The OSI physical layer provides the means to transport
+			the bits that make up a data link layer frame across the network
+			media.</answer_simple>
+		<answer_draft></answer_draft>
+		<category>NE: Quiz 1</category>
+		<num>1</num>
+		<complete>False</complete>
+		<mark>False</mark>
+		<cid>1</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>30</ID>
+		<question>Data is sent as signals on media. These signals can be
+			either ‘Asynchronous’ or ‘Synchronous’. Explain both these methods.</question>
+		<answer>Asynchronous: Data signals are transmitted without an
+			associated clock signal. The time spacing between data characters or
+			blocks may be of arbitrary duration, meaning the spacing is not
+			standardized. Therefore, frames require start and stop indicator
+			flags.( Data signals are transmitted without an associated clock
+			signal. The time spacing between data characters or blocks may be of
+			arbitrary duration, meaning the spacing is not standardized.
+			Therefore, frames require start and stop indicator flags.)
+			Synchronous: Data signals are sent along with a clock signal which
+			occurs at evenly spaced time durations referred to as the bit time.
+		</answer>
+		<question_cn>数据发送的媒体信号。这些信号可以是“异步”或“同步”。说明这两种方法。</question_cn>
+		<answer_cn>异步：数据信号没有关联的时钟信号传输。数据的字符或块之间的时间间隔可以是任意的持续时间，这意味着间距不规范。因此，框架需要启动和停止指示标志。（数据信号没有关联的时钟信号传输的实时数据字符或块之间的间隔可以是任意的持续时间，这意味着间距不规范，因此，框架需要启动和停止指示灯标记。）
+			同步：数据信号连同其发生在被称为位时间均匀间隔的持续时间的时钟信号发送。</answer_cn>
+		<answer_simple>Asynchronous: Data signals are transmitted without an
+			associated clock signal.
+			Synchronous: Data signals are sent along with a clock signal which occurs at
+			evenly spaced time durations referred to as the bit time.</answer_simple>
+		<answer_draft></answer_draft>
+		<category>NE: Quiz 1</category>
+		<num>2</num>
+		<complete>False</complete>
+		<mark>False</mark>
+		<cid>1</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>31</ID>
+		<question>Copper Cabling is subject to interference from
+			Electromagnetic interference (EMI) or radio frequency interference
+			(RFI) and Crosstalk. Explain how these interferences affect data
+			signals. What is the source of these interferences?</question>
+		<answer>Electromagnetic interference (EMI) or radio frequency
+			interference (RFI) - EMI and RFI signals can distort and corrupt the
+			data signals being carried by copper media. Potential sources of EMI
+			and RFI include radio waves and electromagnetic devices such as
+			fluorescent lights or electric motors.
+			Crosstalk - Crosstalk is a disturbance caused by the electric or magnetic
+			fields of a signal on one wire to the signal in an adjacent wire. In
+			telephone circuits, crosstalk can result in hearing part of another
+			voice conversation from an adjacent circuit. Specifically, when
+			electrical current flows through a wire, it creates a small, circular
+			magnetic field around the wire which can be picked up by an adjacent
+			wire.
+			The sources of these interferences are the timing and voltage values of
+			the electrical pulses.
+		</answer>
+		<question_cn>铜布线是受到来自电磁干扰（EMI）或无线电频率干扰（RFI）和串音干扰。解释这些干扰如何影响数据信号。什么是这些干扰的来源？</question_cn>
+		<answer_cn>电磁干扰（EMI）和射频干扰（RFI） - EMI和RFI信号可以歪曲和破坏数据信号由铜介质进行。
+			EMI和RFI的潜在来源包括无线电波和电磁设备，如荧光灯或电动马达。
+			相声 -
+			串扰是相邻线引起的信号的电场或磁场在一根导线上的信号干扰。在电话电路，串扰会导致从相邻电路听到了另一种声音对话的一部分。特别是，当电流流过导线，它创建了一个小的，圆形的磁性各地可拾起相邻的线丝领域。
+			这些干扰的来源是在电脉冲的定时和电压值。</answer_cn>
+		<answer_simple>EMI and RFI signals can distort and corrupt the data
+			signals being carried by copper media.
+			Crosstalk is a disturbance caused by the electric or magnetic fields of a
+			signal on one wire to the signal in an adjacent wire.
+		</answer_simple>
+		<answer_draft></answer_draft>
+		<category>NE: Quiz 1</category>
+		<num>3</num>
+		<complete>False</complete>
+		<mark>False</mark>
+		<cid>1</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>32</ID>
+		<question>UTP Cabling is the most common form of network cabling
+			today. Keeping this in mind, what must be considered when installing
+			cabling for a network? (Be sure to include information about the
+			following elements – cable types, lengths, connectors, terminators
+			and methods of testing.)</question>
+		<answer></answer>
+		<question_cn>超五类布线是网络布线当今最常见的形式。牢记这一点，有什么必须为网络安装布线时要考虑？
+			（一定要包括有关下列内容的信息 - 电缆类型，长度，连接器，终端设备和测试方法）</question_cn>
+		<answer_cn></answer_cn>
+		<answer_simple></answer_simple>
+		<answer_draft></answer_draft>
+		<category>NE: Quiz 1</category>
+		<num>4</num>
+		<complete>False</complete>
+		<mark>False</mark>
+		<cid>1</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>33</ID>
+		<question>Explain the difference between single-mode fibre (SMF) and
+			Multimode Fibre (MMF) cables.
+			When might each be used?</question>
+		<answer>Single-mode fiber (SMF): Consists of a very small core and
+			uses expensive laser technology to send a single ray of light.
+			Popular in long-distance situations spanning hundreds of kilometers
+			such as required in long haul telephony and cable TV applications.
+			Multimode fiber (MMF): Consists of a larger core and uses LED
+			emitters to send light pulses. Specifically, light from an LED enters
+			the multimode fiber at different angles. Popular in LANs because they
+			can be powered by low cost LEDs. It provides bandwidth up to 10 Gb/s
+			over link lengths of up to 550 meters.
+		</answer>
+		<question_cn>解释的单模光纤（SMF）和多模光纤（MMF）电缆之间的差异。
+			当每一个可能被使用？</question_cn>
+		<answer_cn>单模光纤（SMF）：由一个非常小的内核，并采用昂贵的激光技术，光传送一个单一的光线。流行在长距离的情况下横跨数百公里如在长途电话和有线电视应用所需。
+			多模光纤（MMF）：由一个较大的核心，并使用LED发射器发出的光脉冲。具体地，光从LED进入多模光纤以不同的角度。流行的局域网，因为它们可以通过低成本的LED供电。它提供的带宽高达10
+			Gb/ s以上的高达550米的链路长度。</answer_cn>
+		<answer_simple>Single-mode fiber (SMF): Consists of a very small core
+			and uses expensive laser technology to send a single ray of light.
+			Multimode fiber (MMF): Consists of a larger core and uses LED
+			emitters to send light pulses.
+		</answer_simple>
+		<answer_draft></answer_draft>
+		<category>NE: Quiz 1</category>
+		<num>5</num>
+		<complete>False</complete>
+		<mark>False</mark>
+		<cid>1</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>34</ID>
+		<question>In wireless networks most devices use either 802.11n,
+			802.11ac or 802.11ad. Compare and
+			explain the properties of each. Which method would be used at
+			a. UTS
+			b. Within your home</question>
+		<answer>a. UTS
+			IEEE 802.11n: Operates in the 2.4 GHz and 5 GHz frequency bands. The
+			typical expected data rates range from 150 Mb/s to 600 Mb/s with a
+			distance range of up to 70 meters. It is backward compatible with
+			802.11a/b/g devices.
+
+			b. Within your home
+			IEEE 802.11g: Operates in the 2.4 GHz frequency band and offers speeds of
+			up to 54 Mbps. Devices implementing this standard therefore operate
+			at the same radio frequency and range as 802.11b but with the
+			bandwidth of 802.11a.
+		</answer>
+		<question_cn>在无线网络中大多数设备可以使用的802.11n，802.11ac标准或802.11ad标准。比较和
+			解释每个的属性。该方法将用于在。
+			UTS
+			湾在你的家</question_cn>
+		<answer_cn>IEEE802.11n标准：工作在2.4 GHz和5 GHz频段。典型的预期数据速率范围从150 Mb / s到600
+			Mb / s的可达70米的距离范围内。它是向下兼容的802.11a / b/ g设备兼容。
+
+			湾在你的家
+			IEEE 802.11g的：运行在2.4 GHz频段，提供速度高达54
+			Mbps。设备实施本标准，因此在相同的无线电频率和范围为802.11，但与802.11的带宽操作。</answer_cn>
+		<answer_simple>UTS: IEEE 802.11n: Operates in the 2.4 GHz and 5 GHz
+			frequency bands.
+			Home: IEEE 802.11g: Operates in the 2.4 GHz frequency band and offers
+			speeds of up to 54 Mbps.
+		</answer_simple>
+		<answer_draft></answer_draft>
+		<category>NE: Quiz 1</category>
+		<num>6</num>
+		<complete>False</complete>
+		<mark>False</mark>
+		<cid>1</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>35</ID>
+		<question>The Data Link Layer is divided into two sub-layers, the LLC
+			and MAC sub-layers. Why is this division used? Explain the purpose of
+			each sub-layer.</question>
+		<answer>The purpose of division: Separating the data link layer into
+			sublayers allows for one type of frame defined by the upper layer to
+			access different types of media defined by the lower layer. Such is
+			the case in many LAN technologies, including Ethernet.
+			?? Logical Link Control (LLC): This upper sublayer defines the software
+			processes that provide services to the network layer protocols. It
+			places information in the frame that identifies which network layer
+			protocol is being used for the frame. This information allows
+			multiple Layer 3 protocols, such as IPv4 and IPv6, to utilize the
+			same network interface and media.
+			?? Media Access Control (MAC): This lower sublayer defines the media
+			access processes performed by the hardware. It provides data link
+			layer addressing and delimiting of data according to the physical
+			signaling requirements of the medium and the type of data link layer
+			protocol in use.
+		</answer>
+		<question_cn>在数据链路层被分为两个子层中，LLC和MAC子层。为什么用这样的划分？说明各子层的目的。</question_cn>
+		<answer_cn>师的目的：分离数据链路层分成子层允许由上层定义来访问不同类型的由下层确定的培养基一种类型的帧。例如，在许多LAN技术，包括以太网的情况。
+			??逻辑链路控制（LLC）：该上部子层定义了网络层协议提供服务的软件的过程。它放置在标识该网络层协议被用于该帧的帧信息。该信息允许多个第3层协议，例如IPv4和IPv6中，利用相同的网络接口和媒体。
+			??媒体访问控制（MAC）：此下部子层定义了硬件所执行的媒体接入流程。它提供了数据链路层数据的寻址和根据该介质的物理信令要求和数据链路层协议的使用的类型划分。</answer_cn>
+		<answer_simple></answer_simple>
+		<answer_draft>Logical Link Control (LLC): This upper sublayer defines
+			the software processes that provide services to the network layer
+			protocols.
+			Media Access Control (MAC): This lower sublayer defines the media access
+			processes performed by the hardware.</answer_draft>
+		<category>NE: Quiz 1</category>
+		<num>7</num>
+		<complete>False</complete>
+		<mark>False</mark>
+		<cid>1</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>36</ID>
+		<question>Look carefully at the figure showing the Ethernet Frame.
+			Explain each of the fields shown.</question>
+		<answer>Frame start and stop indicator flags: Used by the MAC sublayer
+			to identify the beginning and end limits of the frame.
+			Addressing: Used by the MAC sublayer to identify the source and destination
+			nodes.
+			Type: Used by the LLC to identify the Layer 3 protocol.
+			Control: Identifies special flow control services.
+			Data: Contains the frame payload (i.e., packet header, segment header, and
+			the data).
+			Error Detection: Included after the data to form the trailer, these frame
+			fields are used for error detection.
+		</answer>
+		<question_cn>仔细看看图中显示的以太网帧。解释每个中所示的字段。</question_cn>
+		<answer_cn>帧开始和结束指示符标志：用于由MAC子层识别帧的开始和结束范围。
+			处理：使用由MAC子层识别的源节点和目的节点。
+			类型：使用的有限责任公司，以确定的第3层协议。
+			控制：识别特殊的流量控制服务。
+			数据：包含在帧有效载荷（即，数据包报头，分段报头和数据）。
+			错误检测：数据后，包括形成预告片，这些帧字段用于错误检测。</answer_cn>
+		<answer_simple>Frame start and stop indicator flags: Used by the MAC
+			sublayer to identify the beginning and end limits of the frame.
+			Addressing: Used by the MAC sublayer to identify the source and
+			destination nodes.
+			Type: Used by the LLC to identify the Layer 3 protocol.
+			Control: Identifies special flow control services.
+			Data: Contains the frame payload (i.e., packet header, segment header, and
+			the data).
+			Error Detection: Included after the data to form the trailer, these frame
+			fields are used for error detection.</answer_simple>
+		<answer_draft></answer_draft>
+		<category>NE: Quiz 1</category>
+		<num>8</num>
+		<complete>False</complete>
+		<mark>False</mark>
+		<cid>1</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>37</ID>
+		<question>Explain the difference between a Physical Topology and a
+			Logical Topology.</question>
+		<answer>Physical topology: Refers to the physical connections and
+			identifies how end devices and infrastructure devices such as
+			routers, switches, and wireless access points are interconnected.
+			Physical topologies are usually point-to-point or star.
+			Logical topology: Refers to the way a network transfers frames from one node
+			to the next. This arrangement consists of virtual connections between
+			the nodes of a network. These logical signal paths are defined by
+			data link layer protocols. The logical topology of point-to-point
+			links is relatively simple while shared media offers deterministic
+			and a non-deterministic media access control methods.
+		</answer>
+		<question_cn>解释物理拓扑和逻辑拓扑之间的差异。</question_cn>
+		<answer_cn>物理拓扑结构：是指在物理连接，并识别终端设备和基础设施设备，如路由器，交换机，以及无线接入点如何被互连。物理拓扑结构通常是指对点或星形。
+			逻辑拓扑结构：是指一个网络需要从一个节点到下一个帧的方式。这种结构由一个网络的节点之间的虚拟连接。通过数据定义这些逻辑信号路径的链路层协议。的点至点链接的逻辑拓扑结构相对简单，而共享媒体提供的确定性和非确定性的介质访问控制方法。</answer_cn>
+		<answer_simple>Physical topology: Refers to the physical connections
+			and identifies how end devices and infrastructure devices are
+			interconnected.
+			Logical topology: Refers to the way a network transfers frames from one node
+			to the next.</answer_simple>
+		<answer_draft></answer_draft>
+		<category>NE: Quiz 1</category>
+		<num>9</num>
+		<complete>False</complete>
+		<mark>False</mark>
+		<cid>1</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>38</ID>
+		<question>Explain the following physical topologies:
+			a. Star
+			b. Extended star c. Bus
+			d. Ring</question>
+		<answer>a. Star
+			End devices are connected to a central intermediate device. Early star
+			topologies interconnected end devices using hubs. However, star
+			topologies now use switches. The star topology is the most common
+			physical LAN topology primarily because it is easy to install, very
+			scalable (easy to add and remove end devices), and easy to
+			troubleshoot.
+
+			b. Extended star
+			In an extended star topology, central intermediate devices interconnect
+			other star topologies. In a hybrid topology, the star networks may
+			interconnect using a bus topology.
+			c. Bus
+			All end systems are chained to each other and terminated in some form on
+			each end. Infrastructure devices such as switches are not required to
+			interconnect the end devices. Bus topologies were used in legacy
+			Ethernet networks because it was inexpensive to use and easy to set
+			up.
+			d. Ring
+			End systems are connected to their respective neighbor forming a ring.
+			Unlike the bus topology, the ring does not need to be terminated.
+			Ring topologies were used in legacy Fiber Distributed Data Interface
+			(FDDI) networks. Specifically, FDDI networks employ a second ring for
+			fault tolerance or performance enhancements.
+		</answer>
+		<question_cn>解释下列物理拓扑结构：
+			à。星
+			湾扩展球星C。巴士
+			e。环</question_cn>
+		<answer_cn>à。星
+			端设备连接到中央的中间设备。早期的星型拓扑结构相互连接使用集线器终端设备。然而，星型拓扑结构现在使用的交换机。星型拓扑结构是最常见的物理LAN拓扑结构，主要是因为它易于安装，非常可伸缩的（便于添加和删除终端设备），并且容易解决。
+
+			湾扩展明星
+			在扩展星型拓扑结构，核心中间设备互连等星型拓扑结构。在混合拓扑，星型网络，可以利用互连总线拓扑。
+			℃。巴士
+			所有端系统被链接到彼此并终止在某种形式的每一端。基础设施设备如交换机无需相互连接的终端设备。总线拓扑结构是在传统的以太网网络中使用，因为它是便宜的使用，并且容易设置。
+			??。环
+			端系统连接到它们各自的邻居形成环。不像总线拓扑，环型并不需要被终止。环形拓扑结构是在传统的光纤分布式数据接口（FDDI）网络中使用。具体来说，FDDI网络采用了容错功能和性能增强的第二环。</answer_cn>
+		<answer_simple>Star: End devices are connected to a central
+			intermediate device.
+			Extended star: In an extended star topology, central intermediate devices
+			interconnect other star topologies.
+			Bus: All end systems are chained to each other and terminated in some
+			form on each end.
+			Ring: End systems are connected to their respective neighbor forming a
+			ring.</answer_simple>
+		<answer_draft></answer_draft>
+		<category>NE: Quiz 1</category>
+		<num>10</num>
+		<complete>False</complete>
+		<mark>False</mark>
+		<cid>1</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>39</ID>
+		<question>Explain the following terms used for email data: SMTP</question>
+		<answer></answer>
+		<question_cn></question_cn>
+		<answer_cn></answer_cn>
+		<answer_simple></answer_simple>
+		<answer_draft></answer_draft>
+		<category></category>
+		<num>2</num>
+		<complete>False</complete>
+		<mark>False</mark>
+		<cid>5</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>40</ID>
+		<question>Explain the following terms used for email data: POP3</question>
+		<answer></answer>
+		<question_cn></question_cn>
+		<answer_cn></answer_cn>
+		<answer_simple></answer_simple>
+		<answer_draft></answer_draft>
+		<category></category>
+		<num>3</num>
+		<complete>False</complete>
+		<mark>False</mark>
+		<cid>5</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>41</ID>
+		<question>Explain the following terms used for email data: MUA</question>
+		<answer></answer>
+		<question_cn></question_cn>
+		<answer_cn></answer_cn>
+		<answer_simple></answer_simple>
+		<answer_draft></answer_draft>
+		<category></category>
+		<num>4</num>
+		<complete>False</complete>
+		<mark>False</mark>
+		<cid>5</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>42</ID>
+		<question>Explain the following terms used for email data: MTA</question>
+		<answer></answer>
+		<question_cn></question_cn>
+		<answer_cn></answer_cn>
+		<answer_simple></answer_simple>
+		<answer_draft></answer_draft>
+		<category></category>
+		<num>5</num>
+		<complete>False</complete>
+		<mark>False</mark>
+		<cid>5</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>43</ID>
+		<question>Explain the following terms used for email data: MDA</question>
+		<answer></answer>
+		<question_cn></question_cn>
+		<answer_cn></answer_cn>
+		<answer_simple></answer_simple>
+		<answer_draft></answer_draft>
+		<category></category>
+		<num>6</num>
+		<complete>False</complete>
+		<mark>False</mark>
+		<cid>5</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>44</ID>
+		<question>The above figure shows the encapsulation process. Explain
+			this process giving specific detail at each layer of the OSI Model.
+			Be sure to explain the different pdus at each stage.</question>
+		<answer>Transport layer (segment) adds transport header (port numbers)
+			Network layer (packet) adds network header (source and destination IP
+			addressing)
+			Data layer adds Frame header (MAC addressing)</answer>
+		<question_cn></question_cn>
+		<answer_cn></answer_cn>
+		<answer_simple>Transport layer adds transport header.
+			Network layer adds network header.
+			Data layer adds Frame header.</answer_simple>
+		<answer_draft></answer_draft>
+		<category></category>
+		<num>1</num>
+		<complete>False</complete>
+		<mark>False</mark>
+		<cid>5</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>45</ID>
+		<question>What cable is used to connect a router to a PC?</question>
+		<answer>cross over cable</answer>
+		<question_cn></question_cn>
+		<answer_cn></answer_cn>
+		<answer_simple></answer_simple>
+		<answer_draft></answer_draft>
+		<category></category>
+		<num>1</num>
+		<complete>False</complete>
+		<mark>False</mark>
+		<cid>6</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>46</ID>
+		<question>What cable is used between a router and another router?</question>
+		<answer>cross over </answer>
+		<question_cn></question_cn>
+		<answer_cn></answer_cn>
+		<answer_simple></answer_simple>
+		<answer_draft></answer_draft>
+		<category></category>
+		<num>2</num>
+		<complete>False</complete>
+		<mark>False</mark>
+		<cid>6</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>47</ID>
+		<question>What cable is used between a router and a switch?</question>
+		<answer>straight through</answer>
+		<question_cn></question_cn>
+		<answer_cn></answer_cn>
+		<answer_simple></answer_simple>
+		<answer_draft></answer_draft>
+		<category></category>
+		<num>3</num>
+		<complete>False</complete>
+		<mark>False</mark>
+		<cid>6</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>48</ID>
+		<question>What does Hyperterminal emulation software allow a user to
+			do?</question>
+		<answer>can be use to set-up the connection between two network
+			devices</answer>
+		<question_cn></question_cn>
+		<answer_cn></answer_cn>
+		<answer_simple></answer_simple>
+		<answer_draft></answer_draft>
+		<category></category>
+		<num>4</num>
+		<complete>False</complete>
+		<mark>False</mark>
+		<cid>6</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>49</ID>
+		<question>What is an alternative to using Hyperterminal emulation
+			software?</question>
+		<answer>windows remote shell, putty, winscp</answer>
+		<question_cn></question_cn>
+		<answer_cn></answer_cn>
+		<answer_simple></answer_simple>
+		<answer_draft></answer_draft>
+		<category></category>
+		<num>5</num>
+		<complete>False</complete>
+		<mark>False</mark>
+		<cid>6</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>50</ID>
+		<question>What do the following commands allow? [1. line con 0; 2.
+			password cisco; 3.login]</question>
+		<answer>1. console port config
+			2. set password to cisco
+			3. set enable password checking
+
+			set console port login password to cisco
+		</answer>
+		<question_cn></question_cn>
+		<answer_cn></answer_cn>
+		<answer_simple></answer_simple>
+		<answer_draft></answer_draft>
+		<category></category>
+		<num>6</num>
+		<complete>False</complete>
+		<mark>False</mark>
+		<cid>6</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>51</ID>
+		<question>How many vty lines are on a router?</question>
+		<answer>typical router has 5 vty lines as vty 0 4</answer>
+		<question_cn></question_cn>
+		<answer_cn></answer_cn>
+		<answer_simple></answer_simple>
+		<answer_draft></answer_draft>
+		<category></category>
+		<num>7</num>
+		<complete>False</complete>
+		<mark>False</mark>
+		<cid>6</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>52</ID>
+		<question>How many vty lines are on a switch?</question>
+		<answer>typical switch have 16 vty lines as vty 0 15</answer>
+		<question_cn></question_cn>
+		<answer_cn></answer_cn>
+		<answer_simple></answer_simple>
+		<answer_draft></answer_draft>
+		<category></category>
+		<num>8</num>
+		<complete>False</complete>
+		<mark>False</mark>
+		<cid>6</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>53</ID>
+		<question>How can you securely configure the vty lines on a router or
+			switch?</question>
+		<answer>set password to vty lines
+			enable ssh to have stronger key module
+			config ACL to permit traffic from trusted ip
+		</answer>
+		<question_cn></question_cn>
+		<answer_cn></answer_cn>
+		<answer_simple></answer_simple>
+		<answer_draft></answer_draft>
+		<category></category>
+		<num>9</num>
+		<complete>False</complete>
+		<mark>False</mark>
+		<cid>6</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>54</ID>
+		<question>How do you remove an incorrect configuration line?</question>
+		<answer>erase startup-config</answer>
+		<question_cn></question_cn>
+		<answer_cn></answer_cn>
+		<answer_simple></answer_simple>
+		<answer_draft></answer_draft>
+		<category></category>
+		<num>10</num>
+		<complete>False</complete>
+		<mark>False</mark>
+		<cid>6</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>55</ID>
+		<question>What is the purpose of a 'banner'?</question>
+		<answer>Message show up after login, to infrom user about the policy</answer>
+		<question_cn></question_cn>
+		<answer_cn></answer_cn>
+		<answer_simple></answer_simple>
+		<answer_draft></answer_draft>
+		<category></category>
+		<num>11</num>
+		<complete>False</complete>
+		<mark>False</mark>
+		<cid>6</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>56</ID>
+		<question>How can you save a configuration file to NVRAM?</question>
+		<answer>copy runnning-config startup-config</answer>
+		<question_cn></question_cn>
+		<answer_cn></answer_cn>
+		<answer_simple></answer_simple>
+		<answer_draft></answer_draft>
+		<category></category>
+		<num>12</num>
+		<complete>False</complete>
+		<mark>False</mark>
+		<cid>6</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>57</ID>
+		<question>What layer 1 (Physical Layer) problems might you have in a
+			network?</question>
+		<answer>Cabling</answer>
+		<question_cn></question_cn>
+		<answer_cn></answer_cn>
+		<answer_simple></answer_simple>
+		<answer_draft></answer_draft>
+		<category></category>
+		<num>13</num>
+		<complete>False</complete>
+		<mark>False</mark>
+		<cid>6</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>58</ID>
+		<question>What layer 2 (Data Link Layer) problems might you have in a
+			network?</question>
+		<answer>data transmission errors</answer>
+		<question_cn></question_cn>
+		<answer_cn></answer_cn>
+		<answer_simple></answer_simple>
+		<answer_draft></answer_draft>
+		<category></category>
+		<num>14</num>
+		<complete>False</complete>
+		<mark>False</mark>
+		<cid>6</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>59</ID>
+		<question>What layer 3 (Network Layer) problems might you have in a
+			network?</question>
+		<answer></answer>
+		<question_cn></question_cn>
+		<answer_cn></answer_cn>
+		<answer_simple></answer_simple>
+		<answer_draft></answer_draft>
+		<category></category>
+		<num>15</num>
+		<complete>False</complete>
+		<mark>False</mark>
+		<cid>6</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>60</ID>
+		<question>IPv6 addresses are 128 bits long. How are they written and
+			what is the significance of the subnet mask?</question>
+		<answer></answer>
+		<question_cn></question_cn>
+		<answer_cn></answer_cn>
+		<answer_simple></answer_simple>
+		<answer_draft></answer_draft>
+		<category></category>
+		<num>16</num>
+		<complete>False</complete>
+		<mark>False</mark>
+		<cid>6</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>61</ID>
+		<question>What must be configured on a router to permit IPv6 addresses
+			to be configured on interfaces?</question>
+		<answer></answer>
+		<question_cn></question_cn>
+		<answer_cn></answer_cn>
+		<answer_simple></answer_simple>
+		<answer_draft></answer_draft>
+		<category></category>
+		<num>17</num>
+		<complete>False</complete>
+		<mark>False</mark>
+		<cid>6</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>62</ID>
+		<question>How are subnet masks written when using IPv6 addresses?</question>
+		<answer></answer>
+		<question_cn></question_cn>
+		<answer_cn></answer_cn>
+		<answer_simple></answer_simple>
+		<answer_draft></answer_draft>
+		<category></category>
+		<num>18</num>
+		<complete>False</complete>
+		<mark>False</mark>
+		<cid>6</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>63</ID>
+		<question>Switches are layer 2 devices. Explain why is it possible to
+			configure addresses (layer 3) on Layer 2 devices?</question>
+		<answer></answer>
+		<question_cn></question_cn>
+		<answer_cn></answer_cn>
+		<answer_simple></answer_simple>
+		<answer_draft></answer_draft>
+		<category></category>
+		<num>19</num>
+		<complete>False</complete>
+		<mark>False</mark>
+		<cid>6</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>64</ID>
+		<question>Switches use SVIs. What are SVIs, and how are they different
+			to physical interfaces?</question>
+		<answer></answer>
+		<question_cn></question_cn>
+		<answer_cn></answer_cn>
+		<answer_simple></answer_simple>
+		<answer_draft></answer_draft>
+		<category></category>
+		<num>20</num>
+		<complete>False</complete>
+		<mark>False</mark>
+		<cid>6</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>65</ID>
+		<question>In what ways is a Router similar to a Computer?</question>
+		<answer></answer>
+		<question_cn></question_cn>
+		<answer_cn></answer_cn>
+		<answer_simple></answer_simple>
+		<answer_draft></answer_draft>
+		<category></category>
+		<num>21</num>
+		<complete>False</complete>
+		<mark>False</mark>
+		<cid>6</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>66</ID>
+		<question>Given the subnet mask of 255.255.248.0 and the broadcast
+			address 14.205.119.255, find the network address and the first host
+			address.</question>
+		<answer>14.205.112.0/21</answer>
+		<question_cn></question_cn>
+		<answer_cn></answer_cn>
+		<answer_simple></answer_simple>
+		<answer_draft></answer_draft>
+		<category></category>
+		<num>1</num>
+		<complete>False</complete>
+		<mark>False</mark>
+		<cid>7</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>67</ID>
+		<question>You have been given the network address 17.92.176.80. If the
+			subnet mask is 255.255.255.240, what is the maximum number of usable
+			hosts for this subnet? What is the last usable host address and the
+			broadcast address of this subnet?</question>
+		<answer></answer>
+		<question_cn></question_cn>
+		<answer_cn></answer_cn>
+		<answer_simple></answer_simple>
+		<answer_draft></answer_draft>
+		<category></category>
+		<num>2</num>
+		<complete>False</complete>
+		<mark>False</mark>
+		<cid>7</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>69</ID>
+		<question>Given the host address of 147.47.0.12 and a subnet mask with
+			29 bits, find the network address and the broadcast address of this
+			subnet.</question>
+		<answer>147.47.0.8
+			147.47.0.15</answer>
+		<question_cn></question_cn>
+		<answer_cn></answer_cn>
+		<answer_simple></answer_simple>
+		<answer_draft></answer_draft>
+		<category></category>
+		<num>3</num>
+		<complete>False</complete>
+		<mark>False</mark>
+		<cid>7</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>70</ID>
+		<question>Given the following diagram and the IP Address
+			194.186.228.0/22; Ryde LAN 165 Hosts, Parramatta LAN 120 Hosts,
+			Chatswood LAN 75 Hosts, Strathfield LAN 45 Hosts and Hornsby LAN 25
+			Hosts; answer the questions below.</question>
+		<answer></answer>
+		<question_cn></question_cn>
+		<answer_cn></answer_cn>
+		<answer_simple></answer_simple>
+		<answer_draft></answer_draft>
+		<category></category>
+		<num>4</num>
+		<complete>False</complete>
+		<mark>False</mark>
+		<cid>7</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>71</ID>
+		<question>Name the computing device that would display the output
+			shown in the above figure.</question>
+		<answer></answer>
+		<question_cn></question_cn>
+		<answer_cn></answer_cn>
+		<answer_simple></answer_simple>
+		<answer_draft></answer_draft>
+		<category></category>
+		<num>1</num>
+		<complete>False</complete>
+		<mark>False</mark>
+		<cid>8</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>72</ID>
+		<question>Answer the following questions about the ARP command:
+			a.What command would be used to display all entries in ARP cache?
+			b.What command would be used to delete all ARP cache entries (flush ARP
+			cache)
+			c.What command would be used to delete the ARP cache entry for
+			172.16.255.254?</question>
+		<answer></answer>
+		<question_cn></question_cn>
+		<answer_cn></answer_cn>
+		<answer_simple></answer_simple>
+		<answer_draft></answer_draft>
+		<category></category>
+		<num>2</num>
+		<complete>False</complete>
+		<mark>False</mark>
+		<cid>8</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>73</ID>
+		<question>How is an ARP entry added to the ARP cache? (Note: This is
+			not found in the table above.)</question>
+		<answer></answer>
+		<question_cn></question_cn>
+		<answer_cn></answer_cn>
+		<answer_simple></answer_simple>
+		<answer_draft></answer_draft>
+		<category></category>
+		<num>3</num>
+		<complete>False</complete>
+		<mark>False</mark>
+		<cid>8</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>74</ID>
+		<question>For what purpose is an ARP cache held?</question>
+		<answer></answer>
+		<question_cn></question_cn>
+		<answer_cn></answer_cn>
+		<answer_simple></answer_simple>
+		<answer_draft></answer_draft>
+		<category></category>
+		<num>4</num>
+		<complete>False</complete>
+		<mark>False</mark>
+		<cid>8</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>75</ID>
+		<question>What is the difference between static ARP and dynamic ARP
+			cache entries?</question>
+		<answer></answer>
+		<question_cn></question_cn>
+		<answer_cn></answer_cn>
+		<answer_simple></answer_simple>
+		<answer_draft></answer_draft>
+		<category></category>
+		<num>5</num>
+		<complete>False</complete>
+		<mark>False</mark>
+		<cid>8</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>76</ID>
+		<question>What occurs when a computing device receives an ARP request?</question>
+		<answer></answer>
+		<question_cn></question_cn>
+		<answer_cn></answer_cn>
+		<answer_simple></answer_simple>
+		<answer_draft></answer_draft>
+		<category></category>
+		<num>6</num>
+		<complete>False</complete>
+		<mark>False</mark>
+		<cid>8</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>77</ID>
+		<question>If a destination for a communication is outside the LAN, how
+			is ARP for this communication determined?</question>
+		<answer></answer>
+		<question_cn></question_cn>
+		<answer_cn></answer_cn>
+		<answer_simple></answer_simple>
+		<answer_draft></answer_draft>
+		<category></category>
+		<num>7</num>
+		<complete>False</complete>
+		<mark>False</mark>
+		<cid>8</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>78</ID>
+		<question>The above figure shows the encapsulation process. Explain
+			this process giving specific detail at each layer of the OSI Model.
+			Be sure to explain the different PDUs at each stage and include the
+			most significant fields for each pdu.</question>
+		<answer></answer>
+		<question_cn></question_cn>
+		<answer_cn></answer_cn>
+		<answer_simple></answer_simple>
+		<answer_draft>两边传数据的基本流程是这样:
+			数据-下来到application, presentation, session层, 然后到transport层会被分片, 然后加上TCP或者UDP包头,
+			发到下一层network layer, 加上IP头封包, 然后DATA link Layer, 加上二层头, 如果是ethernet,
+			那就是MAC地址头封包, 最后变成二进制的数据在physical层传输. 到了对面, 那就需要解包, 也是一层一层往上走,
+			最后从application层出来,把数据包发给相应的应用程序
+		</answer_draft>
+		<category></category>
+		<num>0</num>
+		<complete>False</complete>
+		<mark>False</mark>
+		<cid>9</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>79</ID>
+		<question>Look at the following IPv6 Address. Shorten it to its
+			optimal length.
+			2001:bac1:45df:0:0:0420:0:0001/64</question>
+		<answer></answer>
+		<question_cn>知道</question_cn>
+		<answer_cn></answer_cn>
+		<answer_simple></answer_simple>
+		<answer_draft></answer_draft>
+		<category></category>
+		<num>1</num>
+		<complete>False</complete>
+		<mark>False</mark>
+		<cid>10</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>80</ID>
+		<question>Define the following terms for IPv6:
+			a. Unicast
+			b. Anycast
+			c. Multicast
+			When is each used?</question>
+		<answer>a. Unicast
+			unicast transmission is the sending of messages to a single network
+			destination identified by a unique address.
+			b. Broadcast
+			Broadcasting refers to a method of transferring a message to all recipients
+			simultaneously.
+			c. Multicast
+			Multicast (one-to-many or many-to-many distribution[1]) is group
+			communication[2] where information is addressed to a group of
+			destination computers simultaneously.</answer>
+		<question_cn>When is each used?</question_cn>
+		<answer_cn></answer_cn>
+		<answer_simple>Unicast transmission is the sending of messages to a
+			single network destination identified by a unique address.
+			Broadcasting refers to a method of transferring a message to all
+			recipients simultaneously.
+			Multicast is group communication where information is addressed to a group of
+			destination computers simultaneously.</answer_simple>
+		<answer_draft></answer_draft>
+		<category></category>
+		<num>2</num>
+		<complete>False</complete>
+		<mark>False</mark>
+		<cid>10</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>81</ID>
+		<question>With Stateless Address Autoconfiguration (SLAAC) how does a
+			host obtain an IP Address? Be sure to detail all the steps involved.</question>
+		<answer>Using SLAAC, devices rely on the local router's ICMPv6 Router
+			Advertisement (RA) messages to obtain the necessary information.</answer>
+		<question_cn></question_cn>
+		<answer_cn></answer_cn>
+		<answer_simple>Using SLAAC, devices rely on the local router's ICMPv6
+			Router Advertisement (RA) messages to obtain the necessary
+			information.</answer_simple>
+		<answer_draft></answer_draft>
+		<category></category>
+		<num>3</num>
+		<complete>False</complete>
+		<mark>False</mark>
+		<cid>10</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>82</ID>
+		<question>EUI-64 is a particular addressing process using IPv6.
+			Explain the process of obtaining an EUI-64 address, and explain its
+			purpose.</question>
+		<answer>This process uses a client's 48-bit Ethernet MAC address, and
+			inserts another 16 bits in the middle of the 48-bit MAC address to
+			create a 64-bit Interface ID. The advantage of EUI-64 is the Ethernet
+			MAC address can be used to determine the Interface ID. It also allows
+			network administrators to easily track an IPv6 address to an
+			end-device using the unique MAC address.</answer>
+		<question_cn></question_cn>
+		<answer_cn></answer_cn>
+		<answer_simple>This process uses a client's 48-bit Ethernet MAC
+			address, and inserts another 16 bits in the middle of the 48-bit MAC
+			address to create a 64-bit Interface ID. The advantage of EUI-64 is
+			the Ethernet MAC address can be used to determine the Interface ID.
+			It also allows network administrators to easily track an IPv6 address
+			to an end-device using the unique MAC address.</answer_simple>
+		<answer_draft></answer_draft>
+		<category></category>
+		<num>4</num>
+		<complete>False</complete>
+		<mark>False</mark>
+		<cid>10</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>83</ID>
+		<question>Describe the features of a link local IPv6 address. What
+			unique portion is in this address?</question>
+		<answer>Link-local addresses are used to communicate with other
+			devices on the same local link.</answer>
+		<question_cn></question_cn>
+		<answer_cn></answer_cn>
+		<answer_simple>Link-local addresses are used to communicate with other
+			devices on the same local link.</answer_simple>
+		<answer_draft></answer_draft>
+		<category></category>
+		<num>5</num>
+		<complete>False</complete>
+		<mark>False</mark>
+		<cid>10</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>84</ID>
+		<question>What is an address that has the following prefix: FF02::/?
+			When is it used?</question>
+		<answer>The service is identified in the 112-bit Group ID field.
+			The Group ID field may be further divided for special multicast address
+			types.</answer>
+		<question_cn></question_cn>
+		<answer_cn></answer_cn>
+		<answer_simple>The service is identified in the 112-bit Group ID
+			field.
+			The Group ID field may be further divided for special multicast address
+			types.</answer_simple>
+		<answer_draft></answer_draft>
+		<category></category>
+		<num>6</num>
+		<complete>False</complete>
+		<mark>False</mark>
+		<cid>10</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>85</ID>
+		<question>Carefully detail what each figure shows.</question>
+		<answer>A sends SYN, B sends SYN-ACK, A sends ACK, TCP socket
+			connection is established.</answer>
+		<question_cn></question_cn>
+		<answer_cn></answer_cn>
+		<answer_simple>A sends SYN, B sends SYN-ACK, A sends ACK, TCP socket
+			connection is established.</answer_simple>
+		<answer_draft></answer_draft>
+		<category></category>
+		<num>1</num>
+		<complete>False</complete>
+		<mark>False</mark>
+		<cid>11</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>86</ID>
+		<question>Is this a TCP or UDP type connection? Explain the difference
+			between each layer 4 protocol.</question>
+		<answer>Connection based, guaranteed reliable and ordered,
+			automatically breaks up data, support flow control</answer>
+		<question_cn></question_cn>
+		<answer_cn></answer_cn>
+		<answer_simple>Connection based, guaranteed reliable and ordered,
+			automatically breaks up data, support flow control</answer_simple>
+		<answer_draft>TCP:
+			Connection based
+			Guaranteed reliable and ordered
+			Automatically breaks up your data into packets for you
+			Makes sure it doesn't send data too fast for the internet connection to
+			handle (flow control)
+			Easy to use, you just read and write data like its a file
+			UDP:
+			No concept of connection, you have to code this yourself
+			No guarantee of reliability or ordering of packets, they may arrive out
+			of order, be duplicated, or not arrive at all!
+			You have to manually break your data up into packets and send them
+			You have to make sure you don't send data too fast for your internet
+			connection to handle
+			If a packet is lost, you need to devise some way to detect this, and
+			resend that data if necessary.</answer_draft>
+		<category></category>
+		<num>2</num>
+		<complete>False</complete>
+		<mark>False</mark>
+		<cid>11</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>87</ID>
+		<question>For UDP traffic state fully what occurs when packets are
+			received 'out of order'?</question>
+		<answer>UDP Does not record the order in which data was sent, and the
+			host will simply have to process them as is.</answer>
+		<question_cn></question_cn>
+		<answer_cn></answer_cn>
+		<answer_simple>UDP Does not record the order in which data was sent,
+			and the host will simply have to process them as is.</answer_simple>
+		<answer_draft>UDP Does not record the order in which data was sent.
+			Often, datagrams will arrive out of order, and the host will simply
+			have to process them as is. It is up to the application to reorder
+			the datagrams if it is necessary to do so.</answer_draft>
+		<category></category>
+		<num>3</num>
+		<complete>False</complete>
+		<mark>False</mark>
+		<cid>11</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>88</ID>
+		<question>Give details about where this information is found. Include
+			information about the computing device and how this display is
+			obtained.</question>
+		<answer>PC, most likely a CMD prompt in a windows machine.</answer>
+		<question_cn></question_cn>
+		<answer_cn></answer_cn>
+		<answer_simple></answer_simple>
+		<answer_draft></answer_draft>
+		<category></category>
+		<num>1</num>
+		<complete>False</complete>
+		<mark>False</mark>
+		<cid>12</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>89</ID>
+		<question>Would a ping to 127.0.0.1 be successful? Be sure to explain
+			the reason for your answer.</question>
+		<answer>loopback address is used to test if the TCP/IP protocol is
+			functioning properly on your machine. </answer>
+		<question_cn></question_cn>
+		<answer_cn></answer_cn>
+		<answer_simple>loopback address is used to test if the TCP/IP protocol
+			is functioning properly on your machine. </answer_simple>
+		<answer_draft>Yes. There’s route to 127.0.0.1 in the active route
+			table Network Destination Netmask Gateway Interface Metric 127.0.0.0
+			255.0.0.0 127.0.0.1 127.0.0.1 1</answer_draft>
+		<category></category>
+		<num>2</num>
+		<complete>False</complete>
+		<mark>False</mark>
+		<cid>12</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>90</ID>
+		<question>What is the gateway address of this network?</question>
+		<answer>127.0.0.1</answer>
+		<question_cn></question_cn>
+		<answer_cn></answer_cn>
+		<answer_simple></answer_simple>
+		<answer_draft></answer_draft>
+		<category></category>
+		<num>3</num>
+		<complete>False</complete>
+		<mark>False</mark>
+		<cid>12</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>91</ID>
+		<question>Where would a ping packet to 200.25.81.27 be sent? What in
+			the table would determine this path?</question>
+		<answer>Will be sent to 172.16.255.254
+			The default route:
+			0.0.0.0 0.0.0.0 172.16.255.254 172.16.1.2 1
+		</answer>
+		<question_cn></question_cn>
+		<answer_cn></answer_cn>
+		<answer_simple></answer_simple>
+		<answer_draft></answer_draft>
+		<category></category>
+		<num>4</num>
+		<complete>False</complete>
+		<mark>False</mark>
+		<cid>12</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>92</ID>
+		<question>The local interface, called the loopback interface, is
+			automatically assigned to the 127.0.0.0 network. Explain what this
+			means.</question>
+		<answer>Basically, when you PING 127.0.0.1, you are having your
+			network card PING itself.</answer>
+		<question_cn></question_cn>
+		<answer_cn></answer_cn>
+		<answer_simple>Basically, when you PING 127.0.0.1, you are having your
+			network card PING itself.</answer_simple>
+		<answer_draft>Loopback interface is a logical interface, you can image
+			a circle circuit in the device. As long as the device is powered on,
+			It is up.</answer_draft>
+		<category></category>
+		<num>5</num>
+		<complete>False</complete>
+		<mark>False</mark>
+		<cid>12</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>93</ID>
+		<question>What is the meaning of L in the routing table?</question>
+		<answer></answer>
+		<question_cn></question_cn>
+		<answer_cn></answer_cn>
+		<answer_simple></answer_simple>
+		<answer_draft>LOCAL, 本地interface的IP. 可以是物理端口, 也可以是loopback.
+			数据包会从gi0/1端口出去.看这一行:</answer_draft>
+		<category></category>
+		<num>1</num>
+		<complete>False</complete>
+		<mark>False</mark>
+		<cid>13</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>94</ID>
+		<question>How would the router route packets to 192.168.11.10?</question>
+		<answer></answer>
+		<question_cn></question_cn>
+		<answer_cn></answer_cn>
+		<answer_simple></answer_simple>
+		<answer_draft>192.168.10.0/24
+			按照最长匹配原则找最符合的路由条目. 后面的端口/下一跳就是数据包该出去的地方.
+		</answer_draft>
+		<category></category>
+		<num>2</num>
+		<complete>False</complete>
+		<mark>False</mark>
+		<cid>13</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>95</ID>
+		<question>Which routing protocol is being used?</question>
+		<answer></answer>
+		<question_cn></question_cn>
+		<answer_cn>EIGRP
+			路由条目前面那个小D.
+			如果是S, 那就是static, 如果是O, E1, E2, N1, N2,那就是OSPF, 如果是B, 那就是BGP. 如果是R, 那就是RIP.
+			其他还有别的路由协议, 不过现在应该不会学. 注意都是大写字母.</answer_cn>
+		<answer_simple></answer_simple>
+		<answer_draft></answer_draft>
+		<category></category>
+		<num>3</num>
+		<complete>False</complete>
+		<mark>False</mark>
+		<cid>13</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>96</ID>
+		<question>What is the metric to reach the non connected networks?</question>
+		<answer></answer>
+		<question_cn></question_cn>
+		<answer_cn></answer_cn>
+		<answer_simple></answer_simple>
+		<answer_draft>2170122
+			也只有EIGRP一个路由协议. [90/2170112]
+			前面的90是administrative dsitance</answer_draft>
+		<category></category>
+		<num>4</num>
+		<complete>False</complete>
+		<mark>False</mark>
+		<cid>13</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>97</ID>
+		<question>How did R1 learn the non connected networks? Give a full
+			explanation.</question>
+		<answer></answer>
+		<question_cn></question_cn>
+		<answer_cn></answer_cn>
+		<answer_simple></answer_simple>
+		<answer_draft>R1上运行了EIGRP, 然后和其他EIGRP的peer/neighbor R2学到了路由信息.
+			EIGRP经过内部计算, 决定把这两条最优路由加到了global routing table里.</answer_draft>
+		<category></category>
+		<num>5</num>
+		<complete>False</complete>
+		<mark>False</mark>
+		<cid>13</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>98</ID>
+		<question>PC 1 pings PC 2. Is the ping successful? Give a reason for
+			your answer.</question>
+		<answer></answer>
+		<question_cn></question_cn>
+		<answer_cn></answer_cn>
+		<answer_simple></answer_simple>
+		<answer_draft>可以. 路径是: PC1-switch-router-另一台switch-PC2.
+			Router上有两条路由, 分别指向PC1和PC2. 也就是router知道如何把数据包从PC1侧发到PC2侧.
+		</answer_draft>
+		<category></category>
+		<num>6</num>
+		<complete>False</complete>
+		<mark>False</mark>
+		<cid>13</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>99</ID>
+		<question>When PC 2 pings 10.1.2.10 what are the IPv4 hop addresses
+			for this ping packet along the journey?</question>
+		<answer></answer>
+		<question_cn></question_cn>
+		<answer_cn></answer_cn>
+		<answer_simple></answer_simple>
+		<answer_draft>192.168.11.10->192.168.11.1->209.165.200.226->10.1.2.10</answer_draft>
+		<category></category>
+		<num>7</num>
+		<complete>False</complete>
+		<mark>False</mark>
+		<cid>13</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>100</ID>
+		<question>What is the purpose of the value of 90 in some of the
+			entries in the routing table?</question>
+		<answer></answer>
+		<question_cn></question_cn>
+		<answer_cn></answer_cn>
+		<answer_simple></answer_simple>
+		<answer_draft>90是administrative distance. 查路由表的时候, 有三个要考虑的点: 1.
+			最长匹配;2. 最短管理距离. 3, 最小metric. 先后顺序也是这样. 最长匹配优先, 其次管理距离, 其次metric.</answer_draft>
+		<category></category>
+		<num>8</num>
+		<complete>False</complete>
+		<mark>False</mark>
+		<cid>13</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>101</ID>
+		<question>Refer to the exhibit.
+			The network administrator enters these commands into the R1 router:
+			R1# copy running-config tftp
+
+			Address or name of remote host [ ]?
+			When the router prompts for an address or remote host name, what IP
+			address should the administrator enter at the prompt?</question>
+		<answer>192.168.11.252</answer>
+		<question_cn>192.168.9.254
+			192.168.10.1
+			192.168.10.2
+			192.168.11.254
+			192.168.11.252</question_cn>
+		<answer_cn></answer_cn>
+		<answer_simple>192.168.11.252</answer_simple>
+		<answer_draft>http://ccnav5.com/wp-content/uploads/2013/10/p1.jpg</answer_draft>
+		<category></category>
+		<num>1</num>
+		<complete>True</complete>
+		<mark>False</mark>
+		<cid>14</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>102</ID>
+		<question>Which three statements characterize the transport layer
+			protocols? (Choose three.)</question>
+		<answer>TCP and UDP port numbers are used by application layer
+			protocols.
+			TCP uses windowing and sequencing to provide reliable transfer of data.
+			TCP is a connection-oriented protocol. UDP is a connectionless
+			protocol.</answer>
+		<question_cn>TCP uses port numbers to provide reliable transportation
+			of IP packets.
+			TCP and UDP port numbers are used by application layer protocols.
+			TCP uses windowing and sequencing to provide reliable transfer of data.
+			TCP is a connection-oriented protocol. UDP is a connectionless
+			protocol.
+			UDP uses windowing and acknowledgments for reliable transfer of data.</question_cn>
+		<answer_cn></answer_cn>
+		<answer_simple>TCP and UDP port numbers are used by application layer
+			protocols.
+			TCP uses windowing and sequencing to provide reliable transfer of data.
+			TCP is a connection-oriented protocol. UDP is a connectionless
+			protocol.</answer_simple>
+		<answer_draft></answer_draft>
+		<category></category>
+		<num>2</num>
+		<complete>False</complete>
+		<mark>False</mark>
+		<cid>14</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>103</ID>
+		<question>What is the purpose of ICMP messages?</question>
+		<answer>to provide feedback of IP packet transmissions</answer>
+		<question_cn>to inform routers about network topology changes
+			to ensure the delivery of an IP packet
+			to monitor the process of a domain name to IP address resolution
+			to provide feedback of IP packet transmissions</question_cn>
+		<answer_cn></answer_cn>
+		<answer_simple>to provide feedback of IP packet transmissions</answer_simple>
+		<answer_draft></answer_draft>
+		<category></category>
+		<num>3</num>
+		<complete>False</complete>
+		<mark>False</mark>
+		<cid>14</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>104</ID>
+		<question>A technician uses the ping 127.0.0.1 command. What is the
+			technician testing?</question>
+		<answer>the TCP/IP stack on a network host</answer>
+		<question_cn>connectivity between a PC and the default gateway
+			connectivity between two adjacent Cisco devices
+			physical connectivity of a particular PC and the network
+			the TCP/IP stack on a network host
+			connectivity between two PCs on the same network</question_cn>
+		<answer_cn></answer_cn>
+		<answer_simple>the TCP/IP stack on a network host</answer_simple>
+		<answer_draft></answer_draft>
+		<category></category>
+		<num>4</num>
+		<complete>True</complete>
+		<mark>False</mark>
+		<cid>14</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>105</ID>
+		<question>What will a Layer 2 switch do when the destination MAC
+			address of a received frame is not in the MAC table?</question>
+		<answer>It forwards the frame out of all ports except for the port at
+			which the frame was received.</answer>
+		<question_cn>It notifies the sending host that the frame cannot be
+			delivered.
+			It initiates an ARP request.
+			It forwards the frame out of all ports except for the port at which the
+			frame was received.
+			It broadcasts the frame out of all ports on the switch.</question_cn>
+		<answer_cn></answer_cn>
+		<answer_simple>It forwards the frame out of all ports except for the
+			port at which the frame was received.</answer_simple>
+		<answer_draft></answer_draft>
+		<category></category>
+		<num>5</num>
+		<complete>False</complete>
+		<mark>False</mark>
+		<cid>14</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>106</ID>
+		<question>What is a characteristic of the LLC sublayer?</question>
+		<answer>It places information in the frame that allows multiple Layer
+			3 protocols to use the same network interface and media.</answer>
+		<question_cn>It places information in the frame that allows multiple
+			Layer 3 protocols to use the same network interface and media.
+			It provides delimitation of data according to the physical signaling
+			requirements of the medium.
+			It defines software processes that provide services to the physical
+			layer.
+			It provides the logical addressing required that identifies the device.</question_cn>
+		<answer_cn></answer_cn>
+		<answer_simple>It places information in the frame that allows multiple
+			Layer 3 protocols to use the same network interface and media.</answer_simple>
+		<answer_draft></answer_draft>
+		<category></category>
+		<num>6</num>
+		<complete>False</complete>
+		<mark>False</mark>
+		<cid>14</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>107</ID>
+		<question>On which switch interface would an administrator configure
+			an IP address so that the switch can be managed remotely?</question>
+		<answer>VLAN 1</answer>
+		<question_cn>VLAN 1
+			console 0
+			vty 0
+			FastEthernet0/1</question_cn>
+		<answer_cn></answer_cn>
+		<answer_simple>VLAN 1</answer_simple>
+		<answer_draft></answer_draft>
+		<category></category>
+		<num>7</num>
+		<complete>True</complete>
+		<mark>False</mark>
+		<cid>14</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>108</ID>
+		<question>A network engineer is measuring the transfer of bits across
+			the company backbone for a mission critical database application. The
+			engineer notices that the network throughput appears lower than the
+			bandwidth expected. Which three factors could influence the
+			differences in throughput? (Choose three.)</question>
+		<answer>the amount of traffic that is currently crossing the network
+			the type of traffic that is crossing the network
+			the latency that is created by the number of network devices that the
+			data is crossing</answer>
+		<question_cn>the reliability of the gigabit Ethernet infrastructure of
+			the backbone
+			the amount of traffic that is currently crossing the network
+			the type of traffic that is crossing the network
+			the sophistication of the encapsulation method applied to the data
+			the bandwidth of the WAN connection to the Internet
+			the latency that is created by the number of network devices that the
+			data is crossing</question_cn>
+		<answer_cn></answer_cn>
+		<answer_simple>the amount of traffic that is currently crossing the
+			network
+			the type of traffic that is crossing the network
+			the latency that is created by the number of network devices that the
+			data is crossing</answer_simple>
+		<answer_draft></answer_draft>
+		<category></category>
+		<num>8</num>
+		<complete>False</complete>
+		<mark>False</mark>
+		<cid>14</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>109</ID>
+		<question>When applied to a router, which command would help mitigate
+			brute-force password attacks against the router?</question>
+		<answer>login block-for 60 attempts 5 within 60</answer>
+		<question_cn>service password-encryption
+			login block-for 60 attempts 5 within 60
+			banner motd $Max failed logins = 5$
+			exec-timeout 30</question_cn>
+		<answer_cn></answer_cn>
+		<answer_simple>login block-for 60 attempts 5 within 60</answer_simple>
+		<answer_draft></answer_draft>
+		<category></category>
+		<num>9</num>
+		<complete>False</complete>
+		<mark>False</mark>
+		<cid>14</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>110</ID>
+		<question>Which two statements correctly describe a router memory type
+			and its contents? (Choose two.)</question>
+		<answer>ROM is nonvolatile and contains basic diagnostic software.
+			RAM is volatile and stores the IP routing table.</answer>
+		<question_cn>ROM is nonvolatile and contains basic diagnostic
+			software.
+			FLASH is nonvolatile and contains a limited portion of the IOS&#8203;.
+			ROM is nonvolatile and stores the running IOS.
+			RAM is volatile and stores the IP routing table.
+			NVRAM is nonvolatile and stores other system files.</question_cn>
+		<answer_cn></answer_cn>
+		<answer_simple>ROM is nonvolatile and contains basic diagnostic
+			software.
+			RAM is volatile and stores the IP routing table.</answer_simple>
+		<answer_draft></answer_draft>
+		<category></category>
+		<num>10</num>
+		<complete>False</complete>
+		<mark>False</mark>
+		<cid>14</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>111</ID>
+		<question>Which two components are necessary for a wireless client to
+			be installed on a WLAN? (Choose two.)</question>
+		<answer>wireless NIC
+			wireless client software</answer>
+		<question_cn>custom adapter
+			wireless bridge
+			media
+			wireless NIC
+			crossover cable
+			wireless client software</question_cn>
+		<answer_cn></answer_cn>
+		<answer_simple>wireless NIC
+			wireless client software</answer_simple>
+		<answer_draft></answer_draft>
+		<category></category>
+		<num>11</num>
+		<complete>False</complete>
+		<mark>False</mark>
+		<cid>15</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>112</ID>
+		<question>Open the PT activity. Perform the tasks in the activity
+			instructions and then fill in the blank.
+			The Server0 message is ______</question>
+		<answer>winner</answer>
+		<question_cn></question_cn>
+		<answer_cn></answer_cn>
+		<answer_simple>winner</answer_simple>
+		<answer_draft>http://ccnav5.com/wp-content/uploads/2013/10/p1211.jpg</answer_draft>
+		<category></category>
+		<num>12</num>
+		<complete>True</complete>
+		<mark>False</mark>
+		<cid>15</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>113</ID>
+		<question>A host is accessing a Web server on a remote network. Which
+			three functions are performed by intermediary network devices during
+			this conversation? (Choose three.)</question>
+		<answer></answer>
+		<question_cn></question_cn>
+		<answer_cn></answer_cn>
+		<answer_simple>applying security settings to control the flow of data
+			notifying other devices when errors occur
+			regenerating data signals</answer_simple>
+		<answer_draft></answer_draft>
+		<category></category>
+		<num>13</num>
+		<complete>False</complete>
+		<mark>False</mark>
+		<cid>15</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>114</ID>
+		<question></question>
+		<answer></answer>
+		<question_cn></question_cn>
+		<answer_cn></answer_cn>
+		<answer_simple></answer_simple>
+		<answer_draft>http://ccnav5.com/wp-content/uploads/2013/10/Clipboard015.jpg</answer_draft>
+		<category></category>
+		<num>14</num>
+		<complete>False</complete>
+		<mark>False</mark>
+		<cid>15</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>115</ID>
+		<question>What is the correct order for PDU encapsulation?</question>
+		<answer>Frame Header</answer>
+		<question_cn></question_cn>
+		<answer_cn></answer_cn>
+		<answer_simple>Frame Header</answer_simple>
+		<answer_draft></answer_draft>
+		<category></category>
+		<num>15</num>
+		<complete>True</complete>
+		<mark>False</mark>
+		<cid>15</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>116</ID>
+		<question>Which address on a PC does not change, even if the PC is
+			moved to a different network?</question>
+		<answer>MAC address</answer>
+		<question_cn>IP address
+			logical address
+			MAC address
+			default gateway address</question_cn>
+		<answer_cn></answer_cn>
+		<answer_simple>MAC address</answer_simple>
+		<answer_draft></answer_draft>
+		<category></category>
+		<num>16</num>
+		<complete>True</complete>
+		<mark>False</mark>
+		<cid>15</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>117</ID>
+		<question>What will happen if the default gateway address is
+			incorrectly configured on a host?</question>
+		<answer>The host cannot communicate with hosts in other networks.</answer>
+		<question_cn>A ping from the host to 127.0.0.1 would not be
+			successful.
+			The host will have to use ARP to determine the correct address of the
+			default gateway.
+			The host cannot communicate with other hosts in the local network.
+			The host cannot communicate with hosts in other networks.
+			The switch will not forward packets initiated by the host.</question_cn>
+		<answer_cn></answer_cn>
+		<answer_simple>The host cannot communicate with hosts in other
+			networks.</answer_simple>
+		<answer_draft></answer_draft>
+		<category></category>
+		<num>17</num>
+		<complete>False</complete>
+		<mark>False</mark>
+		<cid>15</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>118</ID>
+		<question>A host PC has just booted and is attempting to lease an
+			address through DHCP. Which two messages will the client typically
+			broadcast on the network? (Choose two.)</question>
+		<answer>DHCPREQUEST
+			DHCPDISCOVER</answer>
+		<question_cn>DHCPREQUEST
+			DHCPOFFER
+			DHCPDISCOVER
+			DHCPNACK
+			DHCPACK</question_cn>
+		<answer_cn></answer_cn>
+		<answer_simple>DHCPREQUEST
+			DHCPDISCOVER</answer_simple>
+		<answer_draft></answer_draft>
+		<category></category>
+		<num>18</num>
+		<complete>True</complete>
+		<mark>False</mark>
+		<cid>15</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>119</ID>
+		<question>Refer to the exhibit. An administrator wants to change the
+			name of a brand new switch, using the hostname command as shown. What
+			prompt will display after the command is issued?&#8203;</question>
+		<answer>Switch(config)#</answer>
+		<question_cn>Switch#
+			My(config)#&#8203;
+			My Switch(config)#&#8203;
+			Switch(config)#&#8203;
+			MySwitch(config)#&#8203;</question_cn>
+		<answer_cn></answer_cn>
+		<answer_simple>Switch(config)#?</answer_simple>
+		<answer_draft>http://ccnav5.com/wp-content/uploads/2013/10/p19.jpg</answer_draft>
+		<category></category>
+		<num>19</num>
+		<complete>True</complete>
+		<mark>False</mark>
+		<cid>15</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>120</ID>
+		<question>After making configuration changes, a network administrator
+			issues a copy running-config startup-config command in a Cisco
+			switch. What is the result of issuing this command?</question>
+		<answer>The new configuration will be loaded if the switch is
+			restarted.</answer>
+		<question_cn>The configuration changes will be removed and the
+			original configuration will be restored.
+			The new configuration will be stored in flash memory.
+			The current IOS file will be replaced with the newly configured file.
+			The new configuration will be loaded if the switch is restarted.</question_cn>
+		<answer_cn></answer_cn>
+		<answer_simple>The new configuration will be loaded if the switch is
+			restarted.</answer_simple>
+		<answer_draft></answer_draft>
+		<category></category>
+		<num>20</num>
+		<complete>False</complete>
+		<mark>False</mark>
+		<cid>15</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>121</ID>
+		<question>What acknowledgement number will the host return for the TCP
+			segment that has been received?</question>
+		<answer>306</answer>
+		<question_cn>2921
+			250
+			2
+			306
+			21</question_cn>
+		<answer_cn></answer_cn>
+		<answer_simple>306</answer_simple>
+		<answer_draft>http://ccnav5.com/wp-content/uploads/2013/10/p21.jpg</answer_draft>
+		<category></category>
+		<num>21</num>
+		<complete>True</complete>
+		<mark>False</mark>
+		<cid>16</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>122</ID>
+		<question>Which technology provides a solution to IPv4 address
+			depletion by allowing multiple devices to share one public IP
+			address?</question>
+		<answer>NAT</answer>
+		<question_cn>ARP
+			DNS
+			SMB
+			DHCP
+			HTTP
+			NAT</question_cn>
+		<answer_cn></answer_cn>
+		<answer_simple>NAT</answer_simple>
+		<answer_draft></answer_draft>
+		<category></category>
+		<num>22</num>
+		<complete>True</complete>
+		<mark>False</mark>
+		<cid>16</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>123</ID>
+		<question>What is the purpose of the routing process?</question>
+		<answer>to select the paths that are used to direct traffic to
+			destination networks</answer>
+		<question_cn>to encapsulate data that is used to communicate across a
+			network
+			to select the paths that are used to direct traffic to destination
+			networks
+			to convert a URL name into an IP address
+			to provide secure Internet file transfer
+			to forward traffic on the basis of MAC addresses</question_cn>
+		<answer_cn></answer_cn>
+		<answer_simple>to select the paths that are used to direct traffic to
+			destination networks</answer_simple>
+		<answer_draft></answer_draft>
+		<category></category>
+		<num>23</num>
+		<complete>False</complete>
+		<mark>False</mark>
+		<cid>16</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>124</ID>
+		<question>Three bank employees are using the corporate network. The
+			first employee uses a web browser to view a company web page in order
+			to read some announcements. The second employee accesses the
+			corporate database to perform some financial transactions. The third
+			employee participates in an important live audio conference with
+			other corporate managers in branch offices. If QoS is implemented on
+			this network, what will be the priorities from highest to lowest of
+			the different data types?</question>
+		<answer>audio conference, financial transactions, web page</answer>
+		<question_cn>audio conference, financial transactions, web page
+			financial transactions, audio conference, web page
+			audio conference, web page, financial transactions
+			financial transactions, web page, audio conference</question_cn>
+		<answer_cn></answer_cn>
+		<answer_simple>audio conference, financial transactions, web page</answer_simple>
+		<answer_draft></answer_draft>
+		<category></category>
+		<num>24</num>
+		<complete>False</complete>
+		<mark>False</mark>
+		<cid>16</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>125</ID>
+		<question>A home user is looking for an ISP connection that provides
+			high speed digital transmission over regular phone lines. What ISP
+			connection type should be used?</question>
+		<answer>DSL</answer>
+		<question_cn>cell modem
+			dial-up
+			cable modem
+			satellite
+			DSL</question_cn>
+		<answer_cn></answer_cn>
+		<answer_simple>DSL</answer_simple>
+		<answer_draft></answer_draft>
+		<category></category>
+		<num>25</num>
+		<complete>True</complete>
+		<mark>False</mark>
+		<cid>16</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>126</ID>
+		<question>Which connection provides a secure CLI session with
+			encryption to a Cisco switch?</question>
+		<answer>an SSH connection</answer>
+		<question_cn>a Telnet connection
+			an SSH connection
+			a console connection
+			an AUX connection</question_cn>
+		<answer_cn></answer_cn>
+		<answer_simple>an SSH connection</answer_simple>
+		<answer_draft></answer_draft>
+		<category></category>
+		<num>26</num>
+		<complete>True</complete>
+		<mark>False</mark>
+		<cid>16</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>127</ID>
+		<question> What is the purpose of the network security accounting
+			function?</question>
+		<answer>to keep track of the actions of a user</answer>
+		<question_cn>to provide challenge and response questions
+			to require users to prove who they are
+			to determine which resources a user can access
+			to keep track of the actions of a user</question_cn>
+		<answer_cn></answer_cn>
+		<answer_simple>to keep track of the actions of a user</answer_simple>
+		<answer_draft></answer_draft>
+		<category></category>
+		<num>27</num>
+		<complete>False</complete>
+		<mark>False</mark>
+		<cid>16</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>128</ID>
+		<question>Refer to the exhibit. A network administrator is configuring
+			access control to switch SW1. If the administrator uses Telnet to
+			connect to the switch, which password is needed to access user EXEC
+			mode?</question>
+		<answer>linevtyin</answer>
+		<question_cn>lineconin
+			linevtyin
+			letmein
+			secretin</question_cn>
+		<answer_cn></answer_cn>
+		<answer_simple>linevtyin</answer_simple>
+		<answer_draft>http://ccnav5.com/wp-content/uploads/2013/10/p28.jpg</answer_draft>
+		<category></category>
+		<num>28</num>
+		<complete>True</complete>
+		<mark>False</mark>
+		<cid>16</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>129</ID>
+		<question>Which publicly available resources describe protocols,
+			processes, and technologies for the Internet but do not give
+			implementation details?</question>
+		<answer>Request for Comments</answer>
+		<question_cn>IEEE standards
+			Request for Comments
+			IRTF research papers
+			protocol models</question_cn>
+		<answer_cn></answer_cn>
+		<answer_simple>Request for Comments</answer_simple>
+		<answer_draft></answer_draft>
+		<category></category>
+		<num>29</num>
+		<complete>True</complete>
+		<mark>False</mark>
+		<cid>16</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>130</ID>
+		<question>A PC is configured to obtain an IP address automatically
+			from network 192.168.1.0/24. The network administrator issues the arp
+			–a command and notices an entry of 192.168.1.255 ff-ff-ff-ff-ff-ff.
+			Which statement describes this entry?</question>
+		<answer>This is a static map entry.</answer>
+		<question_cn>This entry refers to the PC itself.
+			This entry maps to the default gateway.
+			This is a static map entry.
+			This is a dynamic map entry.</question_cn>
+		<answer_cn></answer_cn>
+		<answer_simple>This is a static map entry.</answer_simple>
+		<answer_draft></answer_draft>
+		<category></category>
+		<num>30</num>
+		<complete>True</complete>
+		<mark>False</mark>
+		<cid>16</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>131</ID>
+		<question>Which subnet would include the address 192.168.1.96 as a
+			usable host address?</question>
+		<answer>192.168.1.64/26</answer>
+		<question_cn>192.168.1.64/26
+			192.168.1.32/28
+			192.168.1.32/27
+			192.168.1.64/29</question_cn>
+		<answer_cn></answer_cn>
+		<answer_simple>192.168.1.64/26</answer_simple>
+		<answer_draft></answer_draft>
+		<category></category>
+		<num>31</num>
+		<complete>True</complete>
+		<mark>False</mark>
+		<cid>17</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>132</ID>
+		<question>A particular website does not appear to be responding on a
+			Windows 7 computer. What command could the technician use to show any
+			cached DNS entries for this web page?</question>
+		<answer>ipconfig /displaydns</answer>
+		<question_cn>ipconfig /all
+			ipconfig /displaydns
+			arp -a
+			nslookup</question_cn>
+		<answer_cn></answer_cn>
+		<answer_simple></answer_simple>
+		<answer_draft></answer_draft>
+		<category></category>
+		<num>32</num>
+		<complete>True</complete>
+		<mark>False</mark>
+		<cid>17</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>133</ID>
+		<question>Which type of wireless security generates dynamic encryption
+			keys each time a client associates with an AP?</question>
+		<answer>WPA</answer>
+		<question_cn>WPA
+			PSK
+			WEP
+			EAP</question_cn>
+		<answer_cn></answer_cn>
+		<answer_simple>WPA</answer_simple>
+		<answer_draft></answer_draft>
+		<category></category>
+		<num>33</num>
+		<complete>True</complete>
+		<mark>False</mark>
+		<cid>17</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>134</ID>
+		<question>A frame is transmitted from one networking device to
+			another. Why does the receiving device check the FCS field in the
+			frame?</question>
+		<answer>to check the frame for possible transmission errors</answer>
+		<question_cn>to compare the interface media type between the sending
+			and receiving ends
+			to determine the physical address of the sending device
+			to verify that the frame destination matches the MAC address of the
+			receiving device
+			to check the frame for possible transmission errors
+			to verify the network layer protocol information</question_cn>
+		<answer_cn></answer_cn>
+		<answer_simple>to check the frame for possible transmission errors</answer_simple>
+		<answer_draft></answer_draft>
+		<category></category>
+		<num>34</num>
+		<complete>False</complete>
+		<mark>False</mark>
+		<cid>17</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>135</ID>
+		<question>Refer to the exhibit. Which IP addressing scheme should be
+			changed?</question>
+		<answer></answer>
+		<question_cn>Site 1
+			Site 3
+			Site 4
+			Site 2</question_cn>
+		<answer_cn></answer_cn>
+		<answer_simple>Site 2</answer_simple>
+		<answer_draft>http://ccnav5.com/wp-content/uploads/2013/10/p351.jpg</answer_draft>
+		<category></category>
+		<num>35</num>
+		<complete>False</complete>
+		<mark>False</mark>
+		<cid>17</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>136</ID>
+		<question>What is the effect of configuring the ipv6 unicast-routing
+			command on a router?</question>
+		<answer>to enable the router as an IPv6 router</answer>
+		<question_cn>to assign the router to the all-nodes multicast group
+			to permit only unicast packets on the router
+			to enable the router as an IPv6 router
+			to prevent the router from joining the all-routers multicast group</question_cn>
+		<answer_cn></answer_cn>
+		<answer_simple>to enable the router as an IPv6 router</answer_simple>
+		<answer_draft></answer_draft>
+		<category></category>
+		<num>36</num>
+		<complete>False</complete>
+		<mark>False</mark>
+		<cid>17</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>137</ID>
+		<question>Which three IP addresses are private ? (Choose three.)</question>
+		<answer>10.1.1.1
+			172.16.4.4
+			192.168.5.5</answer>
+		<question_cn>10.1.1.1
+			172.16.4.4
+			224.6.6.6
+			192.168.5.5
+			172.32.5.2
+			192.167.10.10</question_cn>
+		<answer_cn></answer_cn>
+		<answer_simple>10.1.1.1
+			172.16.4.4
+			192.168.5.5</answer_simple>
+		<answer_draft></answer_draft>
+		<category></category>
+		<num>37</num>
+		<complete>True</complete>
+		<mark>False</mark>
+		<cid>17</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>138</ID>
+		<question>Refer to the exhibit. Consider the IP address configuration
+			shown from PC1. What is a description of the default gateway address?</question>
+		<answer>It is the IP address of the Router1 interface that connects
+			the PC1 LAN to Router1.</answer>
+		<question_cn>It is the IP address of the Router1 interface that
+			connects the company to the Internet.
+			It is the IP address of the ISP network device located in the cloud.
+			It is the IP address of Switch1 that connects PC1 to other devices on
+			the same LAN.
+			It is the IP address of the Router1 interface that connects the PC1 LAN
+			to Router1.</question_cn>
+		<answer_cn></answer_cn>
+		<answer_simple>It is the IP address of the Router1 interface that
+			connects the PC1 LAN to Router1.</answer_simple>
+		<answer_draft>http://ccnav5.com/wp-content/uploads/2013/10/p381.jpg</answer_draft>
+		<category></category>
+		<num>38</num>
+		<complete>False</complete>
+		<mark>False</mark>
+		<cid>17</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>139</ID>
+		<question>During normal operation, from which location do most Cisco
+			switches and routers run the IOS?</question>
+		<answer>RAM</answer>
+		<question_cn>flash
+			RAM
+			NVRAM
+			disk drive</question_cn>
+		<answer_cn></answer_cn>
+		<answer_simple>RAM</answer_simple>
+		<answer_draft></answer_draft>
+		<category></category>
+		<num>39</num>
+		<complete>True</complete>
+		<mark>False</mark>
+		<cid>17</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>140</ID>
+		<question>What is an important function of the physical layer of the
+			OSI model?</question>
+		<answer>It encodes frames into electrical, optical, or radio wave
+			signals.</answer>
+		<question_cn>It encodes frames into electrical, optical, or radio wave
+			signals.
+			It accepts frames from the physical media.
+			It encapsulates upper layer data into frames.
+			It defines the media access method performed by the hardware interface.</question_cn>
+		<answer_cn></answer_cn>
+		<answer_simple>It encodes frames into electrical, optical, or radio
+			wave signals.</answer_simple>
+		<answer_draft></answer_draft>
+		<category></category>
+		<num>40</num>
+		<complete>False</complete>
+		<mark>False</mark>
+		<cid>17</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>141</ID>
+		<question>Which procedure is used to reduce the effect of crosstalk in
+			copper cables?</question>
+		<answer>twisting opposing circuit wire pairs together</answer>
+		<question_cn>wrapping the bundle of wires with metallic shielding
+			avoiding sharp bends during installation
+			requiring proper grounding connections
+			designing a cable infrastructure to avoid crosstalk interference
+			twisting opposing circuit wire pairs together</question_cn>
+		<answer_cn></answer_cn>
+		<answer_simple>twisting opposing circuit wire pairs together</answer_simple>
+		<answer_draft></answer_draft>
+		<category></category>
+		<num>41</num>
+		<complete>False</complete>
+		<mark>False</mark>
+		<cid>18</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>142</ID>
+		<question>What are the three primary functions provided by Layer 2
+			data encapsulation? (Choose three.)</question>
+		<answer>detection of errors through CRC calculations
+			delimiting groups of bits into frames
+			data link layer addressing</answer>
+		<question_cn>placement and removal of frames from the media
+			detection of errors through CRC calculations
+			conversion of bits into data signals
+			delimiting groups of bits into frames
+			data link layer addressing
+			error correction through a collision detection method
+			session control using port numbers</question_cn>
+		<answer_cn></answer_cn>
+		<answer_simple>detection of errors through CRC calculations
+			delimiting groups of bits into frames
+			data link layer addressing</answer_simple>
+		<answer_draft></answer_draft>
+		<category></category>
+		<num>42</num>
+		<complete>False</complete>
+		<mark>False</mark>
+		<cid>18</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>143</ID>
+		<question>What method is used to manage contention-based access on a
+			wireless network?</question>
+		<answer>CSMA/CA</answer>
+		<question_cn>token passing
+			CSMA/CD
+			CSMA/CA
+			priority ordering</question_cn>
+		<answer_cn></answer_cn>
+		<answer_simple>CSMA/CA</answer_simple>
+		<answer_draft></answer_draft>
+		<category></category>
+		<num>43</num>
+		<complete>True</complete>
+		<mark>False</mark>
+		<cid>18</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>144</ID>
+		<question>What happens when part of an Internet radio transmission is
+			not delivered to the destination?</question>
+		<answer>The transmission continues without the missing portion.</answer>
+		<question_cn>A delivery failure message is sent to the source host.
+			The part of the radio transmission that was lost is re-sent.
+			The transmission continues without the missing portion.
+			The entire transmission is re-sent.</question_cn>
+		<answer_cn></answer_cn>
+		<answer_simple>The transmission continues without the missing portion.</answer_simple>
+		<answer_draft></answer_draft>
+		<category></category>
+		<num>44</num>
+		<complete>False</complete>
+		<mark>False</mark>
+		<cid>18</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>145</ID>
+		<question>What is the auto-MDIX feature on a switch?</question>
+		<answer>the automatic configuration of an interface for a
+			straight-through or a crossover Ethernet cable connection</answer>
+		<question_cn>the automatic configuration of full-duplex operation over
+			a single Ethernet copper or optical cable
+			the automatic configuration of an interface for a straight-through or a
+			crossover Ethernet cable connection
+			the ability to turn a switch interface on or off accordingly if an
+			active connection is detected
+			the automatic configuration of an interface for 10/100/1000 Mb/s
+			operation</question_cn>
+		<answer_cn></answer_cn>
+		<answer_simple>the automatic configuration of an interface for a
+			straight-through or a crossover Ethernet cable connection</answer_simple>
+		<answer_draft></answer_draft>
+		<category></category>
+		<num>45</num>
+		<complete>False</complete>
+		<mark>False</mark>
+		<cid>18</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>146</ID>
+		<question>Which function is provided by TCP?</question>
+		<answer>detection of missing packets</answer>
+		<question_cn>detection of missing packets
+			communication session control
+			path determination for data packets
+			data encapsulation</question_cn>
+		<answer_cn></answer_cn>
+		<answer_simple>detection of missing packets</answer_simple>
+		<answer_draft></answer_draft>
+		<category></category>
+		<num>46</num>
+		<complete>True</complete>
+		<mark>False</mark>
+		<cid>18</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>147</ID>
+		<question>How does a Layer 3 switch differ from a Layer 2 switch?</question>
+		<answer>An IP address can be assigned to a physical port of a Layer 3
+			switch. However, this is not supported in Layer 2 switches.</answer>
+		<question_cn>A Layer 3 switch learns the MAC addresses that are
+			associated with each of its ports. However, a Layer 2 switch does
+			not.
+			A Layer 3 switch maintains an IP address table instead of a MAC
+			address table.
+			A Layer 3 switch supports VLANs, but a Layer 2 switch does not.
+			An IP address can be assigned to a physical port of a Layer 3 switch.
+			However, this is not supported in Layer 2 switches.</question_cn>
+		<answer_cn></answer_cn>
+		<answer_simple>An IP address can be assigned to a physical port of a
+			Layer 3 switch. However, this is not supported in Layer 2 switches.</answer_simple>
+		<answer_draft></answer_draft>
+		<category></category>
+		<num>47</num>
+		<complete>False</complete>
+		<mark>False</mark>
+		<cid>18</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>148</ID>
+		<question>Which two notations are useable nibble boundaries when
+			subnetting in IPv6? (Choose two.)</question>
+		<answer>/68
+			/64</answer>
+		<question_cn>/68
+			/62
+			/66
+			/64
+			/70</question_cn>
+		<answer_cn></answer_cn>
+		<answer_simple>/68
+			/64</answer_simple>
+		<answer_draft></answer_draft>
+		<category></category>
+		<num>48</num>
+		<complete>True</complete>
+		<mark>False</mark>
+		<cid>18</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>149</ID>
+		<question>What is the purpose of having a converged network?</question>
+		<answer>to reduce the cost of deploying and maintaining the
+			communication infrastructure</answer>
+		<question_cn>to reduce the cost of deploying and maintaining the
+			communication infrastructure
+			to provide high speed connectivity to all end devices
+			to make sure that all types of data packets will be treated equally
+			to achieve fault tolerance and high availability of data network
+			infrastructure devices</question_cn>
+		<answer_cn></answer_cn>
+		<answer_simple>to reduce the cost of deploying and maintaining the
+			communication infrastructure</answer_simple>
+		<answer_draft></answer_draft>
+		<category></category>
+		<num>49</num>
+		<complete>False</complete>
+		<mark>False</mark>
+		<cid>18</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>150</ID>
+		<question>Refer to the exhibit. A ping to PC3 is issued from PC0, PC1,
+			and PC2 in this exact order. Which MAC addresses will be contained in
+			the S1 MAC address table that is associated with the Fa0/1 port?</question>
+		<answer>just PC0 and PC1 MAC addresses</answer>
+		<question_cn>just the PC0 MAC address
+			PC0, PC1, and PC2 MAC addresses
+			just the PC2 MAC address&#8203;
+			just PC0 and PC1 MAC addresses
+			just the PC1 MAC address</question_cn>
+		<answer_cn></answer_cn>
+		<answer_simple>just PC0 and PC1 MAC addresses</answer_simple>
+		<answer_draft>http://ccnav5.com/wp-content/uploads/2013/10/p50.jpg</answer_draft>
+		<category></category>
+		<num>50</num>
+		<complete>True</complete>
+		<mark>False</mark>
+		<cid>18</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>151</ID>
+		<question>Which field in an IPv4 packet header will typically stay the
+			same during its transmission?</question>
+		<answer>Destination Address</answer>
+		<question_cn>Packet Length
+			Destination Address
+			Flag
+			Time-to-Live</question_cn>
+		<answer_cn></answer_cn>
+		<answer_simple>Destination Address</answer_simple>
+		<answer_draft></answer_draft>
+		<category></category>
+		<num>51</num>
+		<complete>True</complete>
+		<mark>False</mark>
+		<cid>19</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>152</ID>
+		<question>What two preconfigured settings that affect security are
+			found on most new wireless routers? (Choose two.)
+			MAC filtering enabled</question>
+		<answer>default administrator password
+			broadcast SSID</answer>
+		<question_cn>MAC filtering enabled
+			default administrator password
+			WEP encryption enabled
+			PSK authentication required
+			broadcast SSID</question_cn>
+		<answer_cn></answer_cn>
+		<answer_simple>default administrator password
+			broadcast SSID</answer_simple>
+		<answer_draft></answer_draft>
+		<category></category>
+		<num>52</num>
+		<complete>False</complete>
+		<mark>False</mark>
+		<cid>19</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>153</ID>
+		<question>Which parameter does the router use to choose the path to
+			the destination when there are multiple routes available?</question>
+		<answer>the lower metric value that is associated with the destination
+			network</answer>
+		<question_cn>the higher metric value that is associated with the
+			destination network
+			the lower metric value that is associated with the destination network
+			the higher gateway IP address to get to the destination network
+			the lower gateway IP address to get to the destination network</question_cn>
+		<answer_cn></answer_cn>
+		<answer_simple>the lower metric value that is associated with the
+			destination network</answer_simple>
+		<answer_draft></answer_draft>
+		<category></category>
+		<num>53</num>
+		<complete>False</complete>
+		<mark>False</mark>
+		<cid>19</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>154</ID>
+		<question>Refer to the exhibit. What is the significance of the
+			asterisk (*) in the exhibited output?</question>
+		<answer>The asterisk designates which file system is the default file
+			system.</answer>
+		<question_cn>An asterisk designates that the file system has at least
+			one file that uses that file system.
+			The asterisk designates which file system is the default file system.
+			An asterisk indicates that the file system is bootable.
+			The asterisk shows which file system was used to boot the system.</question_cn>
+		<answer_cn></answer_cn>
+		<answer_simple></answer_simple>
+		<answer_draft>http://ccnav5.com/wp-content/uploads/2013/10/p54.jpg</answer_draft>
+		<category></category>
+		<num>54</num>
+		<complete>False</complete>
+		<mark>False</mark>
+		<cid>19</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>155</ID>
+		<question></question>
+		<answer>1. perform the post
+			2. load the bootstrap program
+			3. format the flash
+			4. locate and load the configuration file</answer>
+		<question_cn></question_cn>
+		<answer_cn></answer_cn>
+		<answer_simple></answer_simple>
+		<answer_draft>http://ccnav5.com/wp-content/uploads/2013/10/p55.jpg?csspreview=true</answer_draft>
+		<category></category>
+		<num>55</num>
+		<complete>False</complete>
+		<mark>False</mark>
+		<cid>19</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>156</ID>
+		<question>Fill in the blank.
+			During data communications, a host may need to send a single message to a
+			specific group of destination hosts simultaneously. This message is
+			in the form of a “______” message.</question>
+		<answer>multicast</answer>
+		<question_cn></question_cn>
+		<answer_cn></answer_cn>
+		<answer_simple>multicast</answer_simple>
+		<answer_draft></answer_draft>
+		<category></category>
+		<num>56</num>
+		<complete>True</complete>
+		<mark>False</mark>
+		<cid>19</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>157</ID>
+		<question>An administrator uses the Ctrl-Shift-6 key combination on a
+			switch after issuing the ping command. What is the purpose of using
+			these keystrokes?</question>
+		<answer>to interrupt the ping process</answer>
+		<question_cn>to interrupt the ping process
+			to restart the ping process
+			to allow the user to complete the command
+			to exit to a different configuration mode</question_cn>
+		<answer_cn></answer_cn>
+		<answer_simple>to interrupt the ping process</answer_simple>
+		<answer_draft></answer_draft>
+		<category></category>
+		<num>57</num>
+		<complete>True</complete>
+		<mark>False</mark>
+		<cid>19</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>158</ID>
+		<question>Refer to the exhibit. Which area would most likely be an
+			extranet for the company network that is shown?</question>
+		<answer>area C</answer>
+		<question_cn>area A
+			area D
+			area C
+			area B</question_cn>
+		<answer_cn></answer_cn>
+		<answer_simple>area C</answer_simple>
+		<answer_draft>http://ccnav5.com/wp-content/uploads/2013/10/p581.jpg</answer_draft>
+		<category></category>
+		<num>58</num>
+		<complete>True</complete>
+		<mark>False</mark>
+		<cid>19</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>159</ID>
+		<question></question>
+		<answer>link-Local: FE80
+			Multicast:FF02
+			Global Unicast:2001</answer>
+		<question_cn></question_cn>
+		<answer_cn></answer_cn>
+		<answer_simple></answer_simple>
+		<answer_draft>http://ccnav5.com/wp-content/uploads/2013/10/p59.jpg</answer_draft>
+		<category></category>
+		<num>59</num>
+		<complete>False</complete>
+		<mark>False</mark>
+		<cid>19</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>160</ID>
+		<question></question>
+		<answer>user:limited, the
+			privileged: accessed, identified
+			global: changes, accessed</answer>
+		<question_cn></question_cn>
+		<answer_cn></answer_cn>
+		<answer_simple></answer_simple>
+		<answer_draft>http://ccnav5.com/wp-content/uploads/2013/10/p60.jpg</answer_draft>
+		<category></category>
+		<num>60</num>
+		<complete>False</complete>
+		<mark>False</mark>
+		<cid>19</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>161</ID>
+		<question>In which default order will a router search for startup
+			configuration information?</question>
+		<answer>NVRAM, TFTP, setup mode</answer>
+		<question_cn>setup mode, NVRAM, TFTP
+			NVRAM, TFTP, setup mode
+			NVRAM, RAM, TFTP
+			TFTP, ROM, NVRAM
+			flash, ROM, setup mode</question_cn>
+		<answer_cn></answer_cn>
+		<answer_simple>NVRAM, TFTP, setup mode</answer_simple>
+		<answer_draft></answer_draft>
+		<category></category>
+		<num>61</num>
+		<complete>True</complete>
+		<mark>False</mark>
+		<cid>19</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>162</ID>
+		<question>Launch PT – Hide and Save PT
+			Open the PT Activity. Perform the tasks in the activity instructions and
+			then answer the question.
+			Which IPv6 address is assigned to the Serial0/0/0 interface on RT2?</question>
+		<answer>2001:db8:abc:5::1</answer>
+		<question_cn>2001:db8:abc:1::1
+			2001:db8:abc:5::1
+			2001:db8:abc:5::2
+			2001:db8:abc:10::15</question_cn>
+		<answer_cn></answer_cn>
+		<answer_simple>2001:db8:abc:5::1</answer_simple>
+		<answer_draft>http://ccnav5.com/wp-content/uploads/2013/10/p62.jpg</answer_draft>
+		<category></category>
+		<num>62</num>
+		<complete>True</complete>
+		<mark>False</mark>
+		<cid>19</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>163</ID>
+		<question>Layer</question>
+		<answer>physical, data link, network, transport, application</answer>
+		<question_cn></question_cn>
+		<answer_cn></answer_cn>
+		<answer_simple></answer_simple>
+		<answer_draft></answer_draft>
+		<category></category>
+		<num>0</num>
+		<complete>False</complete>
+		<mark>False</mark>
+		<cid>23</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>164</ID>
+		<question>layer 1 (PDU)</question>
+		<answer>PDU1 is the packet, consisting of bits or symbols.</answer>
+		<question_cn></question_cn>
+		<answer_cn>PDU1是包，由位或符号的。 </answer_cn>
+		<answer_simple></answer_simple>
+		<answer_draft></answer_draft>
+		<category></category>
+		<num>0</num>
+		<complete>False</complete>
+		<mark>False</mark>
+		<cid>23</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>165</ID>
+		<question>layer 2 (PDU)</question>
+		<answer>PDU2 is the frame.</answer>
+		<question_cn></question_cn>
+		<answer_cn>PDU2是帧。 </answer_cn>
+		<answer_simple></answer_simple>
+		<answer_draft></answer_draft>
+		<category></category>
+		<num>0</num>
+		<complete>False</complete>
+		<mark>False</mark>
+		<cid>23</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>166</ID>
+		<question>layer 3 (PDU)</question>
+		<answer>PDU3 is the packet.</answer>
+		<question_cn></question_cn>
+		<answer_cn>PDU3是该分组。 </answer_cn>
+		<answer_simple></answer_simple>
+		<answer_draft></answer_draft>
+		<category></category>
+		<num>0</num>
+		<complete>False</complete>
+		<mark>False</mark>
+		<cid>23</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>167</ID>
+		<question>layer 4 (PDU)</question>
+		<answer>pdu4 is the segment for tcp or the datagram for udp.</answer>
+		<question_cn></question_cn>
+		<answer_cn>pdu4是段TCP或数据报的UDP。 </answer_cn>
+		<answer_simple></answer_simple>
+		<answer_draft></answer_draft>
+		<category></category>
+		<num>0</num>
+		<complete>False</complete>
+		<mark>False</mark>
+		<cid>23</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>168</ID>
+		<question>layer 567 (PDU)</question>
+		<answer>PDU567 is the message.</answer>
+		<question_cn></question_cn>
+		<answer_cn>PDU567的消息。</answer_cn>
+		<answer_simple></answer_simple>
+		<answer_draft></answer_draft>
+		<category></category>
+		<num>0</num>
+		<complete>False</complete>
+		<mark>False</mark>
+		<cid>23</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>169</ID>
+		<question>Model the current “Submit Purchase Request” process (map
+			this process as one whole process or diagram) using the Business
+			Process Model Notation (BPMN) techniques. Draw a level 2 diagram and
+			model/detail the “Submit Purchase Request” process by identifying the
+			sub-processes/activities within it. You must use the concepts of BPMN
+			pools and swimlanes when modelling this process. List any relevant
+			assumptions, if applicable.</question>
+		<answer>
+		</answer>
+		<question_cn>模型中的电流“提交采购申请”的过程（图这个过程为一体的全过程或图表），使用业务流程模型标注（BPMN）技术，通过识别画出一个2级图和模型/详细信息“提交采购申请”的过程子过程/内它的活动。当模拟这个过程中，你必须使用BPMN泳池和泳道的概念。如果适用列出任何相关假设。</question_cn>
+		<answer_cn></answer_cn>
+		<answer_simple></answer_simple>
+		<answer_draft></answer_draft>
+		<category></category>
+		<num>1</num>
+		<complete>False</complete>
+		<mark>False</mark>
+		<cid>26</cid>
+		<image></image>
+		<status>success</status>
+	</list>
+	<list>
+		<ID>170</ID>
+		<question>You also need to identify improvements that could be made in
+			the current “Submit Purchase Request” process to eliminate or reduce
+			the workload of the Stock Control Clerk and Purchase Officer.</question>
+		<answer></answer>
+		<question_cn>你还需要确定改进，可以作出在当前“提交采购申请”的过程，以消除或减少库存控制员和采购人员的工作量。</question_cn>
+		<answer_cn></answer_cn>
+		<answer_simple></answer_simple>
+		<answer_draft></answer_draft>
+		<category></category>
+		<num>2</num>
+		<complete>False</complete>
+		<mark>False</mark>
+		<cid>26</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>171</ID>
+		<question>Draw an entity relationship diagram for the current “Submit
+			Purchase Request” process. Diagram should specify entities, key
+			attributes, relationships and cardinalities. List any relevant entity
+			attributes and relationship related assumptions, if applicable for
+			the current “Submit Purchase Request” process.</question>
+		<answer></answer>
+		<question_cn>绘制的实体关系图对当前的“提交购买请求”的过程。图中应明确的实体，关键属性，关系和基数。列出所有相关实体的属性和关系的相关假设，如果适用于当前的“提交采购申请”的过程。</question_cn>
+		<answer_cn></answer_cn>
+		<answer_simple></answer_simple>
+		<answer_draft></answer_draft>
+		<category></category>
+		<num>3</num>
+		<complete>False</complete>
+		<mark>False</mark>
+		<cid>26</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>172</ID>
+		<question>Explain the purpose of an entity relationship diagram and
+			how does it relate to requirements analysis.</question>
+		<answer></answer>
+		<question_cn>解释的实体关系图的目的，它是如何涉及到需求分析。</question_cn>
+		<answer_cn></answer_cn>
+		<answer_simple></answer_simple>
+		<answer_draft></answer_draft>
+		<category></category>
+		<num>4</num>
+		<complete>False</complete>
+		<mark>False</mark>
+		<cid>26</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>173</ID>
+		<question>Document data dictionary for the current “Submit Purchase
+			Request” process.</question>
+		<answer></answer>
+		<question_cn>文档数据字典当前“提交采购申请”的过程。</question_cn>
+		<answer_cn></answer_cn>
+		<answer_simple></answer_simple>
+		<answer_draft></answer_draft>
+		<category></category>
+		<num>5</num>
+		<complete>False</complete>
+		<mark>False</mark>
+		<cid>26</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>174</ID>
+		<question>Explain the purpose of data dictionary and how does it
+			relate to entity relationship diagram.</question>
+		<answer></answer>
+		<question_cn>解释数据字典的目的，它是如何涉及到实体关系图。</question_cn>
+		<answer_cn></answer_cn>
+		<answer_simple></answer_simple>
+		<answer_draft></answer_draft>
+		<category></category>
+		<num>6</num>
+		<complete>False</complete>
+		<mark>False</mark>
+		<cid>26</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>175</ID>
+		<question>As an analyst, you are proposing to develop the online
+			system for the “Submit Purchase Request”. You need to write the Use
+			Case Narrative (main flow) for the new proposed online “Submit
+			Purchase Request” process. You should also specify the primary actor,
+			pre-conditions, post-conditions, assumptions and the event that
+			triggers this Use Case (use case header). You also need to document
+			one alternative scenario in the Use Case narrative. You do not need
+			to draw a Use Case Diagram (no marks for the diagram).</question>
+		<answer></answer>
+		<question_cn>作为一个分析师，你提出制定“提交采购申请”的在线系统。你需要编写用例叙述（主流）新提议的网上“提交采购申请”的过程。您还应该指定主要演员，前置条件，后置条件，假设和触发该用例（用例头）的事件。您还需要在用例说明文档中的一个备选方案。你并不需要绘制一个用例图（无标记的图）。</question_cn>
+		<answer_cn></answer_cn>
+		<answer_simple></answer_simple>
+		<answer_draft></answer_draft>
+		<category></category>
+		<num>7</num>
+		<complete>False</complete>
+		<mark>False</mark>
+		<cid>26</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>176</ID>
+		<question>Prepare Sequence Diagram, Class Diagram and State Transition
+			Diagram since the final exam may ask you to draw any of these
+			diagrams for any case study or scenario.</question>
+		<answer></answer>
+		<question_cn>编制序列图，类图和状态转换图，因为期末考试可能会问你画任何这些图中的任何个案研究或方案。</question_cn>
+		<answer_cn></answer_cn>
+		<answer_simple></answer_simple>
+		<answer_draft></answer_draft>
+		<category></category>
+		<num>8</num>
+		<complete>False</complete>
+		<mark>False</mark>
+		<cid>26</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>177</ID>
+		<question>Nigel Lon is a Stock Control Clerk in the ABC Company. He is
+			responsible for managing the stock of computer peripheral items. When
+			the re-order point is reached for an item, Nigel Lon the Stock
+			Control Clerk calculates the new quantity to be ordered by referring
+			to the past sales of that item over the last 12 months. He then fills
+			in a Request to Purchase form and submits it to Mr. Con the Purchase
+			Officer in the CPS. Mr Con stores the purchase request details in a
+			“Purchase Request File.</question>
+		<answer></answer>
+		<question_cn>奈杰尔·朗是在ABC公司库存控制员。他负责管理电脑周边项目的股票。当达到某个项目的再订货点，佰朗库存控制员计算出新的数量参照以往销售的项目在过去的12个月订购。然后，他在填写申请以购买的形式，并将其提交给昆仑先生采购官员在CPS。昆仑先生存储在“采购申请文件的购买请求的详细信息。</question_cn>
+		<answer_cn></answer_cn>
+		<answer_simple></answer_simple>
+		<answer_draft></answer_draft>
+		<category></category>
+		<num>0</num>
+		<complete>False</complete>
+		<mark>False</mark>
+		<cid>26</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>179</ID>
+		<question>Explain the difference between interview and workshop
+			requirements elicitation techniques?</question>
+		<answer></answer>
+		<question_cn></question_cn>
+		<answer_cn></answer_cn>
+		<answer_simple></answer_simple>
+		<answer_draft></answer_draft>
+		<category></category>
+		<num>0</num>
+		<complete>False</complete>
+		<mark>False</mark>
+		<cid>27</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>180</ID>
+		<question>Describe a situation when "observation" is considered as an
+			appropriate technique for requirements elicitation?</question>
+		<answer></answer>
+		<question_cn></question_cn>
+		<answer_cn></answer_cn>
+		<answer_simple></answer_simple>
+		<answer_draft></answer_draft>
+		<category></category>
+		<num>0</num>
+		<complete>False</complete>
+		<mark>False</mark>
+		<cid>27</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>181</ID>
+		<question>Requirements elicitation is done to dientify a set of
+			requirements for only developing a new system is it ture or false?</question>
+		<answer></answer>
+		<question_cn></question_cn>
+		<answer_cn></answer_cn>
+		<answer_simple></answer_simple>
+		<answer_draft></answer_draft>
+		<category></category>
+		<num>0</num>
+		<complete>False</complete>
+		<mark>False</mark>
+		<cid>27</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>182</ID>
+		<question>What is the purpose of a context diagram? Why should we have
+			a context diagram?</question>
+		<answer></answer>
+		<question_cn></question_cn>
+		<answer_cn></answer_cn>
+		<answer_simple></answer_simple>
+		<answer_draft></answer_draft>
+		<category></category>
+		<num>0</num>
+		<complete>False</complete>
+		<mark>False</mark>
+		<cid>28</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>183</ID>
+		<question>What are the outcomes of a Business Process Model?</question>
+		<answer></answer>
+		<question_cn></question_cn>
+		<answer_cn></answer_cn>
+		<answer_simple></answer_simple>
+		<answer_draft></answer_draft>
+		<category></category>
+		<num>0</num>
+		<complete>False</complete>
+		<mark>False</mark>
+		<cid>28</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>184</ID>
+		<question>Name the following symbols/objects?</question>
+		<answer></answer>
+		<question_cn></question_cn>
+		<answer_cn></answer_cn>
+		<answer_simple></answer_simple>
+		<answer_draft></answer_draft>
+		<category></category>
+		<num>0</num>
+		<complete>False</complete>
+		<mark>False</mark>
+		<cid>28</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>185</ID>
+		<question>Explain the difference between a data and process model.</question>
+		<answer></answer>
+		<question_cn></question_cn>
+		<answer_cn></answer_cn>
+		<answer_simple></answer_simple>
+		<answer_draft></answer_draft>
+		<category></category>
+		<num>1</num>
+		<complete>False</complete>
+		<mark>False</mark>
+		<cid>29</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>186</ID>
+		<question>What is the difference between a primary and foreign key?
+			Provide an example.</question>
+		<answer></answer>
+		<question_cn></question_cn>
+		<answer_cn></answer_cn>
+		<answer_simple></answer_simple>
+		<answer_draft></answer_draft>
+		<category></category>
+		<num>0</num>
+		<complete>False</complete>
+		<mark>False</mark>
+		<cid>29</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>187</ID>
+		<question>What do you do when you have many to many (M:N) relationship
+			between two entities? Provide an example.</question>
+		<answer></answer>
+		<question_cn></question_cn>
+		<answer_cn></answer_cn>
+		<answer_simple></answer_simple>
+		<answer_draft></answer_draft>
+		<category></category>
+		<num>0</num>
+		<complete>False</complete>
+		<mark>False</mark>
+		<cid>29</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>188</ID>
+		<question>Explain the difference and relationship between User Stories
+			and Use Cases.</question>
+		<answer>While a use case is highly structured and tells a story, the
+			User Story sets the stage by stating the need. A User Story is the
+			prelude to the use case by stating the need before the use case tells
+			the story.</answer>
+		<question_cn></question_cn>
+		<answer_cn></answer_cn>
+		<answer_simple></answer_simple>
+		<answer_draft></answer_draft>
+		<category></category>
+		<num>1</num>
+		<complete>False</complete>
+		<mark>False</mark>
+		<cid>30</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>189</ID>
+		<question>In the table below, list the parts/sections of a Use Case
+			Narrative.</question>
+		<answer>Header
+			Main Flow: User actions and system responses
+			Footer
+			Alternatives (More than 1 Alternatives)
+		</answer>
+		<question_cn></question_cn>
+		<answer_cn></answer_cn>
+		<answer_simple></answer_simple>
+		<answer_draft></answer_draft>
+		<category></category>
+		<num>2</num>
+		<complete>False</complete>
+		<mark>False</mark>
+		<cid>30</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>190</ID>
+		<question>Explain the difference and relationship between an ERD and a
+			Class Diagram.</question>
+		<answer>ERD:
+			an entity-relationship model is a data model for describing the data or
+			information.
+
+			Class Diagram:
+			A class diagram describes the structure of a system and shows the
+			classes, their attributes, operations and relationships of a system.
+			Class Diagram and its components including the types of relationships
+			between classes.</answer>
+		<question_cn></question_cn>
+		<answer_cn></answer_cn>
+		<answer_simple></answer_simple>
+		<answer_draft></answer_draft>
+		<category></category>
+		<num>1</num>
+		<complete>False</complete>
+		<mark>False</mark>
+		<cid>31</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>191</ID>
+		<question>List and explain different part/components of a Class
+			Diagram and provide an example of each component.</question>
+		<answer></answer>
+		<question_cn></question_cn>
+		<answer_cn></answer_cn>
+		<answer_simple></answer_simple>
+		<answer_draft></answer_draft>
+		<category></category>
+		<num>0</num>
+		<complete>False</complete>
+		<mark>False</mark>
+		<cid>31</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>192</ID>
+		<question>How and from where do you identify classes/objects?</question>
+		<answer></answer>
+		<question_cn></question_cn>
+		<answer_cn></answer_cn>
+		<answer_simple></answer_simple>
+		<answer_draft></answer_draft>
+		<category></category>
+		<num>0</num>
+		<complete>False</complete>
+		<mark>False</mark>
+		<cid>31</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>193</ID>
+		<question>Difference between Structured and OO approach</question>
+		<answer></answer>
+		<question_cn></question_cn>
+		<answer_cn></answer_cn>
+		<answer_simple></answer_simple>
+		<answer_draft></answer_draft>
+		<category></category>
+		<num>0</num>
+		<complete>False</complete>
+		<mark>False</mark>
+		<cid>35</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>194</ID>
+		<question>UML</question>
+		<answer></answer>
+		<question_cn></question_cn>
+		<answer_cn></answer_cn>
+		<answer_simple></answer_simple>
+		<answer_draft></answer_draft>
+		<category></category>
+		<num>0</num>
+		<complete>False</complete>
+		<mark>False</mark>
+		<cid>35</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>195</ID>
+		<question>Difference and relationship between User Stories and Use
+			Cases</question>
+		<answer></answer>
+		<question_cn></question_cn>
+		<answer_cn></answer_cn>
+		<answer_simple></answer_simple>
+		<answer_draft></answer_draft>
+		<category></category>
+		<num>0</num>
+		<complete>False</complete>
+		<mark>False</mark>
+		<cid>35</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>196</ID>
+		<question>Use Case Diagrams and its components including the different
+			types of relationships</question>
+		<answer></answer>
+		<question_cn></question_cn>
+		<answer_cn></answer_cn>
+		<answer_simple></answer_simple>
+		<answer_draft></answer_draft>
+		<category></category>
+		<num>0</num>
+		<complete>False</complete>
+		<mark>False</mark>
+		<cid>35</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>197</ID>
+		<question>Use Case Narrative template and its sections. Study the
+			"Submit Purchase Request" or "Buy ticket" use case narratives to
+			understand the sections of this template</question>
+		<answer></answer>
+		<question_cn></question_cn>
+		<answer_cn></answer_cn>
+		<answer_simple></answer_simple>
+		<answer_draft></answer_draft>
+		<category></category>
+		<num>0</num>
+		<complete>False</complete>
+		<mark>False</mark>
+		<cid>35</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>198</ID>
+		<question>Data Modelling</question>
+		<answer></answer>
+		<question_cn></question_cn>
+		<answer_cn></answer_cn>
+		<answer_simple></answer_simple>
+		<answer_draft></answer_draft>
+		<category></category>
+		<num>0</num>
+		<complete>False</complete>
+		<mark>False</mark>
+		<cid>34</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>199</ID>
+		<question>Quiz 2 is based on last week's topic of "Process Modelling".</question>
+		<answer></answer>
+		<question_cn></question_cn>
+		<answer_cn></answer_cn>
+		<answer_simple></answer_simple>
+		<answer_draft></answer_draft>
+		<category></category>
+		<num>0</num>
+		<complete>False</complete>
+		<mark>False</mark>
+		<cid>33</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>200</ID>
+		<question>Quiz 1 is based on last week's topic of "Requirements
+			Elicitation".</question>
+		<answer></answer>
+		<question_cn></question_cn>
+		<answer_cn></answer_cn>
+		<answer_simple></answer_simple>
+		<answer_draft></answer_draft>
+		<category></category>
+		<num>0</num>
+		<complete>False</complete>
+		<mark>False</mark>
+		<cid>32</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>201</ID>
+		<question>Quiz 6 is based on last lecture's topic of "Interaction
+			Modelling".</question>
+		<answer></answer>
+		<question_cn></question_cn>
+		<answer_cn></answer_cn>
+		<answer_simple></answer_simple>
+		<answer_draft></answer_draft>
+		<category></category>
+		<num>0</num>
+		<complete>False</complete>
+		<mark>False</mark>
+		<cid>37</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>202</ID>
+		<question>Difference and relationship between User Stories, Use Cases,
+			ERD and Class Diagram (revise your tutorial questions)</question>
+		<answer></answer>
+		<question_cn></question_cn>
+		<answer_cn></answer_cn>
+		<answer_simple></answer_simple>
+		<answer_draft></answer_draft>
+		<category></category>
+		<num>0</num>
+		<complete>False</complete>
+		<mark>False</mark>
+		<cid>36</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>203</ID>
+		<question>Class Diagram and its components including the types of
+			relationships between classes</question>
+		<answer></answer>
+		<question_cn></question_cn>
+		<answer_cn></answer_cn>
+		<answer_simple></answer_simple>
+		<answer_draft></answer_draft>
+		<category></category>
+		<num>0</num>
+		<complete>False</complete>
+		<mark>False</mark>
+		<cid>36</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>204</ID>
+		<question>Identification of classes and the types of classes</question>
+		<answer></answer>
+		<question_cn></question_cn>
+		<answer_cn></answer_cn>
+		<answer_simple></answer_simple>
+		<answer_draft></answer_draft>
+		<category></category>
+		<num>0</num>
+		<complete>False</complete>
+		<mark>False</mark>
+		<cid>36</cid>
+		<image></image>
+		<status></status>
+	</list>
+	<list>
+		<ID>205</ID>
+		<question>QQ 号码</question>
+		<answer>1.280366443</answer>
+		<question_cn></question_cn>
+		<answer_cn></answer_cn>
+		<answer_simple></answer_simple>
+		<answer_draft></answer_draft>
+		<category></category>
+		<num>0</num>
+		<complete>False</complete>
+		<mark>False</mark>
+		<cid>39</cid>
+		<image></image>
+		<status></status>
+	</list>
+</root>

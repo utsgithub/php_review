@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<info>
+	<infoitem key="UD_rsCategory" value="name:ID;datatype:3,name:question;datatype:203,name:answer;datatype:203,name:question_cn;datatype:203,name:answer_cn;datatype:203,name:answer_simple;datatype:203,name:answer_draft;datatype:203,name:category;datatype:202,name:num;datatype:3,name:complete;datatype:11,name:mark;datatype:11,name:cid;datatype:3,name:image;datatype:202" />
+	<infoitem key="UD_rsID" value="name:ID;datatype:3,name:question;datatype:203,name:answer;datatype:203,name:question_cn;datatype:203,name:answer_cn;datatype:203,name:answer_simple;datatype:203,name:answer_draft;datatype:203,name:category;datatype:202,name:num;datatype:3,name:complete;datatype:11,name:mark;datatype:11,name:cid;datatype:3,name:image;datatype:202" />
+	<infoitem key="UD_rsCateInfoStatus" value="name:ID;datatype:3,name:categoryName;datatype:202,name:parentID;datatype:3,name:status;datatype:202,name:image;datatype:202,name:sort;datatype:3" />
+	<infoitem key="UD_RequestQString1" value="PID" />
+	<infoitem key="UD_requestQStringCount" value="1" />
+</info>

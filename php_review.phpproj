@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Name>php_review</Name>
+    <ProjectGuid>{76e38a92-e4e7-4437-a6d7-93d941753ed6}</ProjectGuid>
+    <RootNamespace>
+    </RootNamespace>
+    <OutputType>Library</OutputType>
+    <ProjectTypeGuids>{A0786B88-2ADB-4C21-ABE8-AA2D79766269}</ProjectTypeGuids>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <IncludeDebugInformation>true</IncludeDebugInformation>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <IncludeDebugInformation>false</IncludeDebugInformation>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="assets\bootstrap\css\bootstrap-docs.css" />
+    <Compile Include="assets\bootstrap\css\bootstrap-theme.css" />
+    <Compile Include="assets\bootstrap\css\bootstrap-theme.css.map" />
+    <Compile Include="assets\bootstrap\css\bootstrap-theme.min.css" />
+    <Compile Include="assets\bootstrap\css\bootstrap.css" />
+    <Compile Include="assets\bootstrap\css\bootstrap.css.map" />
+    <Compile Include="assets\bootstrap\css\bootstrap.min.css" />
+    <Compile Include="assets\bootstrap\fonts\glyphicons-halflings-regular.eot" />
+    <Compile Include="assets\bootstrap\fonts\glyphicons-halflings-regular.svg" />
+    <Compile Include="assets\bootstrap\fonts\glyphicons-halflings-regular.ttf" />
+    <Compile Include="assets\bootstrap\fonts\glyphicons-halflings-regular.woff" />
+    <Compile Include="assets\bootstrap\js\bootstrap.js" />
+    <Compile Include="assets\bootstrap\js\bootstrap.min.js" />
+    <Compile Include="assets\jquery.min.js" />
+    <Compile Include="assets\oocss.css" />
+    <Compile Include="Connections\conn.php" />
+    <Compile Include="inc\inc_cateList_rs.php" />
+    <Compile Include="inc\inc_head.asp" />
+    <Compile Include="inc\inc_head.php" />
+    <Compile Include="inc\inc_nav.asp" />
+    <Compile Include="inc\inc_nav.php" />
+    <Compile Include="review_edit2.php" />
+    <Compile Include="SpryAssets\i18n\jquery.ui.datepicker-zh-CN.js" />
+    <Compile Include="SpryAssets\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Compile Include="SpryAssets\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Compile Include="SpryAssets\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Compile Include="SpryAssets\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Compile Include="SpryAssets\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Compile Include="SpryAssets\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Compile Include="SpryAssets\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Compile Include="SpryAssets\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Compile Include="SpryAssets\images\ui-icons_222222_256x240.png" />
+    <Compile Include="SpryAssets\images\ui-icons_2e83ff_256x240.png" />
+    <Compile Include="SpryAssets\images\ui-icons_454545_256x240.png" />
+    <Compile Include="SpryAssets\images\ui-icons_888888_256x240.png" />
+    <Compile Include="SpryAssets\images\ui-icons_cd0a0a_256x240.png" />
+    <Compile Include="SpryAssets\jquery-1.8.3.min.js" />
+    <Compile Include="SpryAssets\jquery-ui-1.9.2.datepicker.custom.min.js" />
+    <Compile Include="SpryAssets\jquery.ui.core.min.css" />
+    <Compile Include="SpryAssets\jquery.ui.datepicker.min.css" />
+    <Compile Include="SpryAssets\jquery.ui.theme.min.css" />
+    <Compile Include="Templates\template.dwt.php" />
+    <Compile Include="_mmServerScripts\MMHTTPDB.php" />
+    <Compile Include="_mmServerScripts\mysql.php" />
+    <Compile Include="_notes\.mno" />
+    <Compile Include="_notes\review_cateList.php.mno" />
+    <Compile Include="index.php" />
+    <Compile Include="review_cateCreate.php" />
+    <Compile Include="review_cateList.php" />
+    <Compile Include="template.asp" />
+    <Compile Include="template.php" />
+    <Compile Include="Untitled-1.php" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="assets\bootstrap\css" />
+    <Folder Include="assets\bootstrap\fonts" />
+    <Folder Include="assets\bootstrap\js\_notes" />
+    <Folder Include="assets\bootstrap\js" />
+    <Folder Include="assets\bootstrap" />
+    <Folder Include="assets" />
+    <Folder Include="Connections" />
+    <Folder Include="inc\_notes" />
+    <Folder Include="inc" />
+    <Folder Include="SpryAssets\i18n" />
+    <Folder Include="SpryAssets\images" />
+    <Folder Include="SpryAssets" />
+    <Folder Include="Templates" />
+    <Folder Include="_mmServerScripts\_notes" />
+    <Folder Include="_mmServerScripts" />
+    <Folder Include="_notes" />
+  </ItemGroup>
+</Project>

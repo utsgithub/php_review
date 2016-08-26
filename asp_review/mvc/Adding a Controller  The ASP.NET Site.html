@@ -1,0 +1,112 @@
+<html>
+<head>
+  <title>Evernote Export</title>
+  <basefont face="Tahoma" size="2" />
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+  <meta name="exporter-version" content="Evernote Windows/275837; Windows/6.3.9600;"/>
+  <style>
+    body, td {
+      font-family: Tahoma;
+      font-size: 10pt;
+    }
+  </style>
+</head>
+<body>
+<a name="2179"/>
+
+<div>
+<span><div>
+ <div>
+  <div>
+   <h1>Adding a Controller</h1>
+   <div>
+    <div></div>
+   </div>
+  </div>
+  <div>
+   <div>
+     By 
+    <a href="http://www.asp.net/mvc/overview/getting-started/introduction/adding-a-controller#author-20106" shape="rect" target="_blank">Rick Anderson</a>Rick Anderson
+    October 17, 2013
+   </div>
+   <div>
+    <a href="#" shape="rect" target="_blank">Print</a>
+   </div>
+  </div>
+  <p> MVC stands for<em>model-view-controller</em>.  MVC is a pattern for developing applications that are well architected, testable  and easy to maintain. MVC-based applications contain:</p> 
+  <ul><li> <strong>M</strong>odels: Classes that represent the data of the application  and that use validation logic to enforce business rules for that data.</li><li> <strong>V</strong>iews: Template files that your application uses to dynamically  generate HTML responses.</li><li> <strong>C</strong>ontrollers: Classes that handle incoming browser requests,  retrieve model data, and then specify view templates that return a response  to the browser.</li></ul> 
+  <p> We'll be covering all these concepts in this tutorial series and show you how  to use them to build an application.</p> 
+  <p> Let's begin by creating a controller class. In<strong>Solution  Explorer</strong>, right-click the<em>Controllers</em>folder  and then click<strong>Add</strong>,  then <strong>Controller</strong>.</p>  
+  <p> </p>
+  <div>
+   <img src="Adding a Controller  The ASP.NET Site_files/Image.png" type="image/png"/>
+  </div>
+  <p></p> 
+  <p> In the <strong>Add Scaffold</strong> dialog box, click <strong>MVC 5  Controller - Empty</strong>, and then click <strong>Add</strong>.</p> 
+  <div>
+   <img src="Adding a Controller  The ASP.NET Site_files/Image [1].png" type="image/png"/>
+  </div>
+  <p> Name your new controller &quot;HelloWorldController&quot; and click<strong>Add</strong>.</p> 
+  <p> </p>
+  <div>
+   <img src="Adding a Controller  The ASP.NET Site_files/Image [2].png" type="image/png" alt="add controller"/>
+  </div>
+  <p></p> 
+  <p> Notice in<strong>Solution  Explorer</strong>that a new file  has been created named<em>HelloWorldController.cs</em> and a new folder <em>Views\HelloWorld</em>. The controller is open in the IDE. </p> 
+  <p> </p>
+  <div>
+   <img src="Adding a Controller  The ASP.NET Site_files/Image.gif" type="image/gif"/>
+  </div>
+  <p></p> 
+  <p> Replace the contents of the file with the following code. </p> 
+  <pre>usingSystemusingSystemnamespaceMvcMovieControllerspublicclassHelloWorldControllerController// GET: /HelloWorld/ publicstringIndexreturn&quot;This is my &lt;b&gt;default&lt;/b&gt; action...&quot;// GET: /HelloWorld/Welcome/ publicstringWelcomereturn&quot;This is the Welcome action method...&quot;</pre> 
+  <p> The controller methods will return a string of HTML as an example. The controller is named<code>HelloWorldController</code>and  the first method is named<code>Index</code>.  Let’s invoke it from a browser. Run the application (press F5 or Ctrl+F5). In the  browser, append &quot;HelloWorld&quot; to the path in the address bar. (For example,  in the illustration below, it's<em>http://localhost:1234/HelloWorld.</em>)  The page in the browser will look like the following screenshot. In the method above, the code returned a string directly. You told the system to just return some HTML, and it did!  </p> 
+  <p> ASP.NET MVC invokes different controller classes (and different action methods within  them) depending on the incoming URL. The default URL routing logic used by ASP.NET  MVC uses a format like this to determine what code to invoke:</p> 
+  <p> <code> /[Controller]/[ActionName]/[Parameters]</code></p> 
+  <p> You set the format for routing in the <em>App_Start/RouteConfig.cs </em> file.</p> 
+  <pre>publicstaticRegisterRoutesRouteCollection routes
+    routesIgnoreRoute&quot;{resource}.axd/{*pathInfo}&quot;
+
+    routesMapRoute&quot;Default&quot;{controller}/{action}/{id}defaults controller &quot;Home&quot; action &quot;Index&quot;UrlParameterOptional</pre> 
+  <p> When you run the application and don't supply any URL segments, it defaults to  the &quot;Home&quot; controller and the &quot;Index&quot; action method specified in the defaults  section of the code above. </p> 
+  <p> The first part of the URL determines the controller class to execute. So<em>/HelloWorld</em>maps  to the<code> HelloWorldController</code>class.  The second part of the URL determines the action method on the class to execute.  So<em>/HelloWorld/Index</em>would  cause the<code>Index</code>method of the<code>HelloWorldController</code>class to execute. Notice that we only had to browse to<em>/HelloWorld</em>and  the<code>Index</code>method  was used by default. This is because a method named<code> Index</code>is the default method that will be called on a controller if one is not explicitly specified. The third part of the URL segment ( <code> Parameters</code>) is for route data. We'll see route data later on in this  tutorial.</p> 
+  <p> Browse to<em>http://localhost:xxxx/HelloWorld/Welcome</em>.  The<code>Welcome</code>method  runs and returns the string &quot;This is the Welcome action method...&quot;. The  default MVC mapping is<code>/[Controller]/[ActionName]/[Parameters]</code>.  For this URL, the controller is<code>HelloWorld</code>and<code>Welcome</code>is  the action method. You haven't used the<code>[Parameters]</code>part  of the URL yet.</p> 
+  <p> Let's modify the example slightly so that you can pass some parameter information  from the URL to the controller (for example,<em>/HelloWorld/Welcome?name=Scott&amp;numtimes=4</em>).  Change your<code>Welcome</code>method  to include two parameters as shown below. Note that the code uses the C# optional-parameter feature to indicate that the <code>numTimes</code>parameter should default to 1 if no value is passed for that parameter.</p> 
+  <pre>publicstringWelcomestring numTimes returnHttpUtilityHtmlEncode&quot;Hello &quot;&quot;, NumTimes is: &quot; numTimes</pre> 
+  <div>
+    Security Note: The code above uses 
+   <a href="http://msdn.microsoft.com/en-us/library/w3te6wfz.aspx" shape="rect" target="_blank"> HttpServerUtility.HtmlEncode</a> to protect the application from malicious input (namely JavaScript).  For more information see 
+   <a href="http://msdn.microsoft.com/en-us/library/a2a4yykt(v=vs.100).aspx" shape="rect" target="_blank"> How to: Protect Against Script Exploits in a Web Application by Applying HTML Encoding to Strings</a>.
+  </div> Run your application and browse to the example URL (
+  <em>http://localhost:xxxx/HelloWorld/Welcome?name=Scott&amp;numtimes=4)</em>.  You can try different values for
+  <code>name</code>and
+  <code>numtimes</code>in  the URL. The 
+  <a href="http://odetocode.com/Blogs/scott/archive/2009/04/27/6-tips-for-asp-net-mvc-model-binding.aspx" shape="rect" target="_blank"> ASP.NET MVC model binding system</a> automatically maps the named parameters from  the query string in the address bar to parameters in your method.
+  <p> In the sample above, the URL segment ( <code> Parameters</code>) is not used, the <code>name </code>and <code>numTimes </code> parameters are passed as <a href="http://en.wikipedia.org/wiki/Query_string" shape="rect" target="_blank">query strings</a>. The ? (question mark) in the above URL is a separator, and the query strings follow. The &amp; character separates query strings.</p> 
+  <p> Replace the Welcome method with the following code:</p> 
+  <pre>publicstringWelcomestringreturnHttpUtilityHtmlEncode&quot;Hello &quot;&quot;, ID: &quot;</pre> 
+  <p> Run the application and enter the following URL:  <em>http://localhost:xxx/HelloWorld/Welcome/3?name=Rick</em></p> 
+  <p>This time the third URL segment  matched the route parameter <code>ID.</code> The <code>Welcome </code>action method contains a parameter  (<code>ID</code>) that matched the URL specification in the <code>RegisterRoutes </code>method.</p> 
+  <pre>publicstaticRegisterRoutesRouteCollection routes
+    routesIgnoreRoute&quot;{resource}.axd/{*pathInfo}&quot;
+
+    routesMapRoute&quot;Default&quot;&quot;{controller}/{action}/
+        defaults controller &quot;Home&quot; action &quot;Index&quot;UrlParameterOptional</pre> 
+  <p>In ASP.NET MVC applications, it's more typical to pass in parameters as route  data (like we did with ID above) than passing them as query strings. You could also  add a route to pass both the <code>name</code>and<code>numtimes</code>in  parameters as route data in the URL. In the <em>App_Start\RouteConfig.cs</em>  file, add the &quot;Hello&quot; route:</p> 
+  <pre>publicclassRouteConfigpublicstaticRegisterRoutesRouteCollection routes
+      routesIgnoreRoute&quot;{resource}.axd/{*pathInfo}&quot;
+
+      routesMapRoute&quot;Default&quot;&quot;{controller}/{action}/{id}&quot;
+          defaults controller &quot;Home&quot; action &quot;Index&quot;UrlParameterOptionalroutesMapRoute&quot;Hello&quot;&quot;{controller}/{action}/{name}/{id}&quot;</pre> 
+  <p>Run the application and browse to <code> /localhost:XXX/HelloWorld/Welcome/Scott/3</code>.</p> 
+  <p>For many MVC applications, the default route works fine. You'll learn later in this tutorial to pass data using the model binder, and you won't have to  modify the default route for that.</p> 
+  <p> In these examples the controller has been doing the &quot;VC&quot; portion  of MVC — that is, the view and controller work. The controller is returning HTML  directly. Ordinarily you don't want controllers returning HTML directly, since  that becomes very cumbersome to code. Instead we'll typically use a separate  view template file to help generate the HTML response. Let's look next at how  we can do this.</p> 
+  <p>This article was originally created on October 17, 2013</p>
+  <h2>Author Information</h2>
+  <div>
+   <img src="Adding a Controller  The ASP.NET Site_files/Image.jpg" type="image/jpeg" alt="Rick Anderson"/>
+   <p><strong>Rick Anderson</strong> – Rick Anderson works as a programmer writer for Microsoft, focusing on ASP.NET MVC, Windows Azure and Entity Framework. You can follow him on twitter via @RickAndMSFT.</p>
+  </div> 
+ </div>
+</div></span>
+</div></body></html> 

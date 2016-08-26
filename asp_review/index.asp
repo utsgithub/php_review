@@ -1,0 +1,1 @@
+<%=response.Redirect("review_cateList.asp")%>
