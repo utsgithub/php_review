@@ -1,5 +1,5 @@
 <?php require_once('Connections/conn.php'); ?>
-<?php require_once('inc/inc_cateList_rs.php')?>
+
 <!DOCTYPE html>
 <html lang="en">
 <!-- InstanceBegin template="/Templates/template.dwt.php" codeOutsideHTMLIsLocked="false" -->
@@ -12,6 +12,7 @@
     <!-- InstanceEndEditable -->
     <!-- inc_head -->
     <?php include("inc/inc_head.php"); ?>
+    <?php require_once('inc/inc_cateList_rs.php')?>
     <!-- InstanceBeginEditable name="head" -->
     <!-- InstanceEndEditable -->
 </head>
@@ -52,7 +53,7 @@
                       if($colname_rsCateList==0){
                           $href="review_cateList.php?parentID=".$IDRS1."&title=".$row_rsCateList['categoryName'];
                       }else{
-                          $href="review_edit2.php?cid=".$IDRS1."&title=".$row_rsCateList['categoryName'];
+                          $href="review_edit_jump.php?cid=".$IDRS1."&title=".$row_rsCateList['categoryName'];
                       }
                         ?>
                         <li>

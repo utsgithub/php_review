@@ -1,4 +1,4 @@
-<header class="navbar navbar-static-top bs-docs-nav" id="top" role="banner">
+<div class="navbar navbar-static-top bs-docs-nav" id="top" role="banner">
   <div class="container">
     <nav class="navbar navbar-default" role="navigation">
       <div class="container-fluid"> 
@@ -51,4 +51,4 @@
       <!-- /.container-fluid --> 
     </nav>
   </div>
-</header>
+</div>
